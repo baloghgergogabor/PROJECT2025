@@ -1,0 +1,30 @@
+h1{
+    font-weight: bolder;
+    font-size: 35px;
+}
+.searchbar{
+    width: 100%;
+    height: 25%;
+}
+.searchbar input{
+    border-radius: 200px;
+    width: 90%;
+    height: 25px;
+}
+.center{
+    height: 100%;
+}
+.cards{
+    height: 75%;
+    width: 100%;
+}
+.cards div{
+    border: 2px solid black;
+    position: relative;
+    float: left;
+    width: 50%;
+    margin: 10px;
+}
+.cards div img{
+    width: 150px;
+}

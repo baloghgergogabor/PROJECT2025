@@ -1,0 +1,21 @@
+.float{
+    float: left;
+}
+.idk{
+    width: 50%;
+    height: 20%;
+    float: left;
+}
+.inputs{
+    width: 50%;
+    height: 20%;
+    float: right;
+}
+button{
+    margin-top: 20px;
+    width: 150px;
+    text-align: center;
+}
+input{
+    border-radius: 10%;
+}

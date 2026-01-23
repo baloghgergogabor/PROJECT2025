@@ -1,0 +1,35 @@
+body{
+    background-color: black;
+    color: white;
+}
+a{
+    color: white;
+    text-decoration: black;
+    margin: 20px;
+    font-weight: bold;
+}
+.navbar
+{
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    font-size: larger;
+    border-bottom: 2px solid gray;
+    margin-bottom: 2%;
+}
+.signIn{
+    width: 150px;
+    height: 30px;
+    border-radius: 200px;
+    font-weight: bold;
+}
+.center{
+    margin: auto;
+    width: 25%;
+    height: 250px;
+    text-align: center;
+    align-content: center;
+    background-color: rgb(48, 61, 59);
+    border-radius: 10%;
+    padding: 10px;
+}
