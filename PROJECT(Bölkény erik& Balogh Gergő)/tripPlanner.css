@@ -36,7 +36,7 @@ h1{
 .card{
     width: 38rem;
     background-color: rgb(70, 99, 94);
-    border-radius: 10%;
+    border-radius: 50px;
 }
 .card-img-top{
     border-radius: 10%;
