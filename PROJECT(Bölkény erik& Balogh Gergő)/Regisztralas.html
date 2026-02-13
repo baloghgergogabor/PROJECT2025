@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <title>Regisztrálció</title>
+</head>
+<body>
+<div class="navbar">
+    <nav>
+        <a href="fo.html">Fő oldal</a>
+        <a href="tripPlanner.html">Út tervezés</a>
+        <a href="Tervek.html">Terveim</a>
+        <div class="ProfilMenu">
+            <button class="ProfilMenu-gomb" onclick="ProfilMenu()"></button>
+            <div id="Menu" class="ProfilMenu-Linkek">
+                <a href="Bejelentkezes.html">Bejelentkezes</a>
+                <a href="Regisztralas.html">Regisztrálás</a>
+                <a href="profil.html">Profilom</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+    <div class="center">
+        <div class="idk">
+            <a>felhasználó név: </a>
+            <a>Emailcím: </a>
+            <a>Jelszó: </a> 
+        </div>
+        <div class="inputs">
+            <input type="text">
+            <input type="text">
+           <input type="password">
+        </div>
+        <div>
+            <button>Log in</button>
+            <br>
+            <a href="login.html">Van már fiókot? Jelentkez be!</a>
+        </div>
+    </div>
+        <script>
+        function ProfilMenu(){
+            document.getElementById("Menu").classList.add("Mutat");
+        }
+        window.onclick = function(e){
+            if (!e.target.matches('.ProfilMenu-gomb')) {
+                var menu = document.getElementById("Menu");
+                if (menu.classList.contains("Mutat")) {
+                    menu.classList.remove("Mutat")
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

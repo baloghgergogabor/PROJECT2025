@@ -8,14 +8,20 @@
     <link rel="stylesheet" href="tripPlanner.css">
 </head>
 <body>
-    <div class="navbar">
-        <nav>
-            <a href="fo.html">Fő oldal</a>
-            <a href="carrental.html">Autó bér</a>
-            <a href="login.html"><button class="signIn">Bejelentkezés</button></a>
-            <a href="regiszter.html"><button class="signIn">Regisztrálás</button></a>
-        </nav>
-    </div>
+<div class="navbar">
+    <nav>
+        <a href="fo.html">Fő oldal</a>
+        <a href="Tervek.html">Terveim</a>
+        <div class="ProfilMenu">
+            <button class="ProfilMenu-gomb" onclick="ProfilMenu()"></button>
+            <div id="Menu" class="ProfilMenu-Linkek">
+                <a href="Bejelentkezes.html">Bejelentkezes</a>
+                <a href="Regisztralas.html">Regisztrálás</a>
+                <a href="profil.html">Profilom</a>
+            </div>
+        </div>
+    </nav>
+</div>
     <div class="center">
         <div class="searchbar">
             <h1>Hová Szeretne menni?</h1>
@@ -29,6 +35,19 @@
             </div>
         </div>
     </div>
+    <script>
+        function ProfilMenu(){
+            document.getElementById("Menu").classList.add("Mutat");
+        }
+        window.onclick = function(e){
+            if (!e.target.matches('.ProfilMenu-gomb')) {
+                var menu = document.getElementById("Menu");
+                if (menu.classList.contains("Mutat")) {
+                    menu.classList.remove("Mutat")
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>

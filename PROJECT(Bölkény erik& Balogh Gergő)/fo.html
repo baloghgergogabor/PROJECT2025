@@ -4,20 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>"Cég" neve</title>
+    <title>Az Út vonal tervező</title>
 </head>
 <body>
     <div class="navbar">
         <nav>
-            <a href="carrental.html">Autó bér</a>
             <a href="tripPlanner.html">Út tervezés</a>
-            <a href="login.html"><button class="signIn">Bejelentkezés</button></a>
-            <a href="regiszter.html"><button class="signIn">Regisztrálás</button></a>
+            <a href="Tervek.html">Terveim</a>
+            <div class="ProfilMenu">
+                <button class="ProfilMenu-gomb" onclick="ProfilMenu()"></button>
+                <div id="Menu" class="ProfilMenu-Linkek">
+                    <a href="Bejelentkezes.html">Bejelentkezes</a>
+                    <a href="Regisztralas.html">Regisztrálás</a>
+                    <a href="profil.html">Profilom</a>
+                </div>
+            </div>
         </nav>
     </div>
     <div class="center">
-        <p>Üdv</p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae vero quas sapiente voluptatibus impedit sint quod commodi modi quasi accusamus aut at libero, neque earum perferendis odit magni repudiandae! Illo.
+        <h1>Üdv</p>    
+        <br>
+        <h2>Az oldalról</h2>
+        <p>
+            Ez az oldal segít a vakáció terveidbe hogy ne leked kelljen folyamatosan kereskélni.
+            hogy elkezdjed csak kattincs a gombra vagy a navbar-on keresztűl.
+        </p>
+        <br>
+        <button class="Startbutton"><a href="tripPlanner.html">Kedzjűk el!</a></button>
+        <br>
     </div>
+    <script>
+        function ProfilMenu(){
+            document.getElementById("Menu").classList.add("Mutat");
+        }
+        window.onclick = function(e){
+            if (!e.target.matches('.ProfilMenu-gomb')) {
+                var menu = document.getElementById("Menu");
+                if (menu.classList.contains("Mutat")) {
+                    menu.classList.remove("Mutat")
+                }
+            }
+        }
+    </script>
 </body>
 </html>
