@@ -54,6 +54,7 @@ h1{
     width: 90%;
     height: 30%;
     background-color: rgb(70, 99, 94);
+    margin-bottom: 10px;
 }
 .valaszt input{
     border-radius: 50px;

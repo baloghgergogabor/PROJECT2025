@@ -119,15 +119,16 @@
             <div class="valaszt">
                 <label for="honan">Honan:</label>
                 <input name="honan" type="text">
+                <button class="btn btn-primary">Elküld</button>
             </div>
             <div id="KocsiValasztas" class="valaszt">
                 <button class="btn btn-primary" onclick="kocsiAdas()">Kocsi hozzá adása</button>
             </div>
             <div id="repuloJegyValasztas" class="valaszt">
-                <button class="btn btn-primary" onclick="repuloJegyAdas()">Kocsi hozzá adása</button>
+                <button class="btn btn-primary" onclick="repuloJegyAdas()">Repülő jegy hozzá adása</button>
             </div>
             <div id="hotelValasztas" class="valaszt">
-                <button class="btn btn-primary" onclick="hotelAdas()">Kocsi hozzá adása</button>
+                <button class="btn btn-primary" onclick="hotelAdas()">Hotel adása</button>
             </div>
             <button class="btn btn-primary" type="submit">BEADÁS</button> 
             `
@@ -173,7 +174,7 @@
             </table>
             `
         }
-        function repuloJegyAdas(){ // Ugyanaz mint a kocsinál csak a repülő jegy táblán fog menni (airplane ticket)
+        function repuloJegyAdas(){ // Ugyanaz mint a kocsinál csak a repülő jegy (Arriving & Departing WHERE) táblán fog menni (airplane ticket)
             var kocsi = document.getElementById("repuloJegyValasztas");
             kocsi.innerHTML =  
             `
@@ -184,23 +185,59 @@
                         <th scope="col">Honnan</th>
                         <th scope="col">Hová</th>
                         <th scope="col">Időpont</th>
-                        <th scope="col"></th>
+                        <th scope="col">JegySzam</th>
+                        <th scope="col">Airline</th>
+                        <th scope="col">Ar</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Audi SC-21</td>
-                        <td>20 000 FT/nap</td>
+                        <td>Budapest</td>
                         <td>Párizs</td>
-                        <td>Igen</td>
+                        <td>2025.10.10 10:10</td>
+                        <td>123456789</td>
+                        <td>United AirLines</td>
+                        <td>1 000 FT</td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
-                        <td>Opel model 25</td>
-                        <td>35 000 FT/nap</td>
-                        <td>Tokió</td>
-                        <td>Nem</td>
+                        <td>Singapore</td>
+                        <td>Sanghaj</td>
+                        <td>2028.12.12 12:12</td>
+                        <td>987654321</td>
+                        <td>China AirLines</td>
+                        <td>500 FT</td>
+                    </tr>
+                </tbody>
+            </table>
+            `
+        }
+        function hotelAdas(){ // Ugyanaz mint a kocsinál csak a Hotel (városok alapján WHERE) jegy táblán fog menni (airplane ticket)
+            var kocsi = document.getElementById("hotelValasztas");
+            kocsi.innerHTML =  
+            `
+            <table class="table table-striped-columns">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Neve</th>
+                        <th scope="col">Városa</th>
+                        <th scope="col">Ár</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Hotel Transylvania</td>
+                        <td>Párizs</td>
+                        <td>120 000 FT</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Hotel 2</td>
+                        <td>Sanghaj</td>
+                        <td>100 FT</td>
                     </tr>
                 </tbody>
             </table>
