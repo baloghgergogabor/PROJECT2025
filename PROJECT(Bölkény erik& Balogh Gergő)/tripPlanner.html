@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Út vonal tervező</title>
+    <!--BOOTSTRAP ONLINE-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <!---->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="tripPlanner.css">
 </head>
@@ -22,20 +26,78 @@
         </div>
     </nav>
 </div>
-    <div class="center">
-        <div class="searchbar">
-            <h1>Hová Szeretne menni?</h1>
-            <input type="text">
-        </div>
-        <div class="cards">
-            <div>
-                <h1>Példa</h1>
-                <img src="paris.jpg" alt="párizs" title="párizs">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quos itaque. Consequatur animi suscipit itaque</p>
+<div class="center container text-center" id="varosok">
+    <div class="searchbar"> <!-- EZT MAJD AZ API-VAL KÖTJÜK ÖSSZE (GET/{id})-->
+        <h1>Hová Szeretne menni?</h1>
+        <input type="text">
+    </div>
+    <!--
+    <div class="row gap-2">        
+        <div class="card col col-lg-12">
+            <img src="img/Párizs.jpg" class="card-img-top" alt="párizs" title="párizs">
+            <div class="card-body">
+                <h1 class="card-title">Párizs</h1>
+                <p class="card-text">Párizs, úgy is szokták hivní hogy a szerelem városa. Az egyik legmeglátogatott város a földön, jó okal is az étel és a látványok az egyik legjobbak a földön!</p>
+                <button class="btn btn-primary" onclick="VarosValasztas('Párizs')">Válasz engem!</button>
             </div>
         </div>
+        <div class="card col col-lg-12">
+            <img src="img/Párizs.jpg" class="card-img-top" alt="párizs" title="párizs">
+            <div class="card-body">
+                <h1 class="card-title">Párizs</h1>
+                <p class="card-text">Párizs, úgy is szokták hivní hogy a szerelem városa. Az egyik legmeglátogatott város a földön, jó okal is az étel és a látványok az egyik legjobbak a földön!</p>
+                <button class="btn btn-primary" onclick="VarosValasztas('Párizs')">Válasz engem!</button>
+            </div>
+        </div>
+        -->
+</div>
+
     </div>
     <script>
+        var varosokEsLeir = [ // API-BÓL MAJD LEKÉRJÜK EZT
+            {
+                varos: "Párizs",
+                leirasa: "Párizs, úgy is szokták hivní hogy a szerelem városa. Az egyik legmeglátogatott város a földön, jó okal is az étel és a látványok az egyik legjobbak a földön!"
+            },
+            {
+                varos: "Sanghaj",
+                leirasa: "Sanghaj, Kína legnagyobb ipari városa, a Távol-Kelet egyik gazdasági központja, tartományi jogú város a kelet-kínai tengerpart középső részén, a Jangce torkolatvidékén, a folyam Huangpu nevű kis mellékfolyójának két partján."
+            },
+                        {
+                varos: "Tokió",
+                leirasa: "Tokió, Japán fővárosa, közigazgatási központja, a japán kormány és a császár székhelye. Egyike Japán 47 prefektúrájának, nem egyetlen városként kormányozzák. Hozzávetőlegesen 14 millió ember – az ország lakosságának 10%-a – él Tokióban."
+            },
+            {
+                varos: "New York",
+                leirasa: "New York az Amerikai Egyesült Államok New York államában fekvő város. Az ország legnépesebb, Amerika szuperkontinens harmadik legnépesebb települése, központja a New York-i agglomerációnak, amely a szuperkontinens legnagyobb várostömörülése, a világon pedig a nyolcadik."
+            },
+        ]
+        window.onload = () => {
+            var varosok = document.getElementById('varosok');
+            for (let i = 0; i < varosokEsLeir.length; i += 2) {
+                varosok.innerHTML += 
+                `
+                <div class="row gap-2">
+                    <div class="card col col-lg-12">
+                        <img src="img/${varosokEsLeir[i].varos}.jpg" class="card-img-top" alt="${varosokEsLeir[i].varos}" title="${varosokEsLeir[i].varos}">
+                        <div class="card-body">
+                            <h1 class="card-title">${varosokEsLeir[i].varos}</h1>
+                            <p class="card-text">${varosokEsLeir[i].leirasa}</p>
+                            <button class="btn btn-primary" onclick="VarosValasztas('${varosokEsLeir[i].varos}')">Válasz engem!</button>
+                        </div>
+                    </div>
+                    <div class="card col col-lg-12">
+                        <img src="img/${varosokEsLeir[i+1].varos}.jpg" class="card-img-top" alt="${varosokEsLeir[i+1].varos}" title="${varosokEsLeir[i+1].varos}">
+                        <div class="card-body">
+                            <h1 class="card-title">${varosokEsLeir[i+1].varos}</h1>
+                            <p class="card-text">${varosokEsLeir[i+1].leirasa}</p>
+                            <button class="btn btn-primary" onclick="VarosValasztas('${varosokEsLeir[i+1].varos}')">Válasz engem!</button>
+                        </div>
+                    </div>
+                </div>
+                `
+            }
+        } 
         function ProfilMenu(){
             document.getElementById("Menu").classList.add("Mutat");
         }
@@ -46,6 +108,13 @@
                     menu.classList.remove("Mutat")
                 }
             }
+        }
+        function  VarosValasztas(varos){
+
+        }
+        
+        var terv = { // EZ KÜLDJÜK A SZERVERNEK POST-KÉNT
+            
         }
     </script>
 
