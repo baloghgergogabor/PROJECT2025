@@ -51,7 +51,6 @@
         </div>
         -->
 </div>
-
     </div>
     <script>
         var varosokEsLeir = [ // API-BÓL MAJD LEKÉRJÜK EZT
@@ -70,12 +69,12 @@
             {
                 varos: "New York",
                 leirasa: "New York az Amerikai Egyesült Államok New York államában fekvő város. Az ország legnépesebb, Amerika szuperkontinens harmadik legnépesebb települése, központja a New York-i agglomerációnak, amely a szuperkontinens legnagyobb várostömörülése, a világon pedig a nyolcadik."
-            },
+            }
         ]
+        var container = document.getElementById('varosok');
         window.onload = () => {
-            var varosok = document.getElementById('varosok');
             for (let i = 0; i < varosokEsLeir.length; i += 2) {
-                varosok.innerHTML += 
+                container.innerHTML += 
                 `
                 <div class="row gap-2">
                     <div class="card col col-lg-12">
@@ -110,12 +109,104 @@
             }
         }
         function  VarosValasztas(varos){
+            terv.VarosBa = varos;
 
+            container.innerHTML = 
+            `
+            <div class="valasztott" style="background-image: url(img/${varos}.jpg);">
+                <h1 class="card-title">Ahova megy: ${varos}</h1>
+            </div>
+            <div class="valaszt">
+                <label for="honan">Honan:</label>
+                <input name="honan" type="text">
+            </div>
+            <div id="KocsiValasztas" class="valaszt">
+                <button class="btn btn-primary" onclick="kocsiAdas()">Kocsi hozzá adása</button>
+            </div>
+            <div id="repuloJegyValasztas" class="valaszt">
+                <button class="btn btn-primary" onclick="repuloJegyAdas()">Kocsi hozzá adása</button>
+            </div>
+            <div id="hotelValasztas" class="valaszt">
+                <button class="btn btn-primary" onclick="hotelAdas()">Kocsi hozzá adása</button>
+            </div>
+            <button class="btn btn-primary" type="submit">BEADÁS</button> 
+            `
         }
         
-        var terv = { // EZ KÜLDJÜK A SZERVERNEK POST-KÉNT
-            
+        var terv = { // EZ KÜLDJÜK A SZERVERNEK POST-KÉNT (talán csinálunk egy view az egész tábláról ahol össze van kötve?)
+            VarosBa: "",
+            VarosTol: "",
+            Kocsi: "", // az id-t fogjuk tárolni és api-ból kérdezük az autó tuladjonságait
+            repuloJegyId: "",
+            hotel: ""
         }
+        function kocsiAdas(){ // API-BÓL kérünk a kocsiból listát amik a választott vározsban vannak végig megyünk rajta for-loppal aztán írjuk ki <tr>-n ként (carrental-ból veszük)
+            var kocsi = document.getElementById("KocsiValasztas");
+            kocsi.innerHTML =  // ha majd választható lesz akkor innen választod és be megy a váltózóba => táblába változoba
+            `
+            <table class="table table-striped-columns">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Kocsi neve</th>
+                        <th scope="col">Ár</th>
+                        <th scope="col">Város</th>
+                        <th scope="col">Elérhetőség</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Audi SC-21</td>
+                        <td>20 000 FT/nap</td>
+                        <td>Párizs</td>
+                        <td>Igen</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Opel model 25</td>
+                        <td>35 000 FT/nap</td>
+                        <td>Tokió</td>
+                        <td>Nem</td>
+                    </tr>
+                </tbody>
+            </table>
+            `
+        }
+        function repuloJegyAdas(){ // Ugyanaz mint a kocsinál csak a repülő jegy táblán fog menni (airplane ticket)
+            var kocsi = document.getElementById("repuloJegyValasztas");
+            kocsi.innerHTML =  
+            `
+            <table class="table table-striped-columns">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Honnan</th>
+                        <th scope="col">Hová</th>
+                        <th scope="col">Időpont</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Audi SC-21</td>
+                        <td>20 000 FT/nap</td>
+                        <td>Párizs</td>
+                        <td>Igen</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Opel model 25</td>
+                        <td>35 000 FT/nap</td>
+                        <td>Tokió</td>
+                        <td>Nem</td>
+                    </tr>
+                </tbody>
+            </table>
+            `
+        }
+
     </script>
 
 </body>
