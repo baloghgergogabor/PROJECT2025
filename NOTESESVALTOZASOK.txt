@@ -1,3 +1,7 @@
 DB VÁLTOZTATÁSOK:
   1. FELHASZNÁLÓ: JOGOSULTSÁG
   2. KOCSI: ELÉRHETŐSÉG TÖRLÉS
+
+Text Editors:
+  1. Tiptap
+  2. Lexicon
