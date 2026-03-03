@@ -1,0 +1,6 @@
+@TeUtad.API_HostAddress = http://localhost:5082
+
+GET {{TeUtad.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

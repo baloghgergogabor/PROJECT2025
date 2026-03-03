@@ -1,0 +1,57 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-03T13:38:22.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-03T13:37:16.243Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
