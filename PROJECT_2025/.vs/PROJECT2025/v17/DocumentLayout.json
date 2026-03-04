@@ -1,21 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\",
+  "WorkspaceRootPath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad\\components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\baloghgg1008\\desktop\\temp\\project_2025\\teutad\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\baloghgg1008\\desktop\\temp\\project_2025\\teutad\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\baloghgg1008\\desktop\\temp\\project_2025\\teutad\\components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\baloghgg1008\\desktop\\temp\\project_2025\\teutad\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,11 +34,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Index.razor",
-              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
+              "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Index.razor",
-              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
+              "ToolTip": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
               "RelativeToolTip": "TeUtad\\Components\\Pages\\Index.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -49,22 +49,21 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Home.razor",
-              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Home.razor",
+              "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Home.razor",
-              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "TeUtad\\Components\\Pages\\Home.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-03T14:02:13.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-03T14:02:13.85Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "NavMenu.razor",
-              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\NavMenu.razor",
-              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "TeUtad\\Components\\Layout\\NavMenu.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -73,13 +72,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "MainLayout.razor",
-              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\MainLayout.razor",
-              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\Components\\Layout\\MainLayout.razor",
               "RelativeToolTip": "TeUtad\\Components\\Layout\\MainLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-03-03T13:37:16.243Z",
               "EditorCaption": ""

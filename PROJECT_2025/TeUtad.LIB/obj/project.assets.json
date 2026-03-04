@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\TeUtad.csproj",
-      "projectName": "TeUtad",
-      "projectPath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\TeUtad.csproj",
+      "projectUniqueName": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj",
+      "projectName": "TeUtad.LIB",
+      "projectPath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj",
       "packagesPath": "C:\\Users\\baloghgg1008\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\obj\\",
+      "outputPath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad.LIB\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,9 +69,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
