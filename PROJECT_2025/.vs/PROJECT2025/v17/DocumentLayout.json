@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}|TeUtad.LIB\\TeUtad.LIB.csproj|c:\\users\\baloghgg1008\\desktop\\temp\\project_2025\\teutad.lib\\modul\\unseco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}|TeUtad.LIB\\TeUtad.LIB.csproj|solutionrelative:teutad.lib\\modul\\unseco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\baloghgg1008\\desktop\\temp\\project_2025\\teutad\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,7 +38,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Unseco.cs",
+              "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad.LIB\\Modul\\Unseco.cs",
+              "RelativeDocumentMoniker": "TeUtad.LIB\\Modul\\Unseco.cs",
+              "ToolTip": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad.LIB\\Modul\\Unseco.cs",
+              "RelativeToolTip": "TeUtad.LIB\\Modul\\Unseco.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T12:37:30.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Index.razor",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Index.razor",
@@ -42,12 +59,11 @@
               "RelativeToolTip": "TeUtad\\Components\\Pages\\Index.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-03T14:02:02.186Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-03T14:02:02.186Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Home.razor",
@@ -59,7 +75,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\NavMenu.razor",
@@ -67,12 +83,11 @@
               "RelativeToolTip": "TeUtad\\Components\\Layout\\NavMenu.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-03T13:38:22.389Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-03T13:38:22.389Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\MainLayout.razor",
