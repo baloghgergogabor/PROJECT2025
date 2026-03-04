@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace TeUtad.LIB.Modul
 {
-    public class Unseco
+    public class Szerep
     {
         [Key]
-        public int id { get; set; }
-
-        public int VarosId { get; set; }
-        public string UNESCO
+        public int SzerepId { get; set; }
+        public int FelhasznaloId { get; set; }
+        public string Szerepe { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "EImg+YkJ1AE=",
+  "dgSpecHash": "Oji4SheI48w=",
   "success": true,
   "projectFilePath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj",
   "expectedPackageFiles": [
@@ -17,9 +17,15 @@
     "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\9.0.11\\microsoft.entityframeworkcore.sqlserver.9.0.11.nupkg.sha512",
     "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.11\\microsoft.extensions.caching.abstractions.9.0.11.nupkg.sha512",
     "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.11\\microsoft.extensions.caching.memory.9.0.11.nupkg.sha512",
+    "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.11\\microsoft.extensions.configuration.9.0.11.nupkg.sha512",
     "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.11\\microsoft.extensions.configuration.abstractions.9.0.11.nupkg.sha512",
+    "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\9.0.11\\microsoft.extensions.configuration.fileextensions.9.0.11.nupkg.sha512",
+    "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.extensions.configuration.json\\9.0.11\\microsoft.extensions.configuration.json.9.0.11.nupkg.sha512",
     "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.11\\microsoft.extensions.dependencyinjection.9.0.11.nupkg.sha512",
     "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.11\\microsoft.extensions.dependencyinjection.abstractions.9.0.11.nupkg.sha512",
+    "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\9.0.11\\microsoft.extensions.fileproviders.abstractions.9.0.11.nupkg.sha512",
+    "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\9.0.11\\microsoft.extensions.fileproviders.physical.9.0.11.nupkg.sha512",
+    "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\9.0.11\\microsoft.extensions.filesystemglobbing.9.0.11.nupkg.sha512",
     "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.extensions.logging\\9.0.11\\microsoft.extensions.logging.9.0.11.nupkg.sha512",
     "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.11\\microsoft.extensions.logging.abstractions.9.0.11.nupkg.sha512",
     "C:\\Users\\baloghgg1008\\.nuget\\packages\\microsoft.extensions.options\\9.0.11\\microsoft.extensions.options.9.0.11.nupkg.sha512",
