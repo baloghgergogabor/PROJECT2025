@@ -1,3 +1,7 @@
+using TeUtad.API.INTERFACE;
+using TeUtad.API.SERVICE;
+using TeUtad.LIB.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,8 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+builder.Services.AddDbContext<UtazasDbContext>();
+builder.Services.AddScoped(typeof(IGenerikusInterface<>), typeof(GenerikusService<>));
 
+
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\layout\\personallayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\personallayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\pages\\tervezes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\tervezes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\layout\\mainnav.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\mainnav.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\pages\\tervezes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\tervezes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\layout\\personallayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\personallayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -38,8 +38,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -55,7 +59,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "PersonalLayout.razor",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\PersonalLayout.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\PersonalLayout.razor",
@@ -68,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Tervezes.razor",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Tervezes.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Tervezes.razor",
@@ -87,14 +91,10 @@
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Index.razor",
               "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
               "RelativeToolTip": "TeUtad\\Components\\Pages\\Index.razor",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACcAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-03-03T14:02:02.186Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
@@ -106,8 +106,7 @@
               "RelativeToolTip": "TeUtad\\Components\\Pages\\Error.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-04T14:01:33.63Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-04T14:01:33.63Z"
             },
             {
               "$type": "Document",
@@ -119,8 +118,7 @@
               "RelativeToolTip": "TeUtad.API\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T11:05:02.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-04T11:05:02.69Z"
             },
             {
               "$type": "Document",
@@ -132,8 +130,7 @@
               "RelativeToolTip": "TeUtad\\Components\\Routes.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-04T13:17:40.015Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-04T13:17:40.015Z"
             }
           ]
         }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeUtad", "TeUtad\TeUtad.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeUtad.API", "TeUtad.API\TeUtad.API.csproj", "{6D11BD1F-33E0-4310-BBBF-F15B612DA44D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeUtad.LIB", "TeUtad.LIB\TeUtad.LIB.csproj", "{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6D11BD1F-33E0-4310-BBBF-F15B612DA44D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D11BD1F-33E0-4310-BBBF-F15B612DA44D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D11BD1F-33E0-4310-BBBF-F15B612DA44D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
