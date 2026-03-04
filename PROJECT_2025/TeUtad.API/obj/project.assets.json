@@ -447,23 +447,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Erk\\.nuget\\packages\\": {},
+    "C:\\Users\\bolkenye0506\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\TeUtad.API.csproj",
+      "projectUniqueName": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\TeUtad.API.csproj",
       "projectName": "TeUtad.API",
-      "projectPath": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\TeUtad.API.csproj",
-      "packagesPath": "C:\\Users\\Erk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\obj\\",
+      "projectPath": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\TeUtad.API.csproj",
+      "packagesPath": "C:\\Users\\bolkenye0506\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Erk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bolkenye0506\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -472,6 +472,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\bolkenye0506\\Desktop\\Források\\Nuget csomagok": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -520,7 +521,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
