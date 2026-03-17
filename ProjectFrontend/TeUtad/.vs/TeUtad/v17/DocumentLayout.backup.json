@@ -1,0 +1,185 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\projectfrontend\\teutad\\teutad\\components\\pages\\tripplanning.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\tripplanning.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\projectfrontend\\teutad\\teutad\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\projectfrontend\\teutad\\teutad\\components\\pages\\teutadlanding.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\teutadlanding.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\projectfrontend\\teutad\\teutad\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\projectfrontend\\teutad\\teutad\\components\\layout\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\projectfrontend\\teutad\\teutad\\components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\projectfrontend\\teutad\\teutad\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\projectfrontend\\teutad\\teutad\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\projectfrontend\\teutad\\teutad\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\projectfrontend\\teutad\\teutad\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6E37290C-36D9-40EE-948D-739224EE47A3}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TripPlanning.razor",
+              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\Pages\\TripPlanning.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\TripPlanning.razor",
+              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\Pages\\TripPlanning.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\TripPlanning.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-17T22:02:49.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-17T21:50:33.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TeutadLanding.razor",
+              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\Pages\\TeutadLanding.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\TeutadLanding.razor",
+              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\Pages\\TeutadLanding.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\TeutadLanding.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-17T21:26:44.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\_Imports.razor",
+              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\_Imports.razor",
+              "RelativeToolTip": "TeUtad\\Components\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-16T23:58:20.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-16T23:42:39.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainLayout.razor.css",
+              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\Layout\\MainLayout.razor.css",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\MainLayout.razor.css",
+              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\Layout\\MainLayout.razor.css",
+              "RelativeToolTip": "TeUtad\\Components\\Layout\\MainLayout.razor.css",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAAAH4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-16T23:58:13.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\App.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\App.razor",
+              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\App.razor",
+              "RelativeToolTip": "TeUtad\\Components\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-16T23:58:21.252Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Routes.razor",
+              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\Routes.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Routes.razor",
+              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\Routes.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Routes.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-16T23:58:22.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Error.razor",
+              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\Pages\\Error.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Error.razor",
+              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Components\\Pages\\Error.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\Error.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-17T09:42:13.474Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "TeUtad\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\ProjectFrontend\\TeUtad\\TeUtad\\Properties\\launchSettings.json",
+              "RelativeToolTip": "TeUtad\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-16T23:57:55.139Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
