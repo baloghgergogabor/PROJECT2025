@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using TeUtad.API.INTERFACE;
 using TeUtad.API.SERVICE;
 using TeUtad.LIB.Data;

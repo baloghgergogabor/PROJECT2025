@@ -13,7 +13,7 @@ namespace TeUtad.LIB.Modul
         public int id { get; set; }
 
         public int VarosId { get; set; }
-        public string UNESCO {  get; set; }
+        public string UNESCOLatvanyossag {  get; set; }
 
     }
 }

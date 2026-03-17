@@ -9,7 +9,7 @@ namespace TeUtad.API.SERVICE
         private readonly UtazasDbContext _Adatbazis;
         private readonly DbSet<T> adatok;
 
-        public GenerikusService(UtazasDbContext adatbazis, DbSet<T> adatok)
+        public GenerikusService(UtazasDbContext adatbazis)
         {
             _Adatbazis = adatbazis;
             this.adatok = adatbazis.Set<T>();
