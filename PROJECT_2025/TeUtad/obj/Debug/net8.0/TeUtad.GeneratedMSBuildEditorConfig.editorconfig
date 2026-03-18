@@ -24,10 +24,6 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bolkenye0506/Desktop/Vizsgaremek/PROJECT2025/PROJECT_2025/TeUtad/Components/Layout/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/bolkenye0506/Desktop/Vizsgaremek/PROJECT2025/PROJECT_2025/TeUtad/Components/Layout/MainNav.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbk5hdi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -40,22 +36,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bolkenye0506/Desktop/Vizsgaremek/PROJECT2025/PROJECT_2025/TeUtad/Components/Pages/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2dpbi5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/bolkenye0506/Desktop/Vizsgaremek/PROJECT2025/PROJECT_2025/TeUtad/Components/Pages/Register.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3Rlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/bolkenye0506/Desktop/Vizsgaremek/PROJECT2025/PROJECT_2025/TeUtad/Components/Pages/TeUtadLandingPage.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUZVV0YWRMYW5kaW5nUGFnZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/bolkenye0506/Desktop/Vizsgaremek/PROJECT2025/PROJECT_2025/TeUtad/Components/Pages/TripPlanning.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUcmlwUGxhbm5pbmcucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/bolkenye0506/Desktop/Vizsgaremek/PROJECT2025/PROJECT_2025/TeUtad/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -63,3 +43,19 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/bolkenye0506/Desktop/Vizsgaremek/PROJECT2025/PROJECT_2025/TeUtad/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bolkenye0506/Desktop/Vizsgaremek/PROJECT2025/PROJECT_2025/TeUtad/Components/Pages/Bejelentkezes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xCZWplbGVudGtlemVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-jpaokt1ogj
+
+[C:/Users/bolkenye0506/Desktop/Vizsgaremek/PROJECT2025/PROJECT_2025/TeUtad/Components/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-jddusmnocs
+
+[C:/Users/bolkenye0506/Desktop/Vizsgaremek/PROJECT2025/PROJECT_2025/TeUtad/Components/Pages/Regisztracio.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3p0cmFjaW8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ptdp3r7zh0
+
+[C:/Users/bolkenye0506/Desktop/Vizsgaremek/PROJECT2025/PROJECT_2025/TeUtad/Components/Pages/UtTervezes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVdFRlcnZlemVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-s52ej4ke8g

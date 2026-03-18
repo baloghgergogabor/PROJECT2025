@@ -1,0 +1,26 @@
+﻿body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f0f4f8;
+}
+
+.navbar-brand span {
+    color: #0d6efd;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    min-height: 420px;
+}
+
+.trip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,0.12);
+}
+
+.destination-img {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}

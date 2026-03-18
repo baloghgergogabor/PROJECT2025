@@ -1,0 +1,115 @@
+body[b-s52ej4ke8g] {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f0f4f8;
+}
+
+.step-indicator[b-s52ej4ke8g] {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+    .step-indicator[b-s52ej4ke8g]::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #dee2e6;
+        z-index: 0;
+    }
+
+.step-item[b-s52ej4ke8g] {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.step-circle[b-s52ej4ke8g] {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #dee2e6;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s;
+}
+
+.step-item.active .step-circle[b-s52ej4ke8g] {
+    background: #0d6efd;
+    border-color: #0d6efd;
+    color: white;
+}
+
+.step-item.completed .step-circle[b-s52ej4ke8g] {
+    background: #198754;
+    border-color: #198754;
+    color: white;
+}
+
+.map-container[b-s52ej4ke8g] {
+    height: 500px;
+    background: #e9ecef;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.flight-card[b-s52ej4ke8g], .hotel-card[b-s52ej4ke8g], .car-card[b-s52ej4ke8g] {
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+    .flight-card:hover[b-s52ej4ke8g], .hotel-card:hover[b-s52ej4ke8g], .car-card:hover[b-s52ej4ke8g] {
+        transform: translateY(-4px);
+        box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,0.12);
+    }
+
+    .flight-card.selected[b-s52ej4ke8g], .hotel-card.selected[b-s52ej4ke8g], .car-card.selected[b-s52ej4ke8g] {
+        border: 2px solid #0d6efd;
+        background: #f8f9ff;
+    }
+
+.price-badge[b-s52ej4ke8g] {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #0d6efd;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.skip-option[b-s52ej4ke8g] {
+    border: 2px dashed #dee2e6;
+    background: #f8f9fa;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+    .skip-option:hover[b-s52ej4ke8g] {
+        border-color: #0d6efd;
+        background: #f0f4f8;
+    }
+
+.route-point[b-s52ej4ke8g] {
+    background: white;
+    border: 2px solid #0d6efd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}

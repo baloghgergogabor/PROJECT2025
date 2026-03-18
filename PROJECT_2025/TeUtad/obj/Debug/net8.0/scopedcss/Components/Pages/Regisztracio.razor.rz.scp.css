@@ -1,0 +1,33 @@
+body[b-ptdp3r7zh0] {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    min-height: 100vh;
+}
+
+.register-card[b-ptdp3r7zh0] {
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+.brand-link[b-ptdp3r7zh0] {
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.2s;
+}
+
+    .brand-link:hover[b-ptdp3r7zh0] {
+        opacity: 0.8;
+        color: white;
+    }
+
+.password-strength[b-ptdp3r7zh0] {
+    height: 4px;
+    background: #e9ecef;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.password-strength-bar[b-ptdp3r7zh0] {
+    height: 100%;
+    transition: all 0.3s;
+}

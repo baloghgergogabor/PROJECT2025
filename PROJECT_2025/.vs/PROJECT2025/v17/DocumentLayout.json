@@ -3,20 +3,68 @@
   "WorkspaceRootPath": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\layout\\mainnav.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\mainnav.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\pages\\regisztracio.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\regisztracio.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\pages\\regisztracio.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\regisztracio.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\pages\\uttervezes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\uttervezes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\pages\\uttervezes.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\uttervezes.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\pages\\index.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\index.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\pages\\bejelentkezes.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\bejelentkezes.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\pages\\bejelentkezes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\bejelentkezes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\layout\\mainnav.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\mainnav.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\layout\\personallayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\layout\\personallayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\pages\\teutadlandingpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\teutadlandingpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}|TeUtad.LIB\\TeUtad.LIB.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad.lib\\konnekciostring.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -54,20 +102,12 @@
       "RelativeMoniker": "D:0:0:{6D11BD1F-33E0-4310-BBBF-F15B612DA44D}|TeUtad.API\\TeUtad.API.csproj|solutionrelative:teutad.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\wwwroot\\bootstrap\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\wwwroot\\bootstrap\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D11BD1F-33E0-4310-BBBF-F15B612DA44D}|TeUtad.API\\TeUtad.API.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D11BD1F-33E0-4310-BBBF-F15B612DA44D}|TeUtad.API\\TeUtad.API.csproj|solutionrelative:teutad.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}|TeUtad.LIB\\TeUtad.LIB.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad.lib\\modul\\szerep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -99,10 +139,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Gerg\u0151\\AppData\\Local\\Temp\\89edc4da-c738-4b33-9409-6f438bebea90_DEV (2).zip.a90\\DEV\\Magantanar\\MagantanarAPI\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\bolkenye0506\\desktop\\vizsgaremek\\project2025\\project_2025\\teutad\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -112,7 +148,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -120,59 +156,124 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Regisztracio.razor.css",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Regisztracio.razor.css",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Regisztracio.razor.css",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Regisztracio.razor.css",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\Regisztracio.razor.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-18T13:19:43.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Regisztracio.razor",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Regisztracio.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Regisztracio.razor",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Regisztracio.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\Regisztracio.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-18T13:19:18.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "TeUtadLandingPage.razor",
-              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\TeUtadLandingPage.razor",
-              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\TeUtadLandingPage.razor",
-              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\TeUtadLandingPage.razor",
-              "RelativeToolTip": "TeUtad\\Components\\Pages\\TeUtadLandingPage.razor",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "UtTervezes.razor.css",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\UtTervezes.razor.css",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\UtTervezes.razor.css",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\UtTervezes.razor.css",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\UtTervezes.razor.css",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAiwHMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-18T13:18:03.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\appsettings.json",
+              "RelativeDocumentMoniker": "TeUtad\\appsettings.json",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\appsettings.json",
+              "RelativeToolTip": "TeUtad\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-18T13:06:50.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.razor.css",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor.css",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Index.razor.css",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor.css",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\Index.razor.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-18T13:06:46.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Bejelentkezes.razor",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Bejelentkezes.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Bejelentkezes.razor",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Bejelentkezes.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\Bejelentkezes.razor",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAABwAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-18T13:04:26.433Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Bejelentkezes.razor.css",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Bejelentkezes.razor.css",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Bejelentkezes.razor.css",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Bejelentkezes.razor.css",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\Bejelentkezes.razor.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-18T13:04:24.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Index.razor",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\Index.razor",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAAAkAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-03-18T12:51:18.348Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "KonnekcioString.json",
-              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\KonnekcioString.json",
-              "RelativeDocumentMoniker": "TeUtad.LIB\\KonnekcioString.json",
-              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\KonnekcioString.json",
-              "RelativeToolTip": "TeUtad.LIB\\KonnekcioString.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-14T22:52:27.174Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainNav.razor",
-              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\MainNav.razor",
-              "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\MainNav.razor",
-              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\MainNav.razor",
-              "RelativeToolTip": "TeUtad\\Components\\Layout\\MainNav.razor",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAkwCoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "Routes.razor",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Routes.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Routes.razor",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Routes.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Routes.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-04T13:52:30.052Z",
+              "WhenOpened": "2026-03-04T13:17:40.015Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainLayout.razor",
-              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\MainLayout.razor",
-              "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\MainLayout.razor",
-              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\MainLayout.razor",
-              "RelativeToolTip": "TeUtad\\Components\\Layout\\MainLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-18T12:51:58.606Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "PersonalLayout.razor",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\PersonalLayout.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\PersonalLayout.razor",
@@ -185,7 +286,84 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
+              "Title": "UtTervezes.razor",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\UtTervezes.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\UtTervezes.razor",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\UtTervezes.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\UtTervezes.razor",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-18T13:08:56.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "TeUtad\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Properties\\launchSettings.json",
+              "RelativeToolTip": "TeUtad\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-18T13:06:54.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MainNav.razor",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\MainNav.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\MainNav.razor",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\MainNav.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Layout\\MainNav.razor",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-04T13:52:30.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "TeUtad\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\appsettings.Development.json",
+              "RelativeToolTip": "TeUtad\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-18T13:07:41.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "KonnekcioString.json",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\KonnekcioString.json",
+              "RelativeDocumentMoniker": "TeUtad.LIB\\KonnekcioString.json",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\KonnekcioString.json",
+              "RelativeToolTip": "TeUtad.LIB\\KonnekcioString.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-14T22:52:27.174Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Program.cs",
+              "RelativeDocumentMoniker": "TeUtad\\Program.cs",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Program.cs",
+              "RelativeToolTip": "TeUtad\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T20:53:29.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "SzerepController.cs",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\SzerepController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\SzerepController.cs",
@@ -197,7 +375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 28,
               "Title": "UtazasController.cs",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\UtazasController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\UtazasController.cs",
@@ -209,7 +387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 27,
               "Title": "Szerep.cs",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\Modul\\Szerep.cs",
               "RelativeDocumentMoniker": "TeUtad.LIB\\Modul\\Szerep.cs",
@@ -221,7 +399,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
+              "Title": "app.css",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\wwwroot\\app.css",
+              "RelativeDocumentMoniker": "TeUtad\\wwwroot\\app.css",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\wwwroot\\app.css",
+              "RelativeToolTip": "TeUtad\\wwwroot\\app.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-17T21:00:00.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "FelhasznaloController.cs",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\FelhasznaloController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\FelhasznaloController.cs",
@@ -233,7 +424,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 21,
               "Title": "AutoController.cs",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\AutoController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\AutoController.cs",
@@ -245,7 +436,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 17,
               "Title": "UtazasDbContext.cs",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\DATA\\UtazasDbContext.cs",
               "RelativeDocumentMoniker": "TeUtad.LIB\\DATA\\UtazasDbContext.cs",
@@ -257,7 +448,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 18,
               "Title": "LatvanyossagokController.cs",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\LatvanyossagokController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\LatvanyossagokController.cs",
@@ -269,19 +460,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "app.css",
-              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\wwwroot\\app.css",
-              "RelativeDocumentMoniker": "TeUtad\\wwwroot\\app.css",
-              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\wwwroot\\app.css",
-              "RelativeToolTip": "TeUtad\\wwwroot\\app.css",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-03-17T21:00:00.615Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 26,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Program.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Program.cs",
@@ -293,7 +472,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 20,
               "Title": "Latvanyossagok.cs",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\Modul\\Latvanyossagok.cs",
               "RelativeDocumentMoniker": "TeUtad.LIB\\Modul\\Latvanyossagok.cs",
@@ -305,7 +484,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 24,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "TeUtad.API\\Properties\\launchSettings.json",
@@ -317,7 +496,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 23,
               "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.305\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.305\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
@@ -329,19 +508,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Program.cs",
-              "RelativeDocumentMoniker": "TeUtad\\Program.cs",
-              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Program.cs",
-              "RelativeToolTip": "TeUtad\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T20:53:29.429Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 25,
               "Title": "bootstrap.min.css",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\wwwroot\\bootstrap\\bootstrap.min.css",
               "RelativeDocumentMoniker": "TeUtad\\wwwroot\\bootstrap\\bootstrap.min.css",
@@ -353,7 +520,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 29,
               "Title": "RepuloJegyController.cs",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\RepuloJegyController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\RepuloJegyController.cs",
@@ -365,7 +532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 30,
               "Title": "HotelController.cs",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\HotelController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\HotelController.cs",
@@ -377,7 +544,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 31,
               "Title": "VarosController.cs",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\VarosController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\VarosController.cs",
@@ -389,7 +556,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 32,
               "Title": "GenerikusController.cs",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\GenerikusController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\GenerikusController.cs",
@@ -401,7 +568,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 33,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\appsettings.json",
               "RelativeDocumentMoniker": "TeUtad.API\\appsettings.json",
@@ -413,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 34,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Gerg\u0151\\AppData\\Local\\Temp\\89edc4da-c738-4b33-9409-6f438bebea90_DEV (2).zip.a90\\DEV\\Magantanar\\MagantanarAPI\\appsettings.json",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Gerg\u0151\\AppData\\Local\\Temp\\89edc4da-c738-4b33-9409-6f438bebea90_DEV (2).zip.a90\\DEV\\Magantanar\\MagantanarAPI\\appsettings.json",
@@ -423,18 +590,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-03-17T15:56:11.202Z",
               "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Routes.razor",
-              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Routes.razor",
-              "RelativeDocumentMoniker": "TeUtad\\Components\\Routes.razor",
-              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Routes.razor",
-              "RelativeToolTip": "TeUtad\\Components\\Routes.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-04T13:17:40.015Z"
             }
           ]
         }

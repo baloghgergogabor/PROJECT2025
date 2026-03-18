@@ -64,3 +64,8 @@ C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad\obj\De
 C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad\obj\Debug\net8.0\TeUtad.pdb
 C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad\obj\Debug\net8.0\TeUtad.genruntimeconfig.cache
 C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad\obj\Debug\net8.0\ref\TeUtad.dll
+C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad\obj\Debug\net8.0\scopedcss\projectbundle\TeUtad.bundle.scp.css
+C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad\obj\Debug\net8.0\scopedcss\Components\Pages\Index.razor.rz.scp.css
+C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad\obj\Debug\net8.0\scopedcss\Components\Pages\Bejelentkezes.razor.rz.scp.css
+C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad\obj\Debug\net8.0\scopedcss\Components\Pages\Regisztracio.razor.rz.scp.css
+C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad\obj\Debug\net8.0\scopedcss\Components\Pages\UtTervezes.razor.rz.scp.css
