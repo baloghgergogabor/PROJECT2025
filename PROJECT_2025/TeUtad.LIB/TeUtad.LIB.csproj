@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="KonektcioString.json">
+    <None Update="KonnekcioString.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

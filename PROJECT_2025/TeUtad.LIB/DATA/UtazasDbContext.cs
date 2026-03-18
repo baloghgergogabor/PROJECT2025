@@ -25,7 +25,7 @@ namespace TeUtad.LIB.Data
             base.OnConfiguring(optionsBuilder);
             var konnect = new ConfigurationBuilder()
                                             .SetBasePath(AppContext.BaseDirectory)
-                                            .AddJsonFile("KonektcioString.json", optional:false)
+                                            .AddJsonFile("KonnekcioString.json", optional:false)
                                             .Build();
             optionsBuilder.UseSqlServer(konnect.GetConnectionString("Default"));
         }

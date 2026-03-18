@@ -3545,23 +3545,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\baloghgg1008\\.nuget\\packages\\": {},
+    "C:\\Users\\bolkenye0506\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\TeUtad.API.csproj",
+      "projectUniqueName": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\TeUtad.API.csproj",
       "projectName": "TeUtad.API",
-      "projectPath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\TeUtad.API.csproj",
-      "packagesPath": "C:\\Users\\baloghgg1008\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\obj\\",
+      "projectPath": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\TeUtad.API.csproj",
+      "packagesPath": "C:\\Users\\bolkenye0506\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\baloghgg1008\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bolkenye0506\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3570,15 +3570,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\baloghgg1008\\Desktop\\forrasok\\nugetCsomagok": {},
+        "C:\\Users\\bolkenye0506\\Desktop\\Források\\Nuget csomagok": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj": {
-              "projectPath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj"
+            "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj": {
+              "projectPath": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj"
             }
           }
         }

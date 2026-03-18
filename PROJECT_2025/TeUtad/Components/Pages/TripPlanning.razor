@@ -1,0 +1,676 @@
+@page "/ut-tervezes"
+@using Microsoft.AspNetCore.Components.Web
+
+<PageTitle>Út tervezése — TeUtad</PageTitle>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+
+<style>
+    body { 
+        font-family: 'Nunito', sans-serif; 
+        background-color: #f0f4f8; 
+    }
+
+    .step-indicator {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        position: relative;
+    }
+
+    .step-indicator::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #dee2e6;
+        z-index: 0;
+    }
+
+    .step-item {
+        flex: 1;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .step-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: white;
+        border: 2px solid #dee2e6;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        transition: all 0.3s;
+    }
+
+    .step-item.active .step-circle {
+        background: #0d6efd;
+        border-color: #0d6efd;
+        color: white;
+    }
+
+    .step-item.completed .step-circle {
+        background: #198754;
+        border-color: #198754;
+        color: white;
+    }
+
+    .map-container {
+        height: 500px;
+        background: #e9ecef;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .flight-card, .hotel-card, .car-card {
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+
+    .flight-card:hover, .hotel-card:hover, .car-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,0.12);
+    }
+
+    .flight-card.selected, .hotel-card.selected, .car-card.selected {
+        border: 2px solid #0d6efd;
+        background: #f8f9ff;
+    }
+
+    .price-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: #0d6efd;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: bold;
+    }
+
+    .skip-option {
+        border: 2px dashed #dee2e6;
+        background: #f8f9fa;
+        text-align: center;
+        padding: 2rem;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .skip-option:hover {
+        border-color: #0d6efd;
+        background: #f0f4f8;
+    }
+
+    .route-point {
+        background: white;
+        border: 2px solid #0d6efd;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+</style>
+
+<NavMenu />
+
+<div class="container py-5">
+    <!-- Step Indicator -->
+    <div class="step-indicator">
+        <div class="step-item @(currentStep >= 1 ? "completed" : "") @(currentStep == 1 ? "active" : "")">
+            <div class="step-circle">
+                @if (currentStep > 1) { <i class="bi bi-check-lg"></i> } else { <span>1</span> }
+            </div>
+            <div class="small fw-semibold">Útvonal</div>
+        </div>
+        <div class="step-item @(currentStep >= 2 ? "completed" : "") @(currentStep == 2 ? "active" : "")">
+            <div class="step-circle">
+                @if (currentStep > 2) { <i class="bi bi-check-lg"></i> } else { <span>2</span> }
+            </div>
+            <div class="small fw-semibold">Repjegy</div>
+        </div>
+        <div class="step-item @(currentStep >= 3 ? "completed" : "") @(currentStep == 3 ? "active" : "")">
+            <div class="step-circle">
+                @if (currentStep > 3) { <i class="bi bi-check-lg"></i> } else { <span>3</span> }
+            </div>
+            <div class="small fw-semibold">Szállás</div>
+        </div>
+        <div class="step-item @(currentStep == 4 ? "active" : "")">
+            <div class="step-circle">4</div>
+            <div class="small fw-semibold">Autóbérlés</div>
+        </div>
+    </div>
+
+    <!-- Main Content Card -->
+    <div class="card border-0 shadow-sm rounded-4">
+        <div class="card-body p-4 p-md-5">
+            
+            @if (currentStep == 1)
+            {
+                <!-- STEP 1: Route Planning -->
+                <h2 class="fw-bold mb-4">
+                    <i class="bi bi-map me-2 text-primary"></i>
+                    Útvonal tervezése
+                </h2>
+                
+                <div class="row">
+                    <div class="col-lg-4 mb-4 mb-lg-0">
+                        <h5 class="fw-semibold mb-3">Útvonal pontok</h5>
+                        
+                        @foreach (var point in routePoints)
+                        {
+                            <div class="route-point">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div class="flex-grow-1">
+                                        <div class="small text-muted">@point.Order. állomás</div>
+                                        <div class="fw-bold">@point.AttractionName</div>
+                                        <div class="small text-muted">
+                                            <i class="bi bi-geo-alt me-1"></i>@point.Address
+                                        </div>
+                                        <span class="badge bg-primary-subtle text-primary mt-1">@point.Category</span>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-danger" @onclick="@(() => RemoveRoutePoint(point.Id))">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                                <div class="small">
+                                    <i class="bi bi-calendar me-1"></i>
+                                    @point.VisitDate.ToString("yyyy. MM. dd.")
+                                    <i class="bi bi-clock ms-2 me-1"></i>
+                                    @point.StartTime.ToString(@"hh\:mm") - @point.EndTime.ToString(@"hh\:mm")
+                                </div>
+                            </div>
+                        }
+
+                        <button class="btn btn-outline-primary w-100 rounded-pill" @onclick="AddRoutePoint">
+                            <i class="bi bi-plus-circle me-2"></i>
+                            Új pont hozzáadása
+                        </button>
+
+                        <div class="mt-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Helyszínek száma:</span>
+                                <span class="fw-bold">@routePoints.Count db</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Teljes időtartam:</span>
+                                <span class="fw-bold">@totalHours óra</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted">Látogatási napok:</span>
+                                <span class="fw-bold">@totalDays nap</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <div class="map-container">
+                            <div class="text-center">
+                                <i class="bi bi-map display-1 text-muted mb-3"></i>
+                                <p class="text-muted">Google Maps integráció helye</p>
+                                <small class="text-muted">Az útvonal pontok itt jelennek meg a térképen</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (currentStep == 2)
+            {
+                <!-- STEP 2: Flight Booking -->
+                <h2 class="fw-bold mb-4">
+                    <i class="bi bi-airplane me-2 text-primary"></i>
+                    Repjegy kiválasztása
+                </h2>
+
+                <div class="row g-4">
+                    @foreach (var flight in availableFlights)
+                    {
+                        <div class="col-md-6">
+                            <div class="card flight-card border rounded-4 h-100 position-relative @(selectedFlightId == flight.Id ? "selected" : "")"
+                                 @onclick="@(() => SelectFlight(flight.Id))">
+                                <div class="price-badge">@flight.Price Ft</div>
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="bg-primary bg-opacity-10 rounded-circle p-2 me-3">
+                                            <i class="bi bi-airplane-fill text-primary fs-4"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">@flight.Airline</div>
+                                            <div class="small text-muted">@flight.FlightNumber</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-3">
+                                        <div class="col">
+                                            <div class="fw-bold fs-5">@flight.DepartureTime</div>
+                                            <div class="text-muted">@flight.DepartureCity</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="text-center">
+                                                <i class="bi bi-arrow-right text-primary"></i>
+                                                <div class="small text-muted">@flight.Duration</div>
+                                            </div>
+                                        </div>
+                                        <div class="col text-end">
+                                            <div class="fw-bold fs-5">@flight.ArrivalTime</div>
+                                            <div class="text-muted">@flight.ArrivalCity</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex gap-2">
+                                        <span class="badge bg-success-subtle text-success">@flight.Class</span>
+                                        @if (flight.DirectFlight)
+                                        {
+                                            <span class="badge bg-primary-subtle text-primary">Direkt járat</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-warning-subtle text-warning">@flight.Stops átszállás</span>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Skip Option -->
+                    <div class="col-12">
+                        <div class="skip-option" @onclick="@(() => selectedFlightId = null)">
+                            <i class="bi bi-x-circle display-6 text-muted mb-2"></i>
+                            <p class="mb-0 fw-semibold">Nincs szükségem repjegyre</p>
+                            <small class="text-muted">Saját járatot foglalok vagy más közlekedési eszközt használok</small>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (currentStep == 3)
+            {
+                <!-- STEP 3: Hotel Selection -->
+                <h2 class="fw-bold mb-4">
+                    <i class="bi bi-building me-2 text-primary"></i>
+                    Szállás kiválasztása
+                </h2>
+
+                <div class="row g-4">
+                    @foreach (var hotel in availableHotels)
+                    {
+                        <div class="col-md-6">
+                            <div class="card hotel-card border rounded-4 h-100 position-relative @(selectedHotelId == hotel.Id ? "selected" : "")"
+                                 @onclick="@(() => SelectHotel(hotel.Id))">
+                                <div class="price-badge">@hotel.PricePerNight Ft / éj</div>
+                                <div class="card-body p-4">
+                                    <div class="mb-3">
+                                        <h5 class="fw-bold mb-1">@hotel.Name</h5>
+                                        <div class="text-muted small">
+                                            <i class="bi bi-geo-alt-fill me-1"></i>@hotel.Location
+                                        </div>
+                                        <div class="mt-2">
+                                            @for (int i = 0; i < hotel.Stars; i++)
+                                            {
+                                                <i class="bi bi-star-fill text-warning"></i>
+                                            }
+                                            <span class="ms-2 small text-muted">(@hotel.Rating / 10)</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <div class="d-flex flex-wrap gap-2">
+                                            @foreach (var amenity in hotel.Amenities)
+                                            {
+                                                <span class="badge bg-secondary-subtle text-secondary">
+                                                    <i class="bi bi-check-circle me-1"></i>@amenity
+                                                </span>
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <div class="small text-muted">
+                                        <i class="bi bi-people me-1"></i>
+                                        Max @hotel.MaxGuests fő · @hotel.RoomType
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Skip Option -->
+                    <div class="col-12">
+                        <div class="skip-option" @onclick="@(() => selectedHotelId = null)">
+                            <i class="bi bi-x-circle display-6 text-muted mb-2"></i>
+                            <p class="mb-0 fw-semibold">Nincs szükségem szállásra</p>
+                            <small class="text-muted">Barátaimnál / családnál szállok meg vagy saját magam foglalom</small>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (currentStep == 4)
+            {
+                <!-- STEP 4: Car Rental -->
+                <h2 class="fw-bold mb-4">
+                    <i class="bi bi-car-front me-2 text-primary"></i>
+                    Autóbérlés
+                </h2>
+
+                <div class="row g-4">
+                    @foreach (var car in availableCars)
+                    {
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card car-card border rounded-4 h-100 position-relative @(selectedCarId == car.Id ? "selected" : "")"
+                                 @onclick="@(() => SelectCar(car.Id))">
+                                <div class="price-badge">@car.PricePerDay Ft / nap</div>
+                                <div class="card-body p-4">
+                                    <div class="text-center mb-3">
+                                        <div class="display-1">@car.Icon</div>
+                                        <h5 class="fw-bold mb-1">@car.Model</h5>
+                                        <div class="text-muted small">@car.Brand</div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-around text-center mb-3">
+                                        <div>
+                                            <i class="bi bi-people text-muted"></i>
+                                            <div class="small">@car.Seats fő</div>
+                                        </div>
+                                        <div>
+                                            <i class="bi bi-briefcase text-muted"></i>
+                                            <div class="small">@car.Luggage db</div>
+                                        </div>
+                                        <div>
+                                            <i class="bi bi-gear text-muted"></i>
+                                            <div class="small">@car.Transmission</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-wrap gap-2">
+                                        @foreach (var feature in car.Features)
+                                        {
+                                            <span class="badge bg-info-subtle text-info small">@feature</span>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Skip Option -->
+                    <div class="col-12">
+                        <div class="skip-option" @onclick="@(() => selectedCarId = null)">
+                            <i class="bi bi-x-circle display-6 text-muted mb-2"></i>
+                            <p class="mb-0 fw-semibold">Nincs szükségem autóbérlésre</p>
+                            <small class="text-muted">Tömegközlekedést használok vagy saját autóval megyek</small>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <!-- Navigation Buttons -->
+            <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                @if (currentStep > 1)
+                {
+                    <button class="btn btn-outline-secondary rounded-pill px-4" @onclick="PreviousStep">
+                        <i class="bi bi-arrow-left me-2"></i>
+                        Vissza
+                    </button>
+                }
+                else
+                {
+                    <div></div>
+                }
+
+                @if (currentStep < 4)
+                {
+                    <button class="btn btn-primary rounded-pill px-4" @onclick="NextStep">
+                        Tovább
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </button>
+                }
+                else
+                {
+                    <button class="btn btn-success rounded-pill px-4" @onclick="FinishBooking">
+                        <i class="bi bi-check-circle me-2"></i>
+                        Foglalás véglegesítése
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+@code {
+    private int currentStep = 1;
+    private int? selectedFlightId = null;
+    private int? selectedHotelId = null;
+    private int? selectedCarId = null;
+    
+    private int totalHours = 0;
+    private int totalDays = 2;
+
+    protected override void OnInitialized()
+    {
+        RecalculateTotals();
+    }
+
+    // Route Points
+    private class RoutePoint
+    {
+        public int Id { get; set; }
+        public int Order { get; set; }
+        public string AttractionName { get; set; }
+        public string Address { get; set; }
+        public DateTime VisitDate { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
+        public string Category { get; set; }
+    }
+
+    private List<RoutePoint> routePoints = new List<RoutePoint>
+    {
+        new RoutePoint { Id = 1, Order = 1, AttractionName = "Hősök tere", Address = "Budapest, Andrássy út vége", VisitDate = DateTime.Now.AddDays(7), StartTime = new TimeSpan(9, 0, 0), EndTime = new TimeSpan(10, 30, 0), Category = "Látnivaló" },
+        new RoutePoint { Id = 2, Order = 2, AttractionName = "Szépművészeti Múzeum", Address = "Budapest, Dózsa György út 41", VisitDate = DateTime.Now.AddDays(7), StartTime = new TimeSpan(11, 0, 0), EndTime = new TimeSpan(13, 30, 0), Category = "Múzeum" },
+        new RoutePoint { Id = 3, Order = 3, AttractionName = "Vajdahunyad vára", Address = "Budapest, Városliget", VisitDate = DateTime.Now.AddDays(7), StartTime = new TimeSpan(14, 0, 0), EndTime = new TimeSpan(15, 30, 0), Category = "Vár" },
+        new RoutePoint { Id = 4, Order = 4, AttractionName = "Széchenyi Gyógyfürdő", Address = "Budapest, Állatkerti krt. 9-11", VisitDate = DateTime.Now.AddDays(7), StartTime = new TimeSpan(16, 0, 0), EndTime = new TimeSpan(19, 0, 0), Category = "Wellness" },
+        new RoutePoint { Id = 5, Order = 5, AttractionName = "Halászbástya", Address = "Budapest, Szentháromság tér", VisitDate = DateTime.Now.AddDays(8), StartTime = new TimeSpan(9, 30, 0), EndTime = new TimeSpan(11, 0, 0), Category = "Látnivaló" },
+        new RoutePoint { Id = 6, Order = 6, AttractionName = "Parlament", Address = "Budapest, Kossuth Lajos tér 1-3", VisitDate = DateTime.Now.AddDays(8), StartTime = new TimeSpan(11, 30, 0), EndTime = new TimeSpan(13, 0, 0), Category = "Történelem" }
+    };
+
+    // Flights
+    private class Flight
+    {
+        public int Id { get; set; }
+        public string Airline { get; set; }
+        public string FlightNumber { get; set; }
+        public string DepartureCity { get; set; }
+        public string ArrivalCity { get; set; }
+        public string DepartureTime { get; set; }
+        public string ArrivalTime { get; set; }
+        public string Duration { get; set; }
+        public int Price { get; set; }
+        public string Class { get; set; }
+        public bool DirectFlight { get; set; }
+        public int Stops { get; set; }
+    }
+
+    private List<Flight> availableFlights = new List<Flight>
+    {
+        new Flight { Id = 1, Airline = "Wizz Air", FlightNumber = "W6 2301", DepartureCity = "Bécs", ArrivalCity = "Budapest", DepartureTime = "08:00", ArrivalTime = "09:30", Duration = "1ó 30p", Price = 18000, Class = "Economy", DirectFlight = true, Stops = 0 },
+        new Flight { Id = 2, Airline = "Ryanair", FlightNumber = "FR 8247", DepartureCity = "Pozsony", ArrivalCity = "Budapest", DepartureTime = "12:15", ArrivalTime = "13:20", Duration = "1ó 05p", Price = 12500, Class = "Economy", DirectFlight = true, Stops = 0 },
+        new Flight { Id = 3, Airline = "Lufthansa", FlightNumber = "LH 1234", DepartureCity = "München", ArrivalCity = "Budapest", DepartureTime = "10:00", ArrivalTime = "11:45", Duration = "1ó 45p", Price = 32000, Class = "Economy Plus", DirectFlight = true, Stops = 0 },
+        new Flight { Id = 4, Airline = "Austrian Airlines", FlightNumber = "OS 714", DepartureCity = "Bécs", ArrivalCity = "Budapest", DepartureTime = "18:20", ArrivalTime = "19:50", Duration = "1ó 30p", Price = 28000, Class = "Business", DirectFlight = true, Stops = 0 }
+    };
+
+    // Hotels
+    private class Hotel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Location { get; set; }
+        public int Stars { get; set; }
+        public double Rating { get; set; }
+        public int PricePerNight { get; set; }
+        public List<string> Amenities { get; set; }
+        public int MaxGuests { get; set; }
+        public string RoomType { get; set; }
+    }
+
+    private List<Hotel> availableHotels = new List<Hotel>
+    {
+        new Hotel { Id = 1, Name = "Four Seasons Hotel Gresham Palace", Location = "Budapest, Széchenyi István tér 5-6", Stars = 5, Rating = 9.4, PricePerNight = 85000, Amenities = new List<string> { "WiFi", "Reggeli", "Medence", "Spa", "Duna-kilátás" }, MaxGuests = 2, RoomType = "Deluxe szoba" },
+        new Hotel { Id = 2, Name = "Ibis Budapest City", Location = "Budapest, Rákóczi út", Stars = 3, Rating = 8.2, PricePerNight = 22000, Amenities = new List<string> { "WiFi", "Reggeli", "Parkoló" }, MaxGuests = 3, RoomType = "Standard szoba" },
+        new Hotel { Id = 3, Name = "Danubius Hotel Margitsziget", Location = "Budapest, Margitsziget", Stars = 4, Rating = 8.9, PricePerNight = 38000, Amenities = new List<string> { "WiFi", "Reggeli", "Wellness", "Термál fürdő" }, MaxGuests = 2, RoomType = "Superior szoba" },
+        new Hotel { Id = 4, Name = "Maverick Hostel & Ensuites", Location = "Budapest, Kazinczy utca", Stars = 2, Rating = 8.6, PricePerNight = 8500, Amenities = new List<string> { "WiFi", "Közös konyha", "Bár" }, MaxGuests = 4, RoomType = "Többágyas szoba" }
+    };
+
+    // Cars
+    private class Car
+    {
+        public int Id { get; set; }
+        public string Brand { get; set; }
+        public string Model { get; set; }
+        public string Icon { get; set; }
+        public int Seats { get; set; }
+        public int Luggage { get; set; }
+        public string Transmission { get; set; }
+        public int PricePerDay { get; set; }
+        public List<string> Features { get; set; }
+    }
+
+    private List<Car> availableCars = new List<Car>
+    {
+        new Car { Id = 1, Brand = "Volkswagen", Model = "Golf", Icon = "🚗", Seats = 5, Luggage = 2, Transmission = "Automata", PricePerDay = 12000, Features = new List<string> { "Klíma", "GPS", "Bluetooth" } },
+        new Car { Id = 2, Brand = "BMW", Model = "3-as sorozat", Icon = "🚙", Seats = 5, Luggage = 3, Transmission = "Automata", PricePerDay = 28000, Features = new List<string> { "Klíma", "GPS", "Bőrülés", "Tempomat" } },
+        new Car { Id = 3, Brand = "Ford", Model = "Fiesta", Icon = "🚗", Seats = 5, Luggage = 1, Transmission = "Manuális", PricePerDay = 8500, Features = new List<string> { "Klíma", "Bluetooth" } },
+        new Car { Id = 4, Brand = "Mercedes", Model = "E-osztály", Icon = "🚘", Seats = 5, Luggage = 3, Transmission = "Automata", PricePerDay = 42000, Features = new List<string> { "Klíma", "GPS", "Bőrülés", "Tempomat", "Parkolóradar" } },
+        new Car { Id = 5, Brand = "Opel", Model = "Corsa", Icon = "🚗", Seats = 5, Luggage = 2, Transmission = "Manuális", PricePerDay = 7000, Features = new List<string> { "Klíma" } },
+        new Car { Id = 6, Brand = "Audi", Model = "A6", Icon = "🚙", Seats = 5, Luggage = 3, Transmission = "Automata", PricePerDay = 35000, Features = new List<string> { "Klíma", "GPS", "Bőrülés", "Ülésfűtés" } }
+    };
+
+    private void NextStep()
+    {
+        if (currentStep < 4)
+        {
+            currentStep++;
+            StateHasChanged();
+        }
+    }
+
+    private void PreviousStep()
+    {
+        if (currentStep > 1)
+        {
+            currentStep--;
+            StateHasChanged();
+        }
+    }
+
+    private void SelectFlight(int flightId)
+    {
+        selectedFlightId = selectedFlightId == flightId ? null : flightId;
+    }
+
+    private void SelectHotel(int hotelId)
+    {
+        selectedHotelId = selectedHotelId == hotelId ? null : hotelId;
+    }
+
+    private void SelectCar(int carId)
+    {
+        selectedCarId = selectedCarId == carId ? null : carId;
+    }
+
+    private void AddRoutePoint()
+    {
+        var lastPoint = routePoints.LastOrDefault();
+        var newVisitDate = lastPoint?.VisitDate ?? DateTime.Now.AddDays(7);
+        var newStartTime = lastPoint?.EndTime.Add(TimeSpan.FromHours(1)) ?? new TimeSpan(9, 0, 0);
+        
+        // Ha már túl késő van, következő napra
+        if (newStartTime.TotalHours >= 22)
+        {
+            newVisitDate = newVisitDate.AddDays(1);
+            newStartTime = new TimeSpan(9, 0, 0);
+        }
+        
+        routePoints.Add(new RoutePoint
+        {
+            Id = routePoints.Count + 1,
+            Order = routePoints.Count + 1,
+            AttractionName = "Új helyszín",
+            Address = "Budapest, cím",
+            VisitDate = newVisitDate,
+            StartTime = newStartTime,
+            EndTime = newStartTime.Add(TimeSpan.FromHours(2)),
+            Category = "Látnivaló"
+        });
+        
+        RecalculateTotals();
+    }
+
+    private void RemoveRoutePoint(int id)
+    {
+        var point = routePoints.FirstOrDefault(p => p.Id == id);
+        if (point != null && routePoints.Count > 1)
+        {
+            routePoints.Remove(point);
+            // Újra számozzuk a pontokat
+            for (int i = 0; i < routePoints.Count; i++)
+            {
+                routePoints[i].Order = i + 1;
+            }
+            RecalculateTotals();
+        }
+    }
+
+    private void RecalculateTotals()
+    {
+        if (routePoints.Any())
+        {
+            var firstDate = routePoints.Min(p => p.VisitDate);
+            var lastDate = routePoints.Max(p => p.VisitDate);
+            totalDays = (lastDate - firstDate).Days + 1;
+            
+            // Számoljuk össze az összes időt
+            double totalMinutes = 0;
+            foreach (var point in routePoints)
+            {
+                totalMinutes += (point.EndTime - point.StartTime).TotalMinutes;
+            }
+            totalHours = (int)(totalMinutes / 60);
+        }
+        else
+        {
+            totalDays = 0;
+            totalHours = 0;
+        }
+    }
+
+    private void FinishBooking()
+    {
+        // Foglalás véglegesítése
+        var summary = $"Útvonal: {routePoints.Count} helyszín, {totalDays} nap, {totalHours} óra\n";
+        summary += $"Repjegy: {(selectedFlightId.HasValue ? "Kiválasztva" : "Nincs")}\n";
+        summary += $"Szállás: {(selectedHotelId.HasValue ? "Kiválasztva" : "Nincs")}\n";
+        summary += $"Autó: {(selectedCarId.HasValue ? "Kiválasztva" : "Nincs")}";
+        
+        Console.WriteLine(summary);
+        // Itt navigálhatsz egy összesítő oldalra vagy mentheted az adatokat
+    }
+}
