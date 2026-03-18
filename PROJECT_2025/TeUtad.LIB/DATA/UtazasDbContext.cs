@@ -35,7 +35,7 @@ namespace TeUtad.LIB.Data
         public DbSet<Hotel> Hotel { get; set; }
         public DbSet<RepuloJegy> RepuloJegy { get; set; }
         public DbSet<Szerep> Szerep { get; set; }
-        public DbSet<Unesco> Unesco { get; set; }
+        public DbSet<Latvanyossagok> Latvanyossagok { get; set; }
         public DbSet<Utazas> Utazas { get; set; }
         public DbSet<Varos> Varos { get; set; }
 

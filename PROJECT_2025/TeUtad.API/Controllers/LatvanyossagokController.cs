@@ -7,9 +7,9 @@ namespace TeUtad.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UnescoController : GenerikusController<Unesco>
+    public class LatvanyossagokController : GenerikusController<Latvanyossagok>
     {
-        public UnescoController(IGenerikusInterface<Unesco> @interface) : base(@interface)
+        public LatvanyossagokController(IGenerikusInterface<Latvanyossagok> @interface) : base(@interface)
         {
         }
     }

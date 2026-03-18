@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace TeUtad.LIB.Modul
 {
-    public class Unesco
+    public class Latvanyossagok
     {
         [Key]
         public int id { get; set; }
 
         public int VarosId { get; set; }
-        public string UNESCOLatvanyossag {  get; set; }
+        public string Latvanyossag {  get; set; }
+        public bool UNESCO {  get; set; }
 
     }
 }
