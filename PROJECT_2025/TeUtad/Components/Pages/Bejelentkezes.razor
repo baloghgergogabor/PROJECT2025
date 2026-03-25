@@ -109,7 +109,14 @@
     List<FelhasznaloAdat> Felhasznalok = [];
     protected override async Task OnInitializedAsync()
     {
-        Felhasznalok = await Felhasznalo.GetAllFelhasznalo();
+        try
+        {
+            Felhasznalok = await Felhasznalo.GetAllFelhasznalo();
+        }
+        catch(Exception error)
+        {
+            Console.WriteLine($"Error: {error}");
+        }
     }
     private LoginModel loginModel = new LoginModel();
     private bool showPassword = false;
