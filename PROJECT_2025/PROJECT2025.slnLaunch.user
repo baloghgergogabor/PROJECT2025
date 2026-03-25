@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "TeUtad.API\\TeUtad.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "TeUtad\\TeUtad.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
