@@ -3,16 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6D11BD1F-33E0-4310-BBBF-F15B612DA44D}|TeUtad.API\\TeUtad.API.csproj|c:\\users\\baloghgg1008\\desktop\\new 2.0\\project2025\\project_2025\\teutad.api\\controllers\\generikuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D11BD1F-33E0-4310-BBBF-F15B612DA44D}|TeUtad.API\\TeUtad.API.csproj|solutionrelative:teutad.api\\controllers\\generikuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\baloghgg1008\\desktop\\new 2.0\\project2025\\project_2025\\teutad\\service\\felhasznaloszerviz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\service\\felhasznaloszerviz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\baloghgg1008\\desktop\\new 2.0\\project2025\\project_2025\\teutad\\components\\pages\\uttervezes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\uttervezes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D11BD1F-33E0-4310-BBBF-F15B612DA44D}|TeUtad.API\\TeUtad.API.csproj|c:\\users\\baloghgg1008\\desktop\\new 2.0\\project2025\\project_2025\\teutad.api\\controllers\\generikuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D11BD1F-33E0-4310-BBBF-F15B612DA44D}|TeUtad.API\\TeUtad.API.csproj|solutionrelative:teutad.api\\controllers\\generikuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D11BD1F-33E0-4310-BBBF-F15B612DA44D}|TeUtad.API\\TeUtad.API.csproj|c:\\users\\baloghgg1008\\desktop\\new 2.0\\project2025\\project_2025\\teutad.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -148,79 +151,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-<<<<<<< HEAD
-          "SelectedChildIndex": 7,
-=======
-          "SelectedChildIndex": 1,
->>>>>>> 5b0a0f6f53d2d031e50588ba877392f6d0128d1a
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 4,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "TeUtad.API\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Properties\\launchSettings.json",
-              "RelativeToolTip": "TeUtad.API\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-17T20:54:57.568Z",
-=======
-              "DocumentIndex": 0,
-              "Title": "Index.razor",
-              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
-              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Index.razor",
-              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
-              "RelativeToolTip": "TeUtad\\Components\\Pages\\Index.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-18T12:51:18.348Z",
->>>>>>> 5b0a0f6f53d2d031e50588ba877392f6d0128d1a
+              "DocumentIndex": 1,
+              "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "ViewState": "AgIAAJMCAAAAAAAAAAArwK4CAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-03-25T12:32:51.029Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
-=======
-              "DocumentIndex": 16,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\appsettings.json",
-              "RelativeDocumentMoniker": "TeUtad\\appsettings.json",
-              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\appsettings.json",
-              "RelativeToolTip": "TeUtad\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-18T13:06:50.773Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UtTervezes.razor.css",
-              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\UtTervezes.razor.css",
-              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\UtTervezes.razor.css",
-              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\UtTervezes.razor.css",
-              "RelativeToolTip": "TeUtad\\Components\\Pages\\UtTervezes.razor.css",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAiwHMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-03-18T13:18:03.962Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Regisztracio.razor",
-              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Regisztracio.razor",
-              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Regisztracio.razor",
-              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Regisztracio.razor",
-              "RelativeToolTip": "TeUtad\\Components\\Pages\\Regisztracio.razor",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAAAIkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-18T13:19:18.693Z"
-            },
-            {
-              "$type": "Document",
->>>>>>> 5b0a0f6f53d2d031e50588ba877392f6d0128d1a
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Program.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Program.cs",
@@ -228,12 +176,11 @@
               "RelativeToolTip": "TeUtad.API\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T11:05:02.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-04T11:05:02.69Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\appsettings.json",
               "RelativeDocumentMoniker": "TeUtad.API\\appsettings.json",
@@ -241,12 +188,11 @@
               "RelativeToolTip": "TeUtad.API\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-17T15:47:55.66Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T15:47:55.66Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Index.razor",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Index.razor",
@@ -254,12 +200,11 @@
               "RelativeToolTip": "TeUtad\\Components\\Pages\\Index.razor",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-18T12:51:18.348Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-18T12:51:18.348Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\Program.cs",
               "RelativeDocumentMoniker": "TeUtad\\Program.cs",
@@ -267,12 +212,11 @@
               "RelativeToolTip": "TeUtad\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T20:53:29.429Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T20:53:29.429Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Regisztracio.razor.css",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Regisztracio.razor.css",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Regisztracio.razor.css",
@@ -284,7 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "PersonalLayout.razor",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\PersonalLayout.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\PersonalLayout.razor",
@@ -296,20 +240,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "FelhasznaloSzerviz.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\SERVICE\\FelhasznaloSzerviz.cs",
               "RelativeDocumentMoniker": "TeUtad\\SERVICE\\FelhasznaloSzerviz.cs",
               "ToolTip": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\SERVICE\\FelhasznaloSzerviz.cs",
               "RelativeToolTip": "TeUtad\\SERVICE\\FelhasznaloSzerviz.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAACAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-25T10:01:58.188Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "UtTervezes.razor",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\UtTervezes.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\UtTervezes.razor",
@@ -321,24 +265,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "GenerikusController.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\GenerikusController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\GenerikusController.cs",
               "ToolTip": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\GenerikusController.cs",
               "RelativeToolTip": "TeUtad.API\\Controllers\\GenerikusController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA1wB4AAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwB4AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-<<<<<<< HEAD
               "WhenOpened": "2026-03-14T23:13:22.544Z",
               "EditorCaption": ""
-=======
-              "WhenOpened": "2026-03-25T10:01:58.188Z"
->>>>>>> 5b0a0f6f53d2d031e50588ba877392f6d0128d1a
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 5,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "TeUtad.API\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Properties\\launchSettings.json",
+              "RelativeToolTip": "TeUtad.API\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-17T20:54:57.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "KonnekcioString.json",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\KonnekcioString.json",
               "RelativeDocumentMoniker": "TeUtad.LIB\\KonnekcioString.json",
@@ -350,23 +302,7 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 8,
-=======
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Program.cs",
-              "RelativeDocumentMoniker": "TeUtad\\Program.cs",
-              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Program.cs",
-              "RelativeToolTip": "TeUtad\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T20:53:29.429Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
->>>>>>> 5b0a0f6f53d2d031e50588ba877392f6d0128d1a
+              "DocumentIndex": 9,
               "Title": "Bejelentkezes.razor",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Bejelentkezes.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Bejelentkezes.razor",
@@ -379,7 +315,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "UtTervezes.razor.css",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\UtTervezes.razor.css",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\UtTervezes.razor.css",
@@ -391,7 +327,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\appsettings.json",
               "RelativeDocumentMoniker": "TeUtad\\appsettings.json",
@@ -403,7 +339,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Regisztracio.razor",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Regisztracio.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Regisztracio.razor",
@@ -415,7 +351,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "MainNav.razor",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Layout\\MainNav.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Layout\\MainNav.razor",
@@ -427,7 +363,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Index.razor.css",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor.css",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Index.razor.css",
@@ -439,7 +375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Bejelentkezes.razor.css",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Bejelentkezes.razor.css",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Bejelentkezes.razor.css",
@@ -451,7 +387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Routes.razor",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Routes.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Routes.razor",
@@ -463,7 +399,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "TeUtad\\Properties\\launchSettings.json",
@@ -475,7 +411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\appsettings.Development.json",
               "RelativeDocumentMoniker": "TeUtad\\appsettings.Development.json",
@@ -487,7 +423,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "SzerepController.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\SzerepController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\SzerepController.cs",
@@ -499,7 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "UtazasController.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\UtazasController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\UtazasController.cs",
@@ -511,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "Szerep.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\Modul\\Szerep.cs",
               "RelativeDocumentMoniker": "TeUtad.LIB\\Modul\\Szerep.cs",
@@ -523,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "app.css",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\wwwroot\\app.css",
               "RelativeDocumentMoniker": "TeUtad\\wwwroot\\app.css",
@@ -535,7 +471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "AutoController.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\AutoController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\AutoController.cs",
@@ -547,7 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "UtazasDbContext.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\DATA\\UtazasDbContext.cs",
               "RelativeDocumentMoniker": "TeUtad.LIB\\DATA\\UtazasDbContext.cs",
@@ -559,7 +495,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "LatvanyossagokController.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\LatvanyossagokController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\LatvanyossagokController.cs",
@@ -571,7 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "Latvanyossagok.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\Modul\\Latvanyossagok.cs",
               "RelativeDocumentMoniker": "TeUtad.LIB\\Modul\\Latvanyossagok.cs",
@@ -583,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.305\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.305\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
@@ -595,7 +531,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "bootstrap.min.css",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\wwwroot\\bootstrap\\bootstrap.min.css",
               "RelativeDocumentMoniker": "TeUtad\\wwwroot\\bootstrap\\bootstrap.min.css",
@@ -607,7 +543,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "RepuloJegyController.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\RepuloJegyController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\RepuloJegyController.cs",
@@ -619,7 +555,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "HotelController.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\HotelController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\HotelController.cs",
@@ -631,7 +567,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "VarosController.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Controllers\\VarosController.cs",
               "RelativeDocumentMoniker": "TeUtad.API\\Controllers\\VarosController.cs",
@@ -643,16 +579,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Gerg\u0151\\AppData\\Local\\Temp\\89edc4da-c738-4b33-9409-6f438bebea90_DEV (2).zip.a90\\DEV\\Magantanar\\MagantanarAPI\\appsettings.json",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Gerg\u0151\\AppData\\Local\\Temp\\89edc4da-c738-4b33-9409-6f438bebea90_DEV (2).zip.a90\\DEV\\Magantanar\\MagantanarAPI\\appsettings.json",
-              "ToolTip": "C:\\Users\\Gerg\u0151\\AppData\\Local\\Temp\\89edc4da-c738-4b33-9409-6f438bebea90_DEV (2).zip.a90\\DEV\\Magantanar\\MagantanarAPI\\appsettings.json [Read Only]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Gerg\u0151\\AppData\\Local\\Temp\\89edc4da-c738-4b33-9409-6f438bebea90_DEV (2).zip.a90\\DEV\\Magantanar\\MagantanarAPI\\appsettings.json [Read Only]",
+              "ToolTip": "C:\\Users\\Gerg\u0151\\AppData\\Local\\Temp\\89edc4da-c738-4b33-9409-6f438bebea90_DEV (2).zip.a90\\DEV\\Magantanar\\MagantanarAPI\\appsettings.json",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Gerg\u0151\\AppData\\Local\\Temp\\89edc4da-c738-4b33-9409-6f438bebea90_DEV (2).zip.a90\\DEV\\Magantanar\\MagantanarAPI\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-17T15:56:11.202Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2026-03-17T15:56:11.202Z"
             }
           ]
         }
