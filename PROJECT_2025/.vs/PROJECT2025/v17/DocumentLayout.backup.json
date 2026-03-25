@@ -148,6 +148,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 7,
           "Children": [
             {
@@ -161,10 +162,64 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-03-17T20:54:57.568Z",
+=======
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Index.razor",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\Index.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-18T12:51:18.348Z",
+>>>>>>> 5b0a0f6f53d2d031e50588ba877392f6d0128d1a
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+=======
+              "DocumentIndex": 16,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\appsettings.json",
+              "RelativeDocumentMoniker": "TeUtad\\appsettings.json",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\appsettings.json",
+              "RelativeToolTip": "TeUtad\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-18T13:06:50.773Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UtTervezes.razor.css",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\UtTervezes.razor.css",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\UtTervezes.razor.css",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\UtTervezes.razor.css",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\UtTervezes.razor.css",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAiwHMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-18T13:18:03.962Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Regisztracio.razor",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Regisztracio.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Regisztracio.razor",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Regisztracio.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\Regisztracio.razor",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAAIkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-18T13:19:18.693Z"
+            },
+            {
+              "$type": "Document",
+>>>>>>> 5b0a0f6f53d2d031e50588ba877392f6d0128d1a
               "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad.API\\Program.cs",
@@ -262,8 +317,7 @@
               "RelativeToolTip": "TeUtad\\Components\\Pages\\UtTervezes.razor",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-18T13:08:56.682Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-18T13:08:56.682Z"
             },
             {
               "$type": "Document",
@@ -275,8 +329,12 @@
               "RelativeToolTip": "TeUtad.API\\Controllers\\GenerikusController.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAA1wB4AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
               "WhenOpened": "2026-03-14T23:13:22.544Z",
               "EditorCaption": ""
+=======
+              "WhenOpened": "2026-03-25T10:01:58.188Z"
+>>>>>>> 5b0a0f6f53d2d031e50588ba877392f6d0128d1a
             },
             {
               "$type": "Document",
@@ -292,7 +350,23 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 8,
+=======
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Program.cs",
+              "RelativeDocumentMoniker": "TeUtad\\Program.cs",
+              "ToolTip": "C:\\Users\\bolkenye0506\\Desktop\\Vizsgaremek\\PROJECT2025\\PROJECT_2025\\TeUtad\\Program.cs",
+              "RelativeToolTip": "TeUtad\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T20:53:29.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+>>>>>>> 5b0a0f6f53d2d031e50588ba877392f6d0128d1a
               "Title": "Bejelentkezes.razor",
               "DocumentMoniker": "C:\\Users\\baloghgg1008\\Desktop\\NEW 2.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Bejelentkezes.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Bejelentkezes.razor",
