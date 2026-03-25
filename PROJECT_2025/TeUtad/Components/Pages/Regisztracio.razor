@@ -119,21 +119,7 @@
                             <ValidationMessage For="@(() => registerModel.ConfirmPassword)" class="text-danger small" />
                         </div>
 
-                        <!-- Terms & Conditions -->
-                        <div class="mb-4">
-                            <div class="form-check">
-                                <InputCheckbox @bind-Value="registerModel.AcceptTerms" 
-                                             class="form-check-input" 
-                                             id="terms" />
-                                <label class="form-check-label small" for="terms">
-                                    Elfogadom az 
-                                    <a href="/felhasznalasi-feltetelek" class="text-primary">Általános Szerződési Feltételeket</a> 
-                                    és az 
-                                    <a href="/adatvedelmi-iranyelvek" class="text-primary">Adatvédelmi Irányelveket</a>
-                                </label>
-                            </div>
-                            <ValidationMessage For="@(() => registerModel.AcceptTerms)" class="text-danger small" />
-                        </div>
+
 
                         <!-- Register Button -->
                         <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold rounded-pill mb-3">
@@ -149,15 +135,7 @@
                             </span>
                         </div>
 
-                        <!-- Social Register -->
-                        <button type="button" class="btn btn-outline-secondary w-100 py-2 mb-2 rounded-pill">
-                            <i class="bi bi-google me-2"></i>
-                            Regisztráció Google-lel
-                        </button>
-                        <button type="button" class="btn btn-outline-secondary w-100 py-2 rounded-pill">
-                            <i class="bi bi-facebook me-2"></i>
-                            Regisztráció Facebook-kal
-                        </button>
+
                     </EditForm>
 
                     <!-- Login Link -->

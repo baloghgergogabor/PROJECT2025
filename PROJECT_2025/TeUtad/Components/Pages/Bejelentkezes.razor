@@ -3,7 +3,7 @@
 @using System.ComponentModel.DataAnnotations
 @using TeUtad.LIB.Modul
 @using TeUtad.SERVICE
-@inject FelhasznaloSzervice Felhasznalo
+@inject FelhasznaloSzerviz Felhasznalo
 <PageTitle>Bejelentkezés — TeUtad</PageTitle>
 
 <head>
@@ -70,20 +70,7 @@
                             <ValidationMessage For="@(() => loginModel.Password)" class="text-danger small" />
                         </div>
 
-                        <!-- Remember Me & Forgot Password -->
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <div class="form-check">
-                                <InputCheckbox @bind-Value="loginModel.RememberMe" 
-                                class="form-check-input" 
-                                id="rememberMe" />
-                                <label class="form-check-label small" for="rememberMe">
-                                    Emlékezz rám
-                                </label>
-                            </div>
-                            <a href="/elfelejtett-jelszo" class="small text-primary text-decoration-none">
-                                Elfelejtetted a jelszavad?
-                            </a>
-                        </div>
+
 
                         <!-- Login Button -->
                         <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold rounded-pill mb-3">
@@ -99,15 +86,6 @@
                             </span>
                         </div>
 
-                        <!-- Social Login -->
-                        <button type="button" class="btn btn-outline-secondary w-100 py-2 mb-2 rounded-pill">
-                            <i class="bi bi-google me-2"></i>
-                            Folytatás Google-lel
-                        </button>
-                        <button type="button" class="btn btn-outline-secondary w-100 py-2 rounded-pill">
-                            <i class="bi bi-facebook me-2"></i>
-                            Folytatás Facebook-kal
-                        </button>
                     </EditForm>
 
                     <!-- Register Link -->

@@ -3,7 +3,7 @@ using static System.Net.WebRequestMethods;
 
 namespace TeUtad.SERVICE
 {
-    public class FelhasznaloSzervice(HttpClient _http)
+    public class FelhasznaloSzerviz(HttpClient _http)
     {
         public async Task<List<FelhasznaloAdat>> GetAllFelhasznalo() => await _http.GetFromJsonAsync<List<FelhasznaloAdat>>("api/Felhasznalo");
 

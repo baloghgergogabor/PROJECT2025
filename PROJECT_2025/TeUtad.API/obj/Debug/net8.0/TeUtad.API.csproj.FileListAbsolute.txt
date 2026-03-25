@@ -101,7 +101,6 @@ C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad.API\bi
 C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad.API\bin\Debug\net8.0\appsettings.json
 C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad.API\bin\Debug\net8.0\TeUtad.API.staticwebassets.endpoints.json
 C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad.API\bin\Debug\net8.0\TeUtad.API.exe
-C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad.API\bin\Debug\net8.0\KonektcioString.json
 C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad.API\bin\Debug\net8.0\TeUtad.API.deps.json
 C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad.API\bin\Debug\net8.0\TeUtad.API.runtimeconfig.json
 C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad.API\bin\Debug\net8.0\TeUtad.API.dll
@@ -296,3 +295,4 @@ C:\Users\Gergő\Desktop\NEW 3.0\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\ne
 C:\Users\Gergő\Desktop\NEW 3.0\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\TeUtad.API.pdb
 C:\Users\Gergő\Desktop\NEW 3.0\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\TeUtad.API.genruntimeconfig.cache
 C:\Users\Gergő\Desktop\NEW 3.0\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\ref\TeUtad.API.dll
+C:\Users\bolkenye0506\Desktop\Vizsgaremek\PROJECT2025\PROJECT_2025\TeUtad.API\bin\Debug\net8.0\KonnekcioString.json
