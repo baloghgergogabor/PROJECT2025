@@ -1,6 +1,13 @@
 @page "/regisztracio"
 @using Microsoft.AspNetCore.Components.Web
+@using System.Security.Cryptography
 @using System.ComponentModel.DataAnnotations
+@using System.Text
+@using TeUtad.LIB.Modul
+@using TeUtad.SERVICE
+@inject FelhasznaloSzerviz Felhasznalo
+@inject NavigationManager nav
+
 
 <PageTitle>Regisztráció — TeUtad</PageTitle>
 
@@ -30,10 +37,10 @@
                     <h2 class="fw-bold mb-2">Új fiók létrehozása</h2>
                     <p class="text-muted mb-4">Kezdd el a tervezést még ma</p>
 
-                    <EditForm Model="@registerModel" OnValidSubmit="@HandleRegister">
+                    <EditForm Model="@registerModel" OnValidSubmit="@HandleRegister" FormName="Regisztralas">
                         <DataAnnotationsValidator />
 
-                        <!-- Name -->
+                        <!-- Név -->
                         <div class="mb-3">
                             <label for="name" class="form-label fw-semibold">Teljes név</label>
                             <div class="input-group">
@@ -41,14 +48,14 @@
                                     <i class="bi bi-person text-muted"></i>
                                 </span>
                                 <InputText @bind-Value="registerModel.FullName" 
-                                          class="form-control" 
-                                          id="name" 
-                                          placeholder="Kovács János" />
+                                class="form-control" 
+                                id="name" 
+                                placeholder="Kovács János" />
                             </div>
                             <ValidationMessage For="@(() => registerModel.FullName)" class="text-danger small" />
                         </div>
 
-                        <!-- Email -->
+                        <!-- E-mail -->
                         <div class="mb-3">
                             <label for="email" class="form-label fw-semibold">E-mail cím</label>
                             <div class="input-group">
@@ -56,10 +63,10 @@
                                     <i class="bi bi-envelope text-muted"></i>
                                 </span>
                                 <InputText @bind-Value="registerModel.Email" 
-                                          type="email" 
-                                          class="form-control" 
-                                          id="email" 
-                                          placeholder="pelda@email.com" />
+                                type="email" 
+                                class="form-control" 
+                                id="email" 
+                                placeholder="pelda@email.com" />
                             </div>
                             <ValidationMessage For="@(() => registerModel.Email)" class="text-danger small" />
                         </div>
@@ -72,25 +79,25 @@
                                     <i class="bi bi-lock text-muted"></i>
                                 </span>
                                 <InputText @bind-Value="registerModel.Password" 
-                                          type="@(showPassword ? "text" : "password")" 
-                                          class="form-control" 
-                                          id="password" 
-                                          placeholder="Legalább 8 karakter"
-                                          @oninput="@((e) => CheckPasswordStrength(e.Value?.ToString()))" />
+                                type="@(showPassword ? "text" : "password")" 
+                                class="form-control" 
+                                id="password" 
+                                placeholder="Legalább 8 karakter"
+                                @oninput="@((e) => CheckPasswordStrength(e.Value?.ToString()))" />
                                 <button class="btn btn-outline-secondary" 
-                                        type="button" 
-                                        @onclick="TogglePasswordVisibility">
+                                type="button" 
+                                @onclick="TogglePasswordVisibility">
                                     <i class="bi bi-eye@(showPassword ? "-slash" : "")"></i>
                                 </button>
                             </div>
                             <ValidationMessage For="@(() => registerModel.Password)" class="text-danger small" />
-                            
+
                             <!-- Password Strength Indicator -->
                             @if (!string.IsNullOrEmpty(registerModel.Password))
                             {
                                 <div class="password-strength mt-2">
                                     <div class="password-strength-bar bg-@GetPasswordStrengthColor()" 
-                                         style="width: @(passwordStrength * 33.33)%"></div>
+                                    style="width: @(passwordStrength * 33.33)%"></div>
                                 </div>
                                 <small class="text-@GetPasswordStrengthColor()">
                                     @GetPasswordStrengthText()
@@ -106,13 +113,13 @@
                                     <i class="bi bi-lock-fill text-muted"></i>
                                 </span>
                                 <InputText @bind-Value="registerModel.ConfirmPassword" 
-                                          type="@(showConfirmPassword ? "text" : "password")" 
-                                          class="form-control" 
-                                          id="confirmPassword" 
-                                          placeholder="Jelszó újra" />
+                                type="@(showConfirmPassword ? "text" : "password")" 
+                                class="form-control" 
+                                id="confirmPassword" 
+                                placeholder="Jelszó újra" />
                                 <button class="btn btn-outline-secondary" 
-                                        type="button" 
-                                        @onclick="ToggleConfirmPasswordVisibility">
+                                type="button" 
+                                @onclick="ToggleConfirmPasswordVisibility">
                                     <i class="bi bi-eye@(showConfirmPassword ? "-slash" : "")"></i>
                                 </button>
                             </div>
@@ -160,6 +167,7 @@
     private bool showPassword = false;
     private bool showConfirmPassword = false;
     private int passwordStrength = 0;
+    FelhasznaloAdat felhasznloAdat = new(); 
 
     public class RegisterModel
     {
@@ -178,9 +186,6 @@
         [Required(ErrorMessage = "A jelszó megerősítése kötelező")]
         [Compare(nameof(Password), ErrorMessage = "A jelszavak nem egyeznek")]
         public string ConfirmPassword { get; set; } = string.Empty;
-
-        [Range(typeof(bool), "true", "true", ErrorMessage = "El kell fogadnod a feltételeket")]
-        public bool AcceptTerms { get; set; } = false;
     }
 
     private void TogglePasswordVisibility()
@@ -202,16 +207,16 @@
         }
 
         int strength = 0;
-        
+
         // Hossz
         if (password.Length >= 8) strength++;
-        
+
         // Tartalmaz számot
         if (password.Any(char.IsDigit)) strength++;
-        
+
         // Tartalmaz kis- és nagybetűt
         if (password.Any(char.IsLower) && password.Any(char.IsUpper)) strength++;
-        
+
         // Tartalmaz speciális karaktert
         if (password.Any(c => !char.IsLetterOrDigit(c))) strength++;
 
@@ -242,7 +247,16 @@
 
     private async Task HandleRegister()
     {
+        var Sha = SHA256.Create();
         // Regisztrációs logika ide
+        felhasznloAdat = new FelhasznaloAdat
+            {
+                FelhasznaloNev = registerModel.FullName,
+                JelszoHash = Encoding.ASCII.GetString(Sha.ComputeHash(Encoding.UTF8.GetBytes(registerModel.Password))),
+                Email = registerModel.Email
+            };
+        await Felhasznalo.PostFelhasznalo(felhasznloAdat);
+        nav.NavigateTo("/");
         // Például API hívás, token mentés, átirányítás stb.
         Console.WriteLine($"Regisztráció: {registerModel.FullName} ({registerModel.Email})");
     }
