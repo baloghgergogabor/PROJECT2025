@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gergő\\Desktop\\NEW 3.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\TeUtad.csproj": {}
+    "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad\\TeUtad.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gergő\\Desktop\\NEW 3.0\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj": {
+    "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gergő\\Desktop\\NEW 3.0\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj",
+        "projectUniqueName": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj",
         "projectName": "TeUtad.LIB",
-        "projectPath": "C:\\Users\\Gergő\\Desktop\\NEW 3.0\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj",
-        "packagesPath": "C:\\Users\\Gergő\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gergő\\Desktop\\NEW 3.0\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\obj\\",
+        "projectPath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj",
+        "packagesPath": "C:\\Users\\baloghgg1008\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Gergő\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\baloghgg1008\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -83,24 +83,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Gergő\\Desktop\\NEW 3.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\TeUtad.csproj": {
+    "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad\\TeUtad.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gergő\\Desktop\\NEW 3.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\TeUtad.csproj",
+        "projectUniqueName": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad\\TeUtad.csproj",
         "projectName": "TeUtad",
-        "projectPath": "C:\\Users\\Gergő\\Desktop\\NEW 3.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\TeUtad.csproj",
-        "packagesPath": "C:\\Users\\Gergő\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gergő\\Desktop\\NEW 3.0\\PROJECT2025\\PROJECT_2025\\TeUtad\\obj\\",
+        "projectPath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad\\TeUtad.csproj",
+        "packagesPath": "C:\\Users\\baloghgg1008\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Gergő\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\baloghgg1008\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -115,8 +115,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Gergő\\Desktop\\NEW 3.0\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj": {
-                "projectPath": "C:\\Users\\Gergő\\Desktop\\NEW 3.0\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj"
+              "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj": {
+                "projectPath": "C:\\Users\\baloghgg1008\\Desktop\\temp\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\TeUtad.LIB.csproj"
               }
             }
           }
@@ -131,7 +131,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -155,7 +155,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

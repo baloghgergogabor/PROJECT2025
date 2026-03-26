@@ -1,4 +1,5 @@
 @page "/regisztracio"
+@rendermode InteractiveServer
 @using Microsoft.AspNetCore.Components.Web
 @using System.Security.Cryptography
 @using System.ComponentModel.DataAnnotations
@@ -38,7 +39,6 @@
                     <p class="text-muted mb-4">Kezdd el a tervezést még ma</p>
 
                     <EditForm Model="@registerModel" OnValidSubmit="@HandleRegister" FormName="Regisztralas">
-                        <DataAnnotationsValidator />
 
                         <!-- Név -->
                         <div class="mb-3">
@@ -127,6 +127,7 @@
                         </div>
 
 
+                        <DataAnnotationsValidator/>
 
                         <!-- Register Button -->
                         <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold rounded-pill mb-3">
@@ -163,7 +164,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 @code {
-    private RegisterModel registerModel = new RegisterModel();
+    RegisterModel registerModel = new RegisterModel();
     private bool showPassword = false;
     private bool showConfirmPassword = false;
     private int passwordStrength = 0;
@@ -171,21 +172,17 @@
 
     public class RegisterModel
     {
-        [Required(ErrorMessage = "A név megadása kötelező")]
         [MinLength(3, ErrorMessage = "A névnek legalább 3 karakter hosszúnak kell lennie")]
-        public string FullName { get; set; } = string.Empty;
+        public string FullName { get; set; }
 
-        [Required(ErrorMessage = "Az e-mail cím megadása kötelező")]
         [EmailAddress(ErrorMessage = "Érvényes e-mail címet adj meg")]
-        public string Email { get; set; } = string.Empty;
+        public string Email { get; set; }
 
-        [Required(ErrorMessage = "A jelszó megadása kötelező")]
         [MinLength(8, ErrorMessage = "A jelszónak legalább 8 karakter hosszúnak kell lennie")]
-        public string Password { get; set; } = string.Empty;
+        public string Password { get; set; }
 
-        [Required(ErrorMessage = "A jelszó megerősítése kötelező")]
         [Compare(nameof(Password), ErrorMessage = "A jelszavak nem egyeznek")]
-        public string ConfirmPassword { get; set; } = string.Empty;
+        public string ConfirmPassword { get; set; }
     }
 
     private void TogglePasswordVisibility()
