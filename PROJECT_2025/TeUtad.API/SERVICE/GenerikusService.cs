@@ -38,5 +38,7 @@ namespace TeUtad.API.SERVICE
             adatok.Update(entity);
             await _Adatbazis.SaveChangesAsync();
         }
+
+
     }
 }
