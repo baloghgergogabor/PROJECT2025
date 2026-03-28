@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TeUtad.LIB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b804122c03d7b8e45809b517fe002d3e8805fef")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6fb36c6abbe96359258078ef180ec7680da91d3a")]
 [assembly: System.Reflection.AssemblyProductAttribute("TeUtad.LIB")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TeUtad.LIB")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

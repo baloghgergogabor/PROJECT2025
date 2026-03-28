@@ -8,6 +8,14 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddScoped(x => new HttpClient { BaseAddress = new Uri("https://localhost:44326/") });
 builder.Services.AddScoped<FelhasznaloSzerviz>();
+builder.Services.AddScoped<AutoSzerviz>();
+builder.Services.AddScoped<HotelSzerviz>();
+builder.Services.AddScoped<LatvanyossagokSzerviz>();
+builder.Services.AddScoped<RepuloJegySzerviz>();
+builder.Services.AddScoped<SzerepSzerviz>();
+builder.Services.AddScoped<UtazasSzerviz>();
+builder.Services.AddScoped<VarosSzerviz>();
+
 
 var app = builder.Build();
 
