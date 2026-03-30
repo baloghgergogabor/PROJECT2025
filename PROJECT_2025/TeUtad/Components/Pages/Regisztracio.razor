@@ -244,12 +244,12 @@
 
     private async Task HandleRegister()
     {
-        var Sha = SHA256.Create();
+        var Sha = new SHA256Managed();
         // Regisztrációs logika ide
         felhasznloAdat = new FelhasznaloAdat
             {
                 FelhasznaloNev = registerModel.FullName,
-                JelszoHash = Encoding.ASCII.GetString(Sha.ComputeHash(Encoding.UTF8.GetBytes(registerModel.Password))),
+                JelszoHash = Convert.ToBase64String(Sha.ComputeHash(Encoding.UTF8.GetBytes(registerModel.Password))),
                 Email = registerModel.Email
             };
         await Felhasznalo.PostFelhasznalo(felhasznloAdat);
