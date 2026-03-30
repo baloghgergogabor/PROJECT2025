@@ -1,5 +1,9 @@
 @page "/"
+@inject VarosSzerviz varos
+@inject UtazasSzerviz utazas
 @using Microsoft.AspNetCore.Components.Web
+@using TeUtad.LIB.Modul
+@using TeUtad.SERVICE
 
 <PageTitle>TeUtad — YourWay</PageTitle>
 
@@ -52,7 +56,7 @@
     </div>
 
     <div class="row g-4">
-        @foreach (var destination in destinations)
+        @foreach ()
         {
             <div class="col-sm-6 col-lg-4">
                 <div class="card trip-card border-0 shadow-sm rounded-4 overflow-hidden h-100" 
@@ -142,8 +146,21 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 @code {
+
+    List<Varos> _varos = new();
+    protected override Task OnInitializedAsync()
+    {
+        var osszekot = 
+        utazas.GetAllUtazas().Result.GroupBy(x => x.VarosId).Select(x => new
+        {
+            legnepszerubbvaros = x.Count()
+    }).OrderByDescending(x => x.legnepszerubbvaros);
+    }
+
+    
     private class Destination
     {
+        
         public int Id { get; set; }
         public string Name { get; set; }
         public string Emoji { get; set; }
@@ -187,6 +204,7 @@
 
     private string GetBadgeText(string key)
     {
+       
         return badges.ContainsKey(key) ? badges[key] : key;
     }
 
