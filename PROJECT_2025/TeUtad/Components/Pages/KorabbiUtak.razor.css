@@ -1,0 +1,38 @@
+﻿body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f0f4f8;
+}
+
+.trip-card {
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+    .trip-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,0.12);
+    }
+
+.map-preview {
+    height: 200px;
+    background: #e9ecef;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.trip-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+}
+
+.attraction-pill {
+    display: inline-block;
+    background: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    margin: 0.25rem;
+    font-size: 0.875rem;
+}

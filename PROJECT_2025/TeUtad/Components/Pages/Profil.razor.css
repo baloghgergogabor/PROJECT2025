@@ -1,0 +1,53 @@
+﻿body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f0f4f8;
+}
+
+.profile-header {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid white;
+    object-fit: cover;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.setting-item {
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    transition: background 0.2s;
+}
+
+    .setting-item:hover {
+        background: #f8f9fa;
+    }
+
+    .setting-item:last-child {
+        border-bottom: none;
+    }

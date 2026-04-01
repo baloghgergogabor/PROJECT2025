@@ -1,0 +1,349 @@
+@page "/korabbi-utak"
+@using Microsoft.AspNetCore.Components.Web
+@rendermode InteractiveServer
+
+<PageTitle>Korábbi utak — TeUtad</PageTitle>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold mb-1">
+                <i class="bi bi-clock-history me-2 text-primary"></i>
+                Korábbi utazásaim
+            </h2>
+            <p class="text-muted mb-0">Visszatekintés az élményeidre</p>
+        </div>
+        <a href="/ut-tervezes" class="btn btn-primary rounded-pill">
+            <i class="bi bi-plus-circle me-2"></i>
+            Új út tervezése
+        </a>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="d-flex gap-2 mb-4 flex-wrap">
+        <button type="button" class="btn @(selectedFilter == "all" ? "btn-primary" : "btn-outline-primary") btn-sm rounded-pill" 
+                @onclick='() => selectedFilter = "all"'>
+            Összes
+        </button>
+        <button type="button" class="btn @(selectedFilter == "upcoming" ? "btn-primary" : "btn-outline-primary") btn-sm rounded-pill" 
+                @onclick='() => selectedFilter = "upcoming"'>
+            Közelgő
+        </button>
+        <button type="button" class="btn @(selectedFilter == "completed" ? "btn-primary" : "btn-outline-primary") btn-sm rounded-pill" 
+                @onclick='() => selectedFilter = "completed"'>
+            Befejezett
+        </button>
+        <button type="button" class="btn @(selectedFilter == "favorites" ? "btn-primary" : "btn-outline-primary") btn-sm rounded-pill" 
+                @onclick='() => selectedFilter = "favorites"'>
+            <i class="bi bi-heart-fill me-1"></i>
+            Kedvencek
+        </button>
+    </div>
+
+    <!-- Trip Cards -->
+    <div class="row g-4">
+        @foreach (var trip in FilteredTrips)
+        {
+            <div class="col-md-6 col-lg-4">
+                <div class="card trip-card border-0 shadow-sm rounded-4 overflow-hidden h-100" 
+                     @onclick="@(() => ViewTripDetails(trip.Id))">
+                    
+                    <!-- Map Preview -->
+                    <div class="map-preview">
+                        @if (trip.Id == 1)
+                        {
+                            <!-- Google Maps placeholder - ide jön majd a térkép -->
+                            <div class="w-100 h-100 d-flex align-items-center justify-content-center bg-primary bg-opacity-10">
+                                <div class="text-center">
+                                    <i class="bi bi-map display-4 text-primary mb-2"></i>
+                                    <p class="small text-muted mb-0">Google Maps API integráció helye</p>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <!-- Placeholder image for other trips -->
+                            <div class="w-100 h-100 bg-gradient d-flex align-items-center justify-content-center" 
+                                 style="background: linear-gradient(135deg, @trip.GradientStart 0%, @trip.GradientEnd 100%)">
+                                <span style="font-size: 4rem;">@trip.Emoji</span>
+                            </div>
+                        }
+                        
+                        <!-- Trip Status Badge -->
+                        <div class="trip-badge">
+                            @if (trip.Status == "upcoming")
+                            {
+                                <span class="badge bg-info">Közelgő</span>
+                            }
+                            else if (trip.Status == "completed")
+                            {
+                                <span class="badge bg-success">Befejezett</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Tervezet</span>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="fw-bold mb-0">@trip.Name</h5>
+                            <button type="button" class="btn btn-sm btn-link text-danger p-0" 
+                                    @onclick:stopPropagation="true"
+                                    @onclick="@(() => ToggleFavorite(trip.Id))">
+                                <i class="bi bi-heart@(trip.IsFavorite ? "-fill" : "") fs-5"></i>
+                            </button>
+                        </div>
+
+                        <div class="text-muted small mb-3">
+                            <i class="bi bi-calendar me-1"></i>
+                            @trip.StartDate.ToString("yyyy. MM. dd.") - @trip.EndDate.ToString("yyyy. MM. dd.")
+                            <span class="ms-2">
+                                <i class="bi bi-clock me-1"></i>
+                                @((trip.EndDate - trip.StartDate).Days) nap
+                            </span>
+                        </div>
+
+                        <!-- Attractions -->
+                        <div class="mb-3">
+                            <div class="small text-muted mb-2">Helyszínek (@trip.Attractions.Count):</div>
+                            <div>
+                                @foreach (var attraction in trip.Attractions.Take(3))
+                                {
+                                    <span class="attraction-pill small text-muted">
+                                        <i class="bi bi-geo-alt-fill text-primary me-1"></i>
+                                        @attraction
+                                    </span>
+                                }
+                                @if (trip.Attractions.Count > 3)
+                                {
+                                    <span class="attraction-pill small fw-semibold text-primary">
+                                        +@(trip.Attractions.Count - 3) további
+                                    </span>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- Stats -->
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            <div class="small">
+                                <i class="bi bi-currency-dollar text-muted me-1"></i>
+                                <span class="fw-semibold">@trip.TotalCost.ToString("N0") Ft</span>
+                            </div>
+                            <div class="small text-muted">
+                                @if (trip.HasFlight) { <i class="bi bi-airplane-fill me-1"></i> }
+                                @if (trip.HasHotel) { <i class="bi bi-building me-1"></i> }
+                                @if (trip.HasCar) { <i class="bi bi-car-front me-1"></i> }
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer -->
+                    <div class="card-footer bg-transparent border-0 pb-3 px-4">
+                        <button type="button" class="btn btn-outline-primary btn-sm rounded-pill w-100"
+                                @onclick:stopPropagation="true"
+                                @onclick="@(() => ViewTripDetails(trip.Id))">
+                            <i class="bi bi-eye me-2"></i>
+                            Részletek megtekintése
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Empty State -->
+    @if (!FilteredTrips.Any())
+    {
+        <div class="text-center py-5">
+            <i class="bi bi-calendar-x display-1 text-muted mb-3"></i>
+            <h4 class="fw-bold mb-2">Nincs megjeleníthető utazás</h4>
+            <p class="text-muted mb-4">
+                @if (selectedFilter == "favorites")
+                {
+                    <text>Még nem jelöltél meg egyetlen utat sem kedvencként.</text>
+                }
+                else if (selectedFilter == "upcoming")
+                {
+                    <text>Nincs közelgő utazásod.</text>
+                }
+                else if (selectedFilter == "completed")
+                {
+                    <text>Még nincs befejezett utazásod.</text>
+                }
+                else
+                {
+                    <text>Kezdd el az első utazásod tervezését most!</text>
+                }
+            </p>
+            <a href="/ut-tervezes" class="btn btn-primary rounded-pill px-4">
+                <i class="bi bi-plus-circle me-2"></i>
+                Új út tervezése
+            </a>
+        </div>
+    }
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+@code {
+
+    // List<Varos> _varos = new();
+    // protected override Task OnInitializedAsync()
+    // {
+    //     var osszekot =
+    //     utazas.GetAllUtazas().Result.GroupBy(x => x.VarosId).Select(x => new
+    //     {
+    //         legnepszerubbvaros = x.Count()
+    //     }).OrderByDescending(x => x.legnepszerubbvaros);
+    // }
+
+    private string selectedFilter = "all";
+
+    private class Trip
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Emoji { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public List<string> Attractions { get; set; }
+        public int TotalCost { get; set; }
+        public bool HasFlight { get; set; }
+        public bool HasHotel { get; set; }
+        public bool HasCar { get; set; }
+        public bool IsFavorite { get; set; }
+        public string Status { get; set; } // upcoming, completed, draft
+        public string GradientStart { get; set; }
+        public string GradientEnd { get; set; }
+    }
+
+    private List<Trip> allTrips = new List<Trip>
+    {
+        new Trip 
+        { 
+            Id = 1, 
+            Name = "Budapest felfedezése", 
+            Emoji = "🏛️",
+            StartDate = DateTime.Now.AddDays(-14), 
+            EndDate = DateTime.Now.AddDays(-12),
+            Attractions = new List<string> { "Halászbástya", "Parlament", "Széchenyi fürdő", "Hősök tere", "Várkert Bazár", "Margitsziget" },
+            TotalCost = 185000,
+            HasFlight = false,
+            HasHotel = true,
+            HasCar = false,
+            IsFavorite = true,
+            Status = "completed",
+            GradientStart = "#0d6efd",
+            GradientEnd = "#0a58ca"
+        },
+        new Trip 
+        { 
+            Id = 2, 
+            Name = "Balaton körút", 
+            Emoji = "🏖️",
+            StartDate = DateTime.Now.AddDays(15), 
+            EndDate = DateTime.Now.AddDays(18),
+            Attractions = new List<string> { "Tihany", "Badacsony", "Keszthely", "Hévíz" },
+            TotalCost = 120000,
+            HasFlight = false,
+            HasHotel = true,
+            HasCar = true,
+            IsFavorite = false,
+            Status = "upcoming",
+            GradientStart = "#20c997",
+            GradientEnd = "#17a085"
+        },
+        new Trip 
+        { 
+            Id = 3, 
+            Name = "Téli Mátra", 
+            Emoji = "⛷️",
+            StartDate = DateTime.Now.AddDays(-45), 
+            EndDate = DateTime.Now.AddDays(-43),
+            Attractions = new List<string> { "Kékestető", "Mátraháza", "Sástó" },
+            TotalCost = 95000,
+            HasFlight = false,
+            HasHotel = true,
+            HasCar = true,
+            IsFavorite = false,
+            Status = "completed",
+            GradientStart = "#6f42c1",
+            GradientEnd = "#5a32a3"
+        },
+        new Trip 
+        { 
+            Id = 4, 
+            Name = "Debreceni hétvége", 
+            Emoji = "🌻",
+            StartDate = DateTime.Now.AddDays(30), 
+            EndDate = DateTime.Now.AddDays(32),
+            Attractions = new List<string> { "Nagyerdő", "Református Nagytemplom", "MODEM" },
+            TotalCost = 65000,
+            HasFlight = false,
+            HasHotel = true,
+            HasCar = false,
+            IsFavorite = true,
+            Status = "upcoming",
+            GradientStart = "#fd7e14",
+            GradientEnd = "#e85d04"
+        },
+        new Trip 
+        { 
+            Id = 5, 
+            Name = "Pécs kulturális túra", 
+            Emoji = "🎨",
+            StartDate = DateTime.Now.AddDays(-90), 
+            EndDate = DateTime.Now.AddDays(-87),
+            Attractions = new List<string> { "Ókeresztény sírkamrák", "Zsolnay Negyed", "Pécs Székesegyház", "Dzsámi" },
+            TotalCost = 145000,
+            HasFlight = false,
+            HasHotel = true,
+            HasCar = true,
+            IsFavorite = true,
+            Status = "completed",
+            GradientStart = "#d63384",
+            GradientEnd = "#b02a6f"
+        }
+    };
+
+    private IEnumerable<Trip> FilteredTrips
+    {
+        get
+        {
+            return selectedFilter switch
+            {
+                "upcoming" => allTrips.Where(t => t.Status == "upcoming"),
+                "completed" => allTrips.Where(t => t.Status == "completed"),
+                "favorites" => allTrips.Where(t => t.IsFavorite),
+                _ => allTrips
+            };
+        }
+    }
+
+    private void ToggleFavorite(int tripId)
+    {
+        var trip = allTrips.FirstOrDefault(t => t.Id == tripId);
+        if (trip != null)
+        {
+            trip.IsFavorite = !trip.IsFavorite;
+            StateHasChanged();
+        }
+    }
+
+    private void ViewTripDetails(int tripId)
+    {
+        // Navigálás a részletes nézethez
+        Console.WriteLine($"Viewing trip details for ID: {tripId}");
+        // NavigationManager.NavigateTo($"/ut-reszletek/{tripId}");
+    }
+}

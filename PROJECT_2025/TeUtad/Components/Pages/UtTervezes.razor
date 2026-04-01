@@ -1,5 +1,6 @@
 @page "/ut-tervezes"
 @using Microsoft.AspNetCore.Components.Web
+@rendermode InteractiveServer
 
 <PageTitle>Út tervezése — TeUtad</PageTitle>
 
@@ -8,7 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 </head>
-
 
 
 <div class="container py-5">
@@ -306,7 +306,7 @@
             <div class="d-flex justify-content-between mt-5 pt-4 border-top">
                 @if (currentStep > 1)
                 {
-                    <button class="btn btn-outline-secondary rounded-pill px-4" @onclick="PreviousStep">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill px-4" @onclick="PreviousStep">
                         <i class="bi bi-arrow-left me-2"></i>
                         Vissza
                     </button>
@@ -318,14 +318,14 @@
 
                 @if (currentStep < 4)
                 {
-                    <button class="btn btn-primary rounded-pill px-4" @onclick="NextStep">
+                    <button type="button" class="btn btn-primary rounded-pill px-4" @onclick="NextStep">
                         Tovább
                         <i class="bi bi-arrow-right ms-2"></i>
                     </button>
                 }
                 else
                 {
-                    <button class="btn btn-success rounded-pill px-4" @onclick="FinishBooking">
+                    <button type="button" class="btn btn-success rounded-pill px-4" @onclick="FinishBooking">
                         <i class="bi bi-check-circle me-2"></i>
                         Foglalás véglegesítése
                     </button>
@@ -466,16 +466,19 @@
     private void SelectFlight(int flightId)
     {
         selectedFlightId = selectedFlightId == flightId ? null : flightId;
+        StateHasChanged();
     }
 
     private void SelectHotel(int hotelId)
     {
         selectedHotelId = selectedHotelId == hotelId ? null : hotelId;
+        StateHasChanged();
     }
 
     private void SelectCar(int carId)
     {
         selectedCarId = selectedCarId == carId ? null : carId;
+        StateHasChanged();
     }
 
     private void AddRoutePoint()
@@ -493,7 +496,7 @@
         
         routePoints.Add(new RoutePoint
         {
-            Id = routePoints.Count + 1,
+            Id = routePoints.Any() ? routePoints.Max(p => p.Id) + 1 : 1,
             Order = routePoints.Count + 1,
             AttractionName = "Új helyszín",
             Address = "Budapest, cím",
@@ -504,6 +507,7 @@
         });
         
         RecalculateTotals();
+        StateHasChanged();
     }
 
     private void RemoveRoutePoint(int id)
@@ -518,6 +522,7 @@
                 routePoints[i].Order = i + 1;
             }
             RecalculateTotals();
+            StateHasChanged();
         }
     }
 
