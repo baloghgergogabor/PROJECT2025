@@ -3,6 +3,10 @@
     background-color: #f0f4f8;
 }
 
+gmp-map {
+    height: 100%;
+}
+
 .step-indicator {
     display: flex;
     justify-content: space-between;
