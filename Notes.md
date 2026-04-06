@@ -1,7 +1,7 @@
 Feature checklist
 - Út tervezés
 - [ ] Index úticél átvitel
-- [ x] Google maps integráció autocomplete kereséssel
+- [x] Google maps integráció autocomplete kereséssel
 - [ ] Közlekedési mód kiválasztása
 - [ ] Időtartam utazásra és nyitvatartásokra
 - [ ] Repjegy db vagy API-ból
