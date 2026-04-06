@@ -1,5 +1,7 @@
 @page "/ut-tervezes"
-@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+@implements IDisposable
 @rendermode InteractiveServer
 
 <PageTitle>Út tervezése — TeUtad</PageTitle>
@@ -8,11 +10,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+    
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL9wuHLIfIK1LLTkqPA6sW4ltfXl2rbfo&libraries=places&callback=Function.prototype" async defer></script>
+    <script src="/js/googleMaps.js"></script>
 </head>
 
 
+
 <div class="container py-5">
-    <!-- Step Indicator -->
+    @* Lépésjelző *@
     <div class="step-indicator">
         <div class="step-item @(currentStep >= 1 ? "completed" : "") @(currentStep == 1 ? "active" : "")">
             <div class="step-circle">
@@ -38,13 +45,13 @@
         </div>
     </div>
 
-    <!-- Main Content Card -->
+    @* Fő tartalom kártya *@
     <div class="card border-0 shadow-sm rounded-4">
         <div class="card-body p-4 p-md-5">
             
             @if (currentStep == 1)
             {
-                <!-- STEP 1: Route Planning -->
+                @* 1. LÉPÉS: Útvonaltervezés *@
                 <h2 class="fw-bold mb-4">
                     <i class="bi bi-map me-2 text-primary"></i>
                     Útvonal tervezése
@@ -54,6 +61,22 @@
                     <div class="col-lg-4 mb-4 mb-lg-0">
                         <h5 class="fw-semibold mb-3">Útvonal pontok</h5>
                         
+                        @* Autocomplete keresés *@
+                        <div class="mb-3">
+                            <label class="form-label small text-muted">
+                                <i class="bi bi-search me-1"></i>
+                                Új helyszín keresése
+                            </label>
+                            <input type="text" 
+                                   id="autocomplete-input" 
+                                   class="form-control" 
+                                   placeholder="Pl. Halászbástya, Parlament..." />
+                            <small class="text-muted">Kezdj el gépelni és válassz a listából!</small>
+                        </div>
+
+                        <hr class="my-3" />
+                        
+                        @* Útvonalpontok listája *@
                         @foreach (var point in routePoints)
                         {
                             <div class="route-point">
@@ -66,7 +89,7 @@
                                         </div>
                                         <span class="badge bg-primary-subtle text-primary mt-1">@point.Category</span>
                                     </div>
-                                    <button class="btn btn-sm btn-outline-danger" @onclick="@(() => RemoveRoutePoint(point.Id))">
+                                    <button type="button" class="btn btn-sm btn-outline-danger" @onclick="@(() => RemoveRoutePoint(point.Id))">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </div>
@@ -79,12 +102,8 @@
                             </div>
                         }
 
-                        <button class="btn btn-outline-primary w-100 rounded-pill" @onclick="AddRoutePoint">
-                            <i class="bi bi-plus-circle me-2"></i>
-                            Új pont hozzáadása
-                        </button>
-
-                        <div class="mt-4">
+                        @* Statisztikák *@
+                        <div class="mt-4 p-3 bg-light rounded">
                             <div class="d-flex justify-content-between mb-2">
                                 <span class="text-muted">Helyszínek száma:</span>
                                 <span class="fw-bold">@routePoints.Count db</span>
@@ -100,21 +119,20 @@
                         </div>
                     </div>
 
+                    @* Google Maps térkép *@
                     <div class="col-lg-8">
-                        <div class="map-container">
-                            <div class="text-center">
-                                <i class="bi bi-map display-1 text-muted mb-3"></i>
-@*                                  <gmp-map center="40.12150192260742,-100.45039367675781" zoom="4" map-id="DEMO_MAP_ID"> *@
-                                <small class="text-muted">Az útvonal pontok itt jelennek meg a térképen</small>
-                            </div>
-                        </div>
+                        <div id="map"></div>
+                        <p class="small text-muted mt-2 text-center">
+                            <i class="bi bi-info-circle me-1"></i>
+                            Kattints a markerekre a részletekért
+                        </p>
                     </div>
                 </div>
             }
 
             @if (currentStep == 2)
             {
-                <!-- STEP 2: Flight Booking -->
+                @* 2. LÉPÉS: Repjegy kiválasztása *@
                 <h2 class="fw-bold mb-4">
                     <i class="bi bi-airplane me-2 text-primary"></i>
                     Repjegy kiválasztása
@@ -171,7 +189,7 @@
                         </div>
                     }
 
-                    <!-- Skip Option -->
+                    @* Kihagy opció *@
                     <div class="col-12">
                         <div class="skip-option" @onclick="@(() => selectedFlightId = null)">
                             <i class="bi bi-x-circle display-6 text-muted mb-2"></i>
@@ -184,7 +202,7 @@
 
             @if (currentStep == 3)
             {
-                <!-- STEP 3: Hotel Selection -->
+                @* 3. LÉPÉS: Szállás kiválasztása *@
                 <h2 class="fw-bold mb-4">
                     <i class="bi bi-building me-2 text-primary"></i>
                     Szállás kiválasztása
@@ -232,7 +250,7 @@
                         </div>
                     }
 
-                    <!-- Skip Option -->
+                    @* Kihagy opció *@
                     <div class="col-12">
                         <div class="skip-option" @onclick="@(() => selectedHotelId = null)">
                             <i class="bi bi-x-circle display-6 text-muted mb-2"></i>
@@ -245,7 +263,7 @@
 
             @if (currentStep == 4)
             {
-                <!-- STEP 4: Car Rental -->
+                @* 4. LÉPÉS: Autóbérlés *@
                 <h2 class="fw-bold mb-4">
                     <i class="bi bi-car-front me-2 text-primary"></i>
                     Autóbérlés
@@ -291,7 +309,7 @@
                         </div>
                     }
 
-                    <!-- Skip Option -->
+                    @* Kihagy opció *@
                     <div class="col-12">
                         <div class="skip-option" @onclick="@(() => selectedCarId = null)">
                             <i class="bi bi-x-circle display-6 text-muted mb-2"></i>
@@ -302,7 +320,7 @@
                 </div>
             }
 
-            <!-- Navigation Buttons -->
+            @* Navigációs gombok *@
             <div class="d-flex justify-content-between mt-5 pt-4 border-top">
                 @if (currentStep > 1)
                 {
@@ -336,24 +354,20 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL9wuHLIfIK1LLTkqPA6sW4ltfXl2rbfo=console.debug&libraries=maps,marker&v=beta">
-</script>
 
 @code {
+    // === Állapot változók ===
     private int currentStep = 1;
     private int? selectedFlightId = null;
     private int? selectedHotelId = null;
     private int? selectedCarId = null;
-    
     private int totalHours = 0;
     private int totalDays = 2;
+    
+    // DotNetObjectReference az autocomplete callback-hez
+    private DotNetObjectReference<UtTervezes>? dotNetHelper;
 
-    protected override void OnInitialized()
-    {
-        RecalculateTotals();
-    }
-
-    // Route Points
+    // === Útvonalpont osztály ===
     private class RoutePoint
     {
         public int Id { get; set; }
@@ -364,19 +378,53 @@
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
         public string Category { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public string PlaceId { get; set; } = "";
     }
 
+    // === Kezdő útvonalpontok ===
     private List<RoutePoint> routePoints = new List<RoutePoint>
     {
-        new RoutePoint { Id = 1, Order = 1, AttractionName = "Hősök tere", Address = "Budapest, Andrássy út vége", VisitDate = DateTime.Now.AddDays(7), StartTime = new TimeSpan(9, 0, 0), EndTime = new TimeSpan(10, 30, 0), Category = "Látnivaló" },
-        new RoutePoint { Id = 2, Order = 2, AttractionName = "Szépművészeti Múzeum", Address = "Budapest, Dózsa György út 41", VisitDate = DateTime.Now.AddDays(7), StartTime = new TimeSpan(11, 0, 0), EndTime = new TimeSpan(13, 30, 0), Category = "Múzeum" },
-        new RoutePoint { Id = 3, Order = 3, AttractionName = "Vajdahunyad vára", Address = "Budapest, Városliget", VisitDate = DateTime.Now.AddDays(7), StartTime = new TimeSpan(14, 0, 0), EndTime = new TimeSpan(15, 30, 0), Category = "Vár" },
-        new RoutePoint { Id = 4, Order = 4, AttractionName = "Széchenyi Gyógyfürdő", Address = "Budapest, Állatkerti krt. 9-11", VisitDate = DateTime.Now.AddDays(7), StartTime = new TimeSpan(16, 0, 0), EndTime = new TimeSpan(19, 0, 0), Category = "Wellness" },
-        new RoutePoint { Id = 5, Order = 5, AttractionName = "Halászbástya", Address = "Budapest, Szentháromság tér", VisitDate = DateTime.Now.AddDays(8), StartTime = new TimeSpan(9, 30, 0), EndTime = new TimeSpan(11, 0, 0), Category = "Látnivaló" },
-        new RoutePoint { Id = 6, Order = 6, AttractionName = "Parlament", Address = "Budapest, Kossuth Lajos tér 1-3", VisitDate = DateTime.Now.AddDays(8), StartTime = new TimeSpan(11, 30, 0), EndTime = new TimeSpan(13, 0, 0), Category = "Történelem" }
+        new RoutePoint 
+        { 
+            Id = 1, Order = 1, 
+            AttractionName = "Halászbástya", 
+            Address = "Budapest, Szentháromság tér",
+            VisitDate = DateTime.Now.AddDays(7), 
+            StartTime = new TimeSpan(9, 0, 0), 
+            EndTime = new TimeSpan(11, 0, 0),
+            Category = "Látnivaló",
+            Latitude = 47.5023, 
+            Longitude = 19.0348
+        },
+        new RoutePoint 
+        { 
+            Id = 2, Order = 2, 
+            AttractionName = "Parlament",
+            Address = "Budapest, Kossuth Lajos tér 1-3",
+            VisitDate = DateTime.Now.AddDays(7),
+            StartTime = new TimeSpan(11, 30, 0),
+            EndTime = new TimeSpan(13, 0, 0),
+            Category = "Történelem",
+            Latitude = 47.5075,
+            Longitude = 19.0458
+        },
+        new RoutePoint 
+        { 
+            Id = 3, Order = 3,
+            AttractionName = "Széchenyi Gyógyfürdő",
+            Address = "Budapest, Állatkerti krt. 9-11",
+            VisitDate = DateTime.Now.AddDays(7),
+            StartTime = new TimeSpan(14, 0, 0),
+            EndTime = new TimeSpan(17, 0, 0),
+            Category = "Wellness",
+            Latitude = 47.5197,
+            Longitude = 19.0816
+        }
     };
 
-    // Flights
+    // === Repjegy osztály ===
     private class Flight
     {
         public int Id { get; set; }
@@ -393,6 +441,7 @@
         public int Stops { get; set; }
     }
 
+    // === Elérhető repjegyek ===
     private List<Flight> availableFlights = new List<Flight>
     {
         new Flight { Id = 1, Airline = "Wizz Air", FlightNumber = "W6 2301", DepartureCity = "Bécs", ArrivalCity = "Budapest", DepartureTime = "08:00", ArrivalTime = "09:30", Duration = "1ó 30p", Price = 18000, Class = "Economy", DirectFlight = true, Stops = 0 },
@@ -401,7 +450,7 @@
         new Flight { Id = 4, Airline = "Austrian Airlines", FlightNumber = "OS 714", DepartureCity = "Bécs", ArrivalCity = "Budapest", DepartureTime = "18:20", ArrivalTime = "19:50", Duration = "1ó 30p", Price = 28000, Class = "Business", DirectFlight = true, Stops = 0 }
     };
 
-    // Hotels
+    // === Hotel osztály ===
     private class Hotel
     {
         public int Id { get; set; }
@@ -415,6 +464,7 @@
         public string RoomType { get; set; }
     }
 
+    // === Elérhető szállások ===
     private List<Hotel> availableHotels = new List<Hotel>
     {
         new Hotel { Id = 1, Name = "Four Seasons Hotel Gresham Palace", Location = "Budapest, Széchenyi István tér 5-6", Stars = 5, Rating = 9.4, PricePerNight = 85000, Amenities = new List<string> { "WiFi", "Reggeli", "Medence", "Spa", "Duna-kilátás" }, MaxGuests = 2, RoomType = "Deluxe szoba" },
@@ -423,7 +473,7 @@
         new Hotel { Id = 4, Name = "Maverick Hostel & Ensuites", Location = "Budapest, Kazinczy utca", Stars = 2, Rating = 8.6, PricePerNight = 8500, Amenities = new List<string> { "WiFi", "Közös konyha", "Bár" }, MaxGuests = 4, RoomType = "Többágyas szoba" }
     };
 
-    // Cars
+    // === Autó osztály ===
     private class Car
     {
         public int Id { get; set; }
@@ -437,6 +487,7 @@
         public List<string> Features { get; set; }
     }
 
+    // === Elérhető autók ===
     private List<Car> availableCars = new List<Car>
     {
         new Car { Id = 1, Brand = "Volkswagen", Model = "Golf", Icon = "🚗", Seats = 5, Luggage = 2, Transmission = "Automata", PricePerDay = 12000, Features = new List<string> { "Klíma", "GPS", "Bluetooth" } },
@@ -447,87 +498,172 @@
         new Car { Id = 6, Brand = "Audi", Model = "A6", Icon = "🚙", Seats = 5, Luggage = 3, Transmission = "Automata", PricePerDay = 35000, Features = new List<string> { "Klíma", "GPS", "Bőrülés", "Ülésfűtés" } }
     };
 
-    private void NextStep()
+    // === Inicializálás oldal betöltésekor ===
+    protected override void OnInitialized()
     {
-        if (currentStep < 4)
-        {
-            currentStep++;
-            StateHasChanged();
-        }
-    }
-
-    private void PreviousStep()
-    {
-        if (currentStep > 1)
-        {
-            currentStep--;
-            StateHasChanged();
-        }
-    }
-
-    private void SelectFlight(int flightId)
-    {
-        selectedFlightId = selectedFlightId == flightId ? null : flightId;
-        StateHasChanged();
-    }
-
-    private void SelectHotel(int hotelId)
-    {
-        selectedHotelId = selectedHotelId == hotelId ? null : hotelId;
-        StateHasChanged();
-    }
-
-    private void SelectCar(int carId)
-    {
-        selectedCarId = selectedCarId == carId ? null : carId;
-        StateHasChanged();
-    }
-
-    private void AddRoutePoint()
-    {
-        var lastPoint = routePoints.LastOrDefault();
-        var newVisitDate = lastPoint?.VisitDate ?? DateTime.Now.AddDays(7);
-        var newStartTime = lastPoint?.EndTime.Add(TimeSpan.FromHours(1)) ?? new TimeSpan(9, 0, 0);
-        
-        // Ha már túl késő van, következő napra
-        if (newStartTime.TotalHours >= 22)
-        {
-            newVisitDate = newVisitDate.AddDays(1);
-            newStartTime = new TimeSpan(9, 0, 0);
-        }
-        
-        routePoints.Add(new RoutePoint
-        {
-            Id = routePoints.Any() ? routePoints.Max(p => p.Id) + 1 : 1,
-            Order = routePoints.Count + 1,
-            AttractionName = "Új helyszín",
-            Address = "Budapest, cím",
-            VisitDate = newVisitDate,
-            StartTime = newStartTime,
-            EndTime = newStartTime.Add(TimeSpan.FromHours(2)),
-            Category = "Látnivaló"
-        });
-        
         RecalculateTotals();
-        StateHasChanged();
     }
 
-    private void RemoveRoutePoint(int id)
+    // === Térkép és autocomplete inicializálása ===
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        var point = routePoints.FirstOrDefault(p => p.Id == id);
-        if (point != null && routePoints.Count > 1)
+        if (firstRender)
         {
-            routePoints.Remove(point);
-            // Újra számozzuk a pontokat
-            for (int i = 0; i < routePoints.Count; i++)
+            try
             {
-                routePoints[i].Order = i + 1;
+                // Várunk, hogy a Google Maps betöltődjön
+                await Task.Delay(1500);
+                
+                // DotNetObjectReference létrehozása
+                dotNetHelper = DotNetObjectReference.Create(this);
+                
+                // Térkép inicializálása
+                await InitializeMap();
+                
+                // Autocomplete inicializálása
+                await JSRuntime.InvokeVoidAsync("initAutocomplete", "autocomplete-input", dotNetHelper);
+                
+                Console.WriteLine("✅ Google Maps és Autocomplete inicializálva!");
             }
-            RecalculateTotals();
-            StateHasChanged();
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Map initialization error: {ex.Message}");
+            }
         }
     }
 
+    // === Térkép inicializálása a jelenlegi pontokkal ===
+    private async Task InitializeMap()
+    {
+        try
+        {
+            // Objektum tömb létrehozása a JavaScript számára
+            var routeData = routePoints.Select(p => new
+            {
+                attractionName = p.AttractionName,
+                address = p.Address,
+                latitude = p.Latitude,
+                longitude = p.Longitude,
+                startTime = p.StartTime.ToString(@"hh\:mm"),
+                endTime = p.EndTime.ToString(@"hh\:mm")
+            }).ToArray();
+
+            await JSRuntime.InvokeVoidAsync("initMap", (object)routeData, "map");
+            Console.WriteLine($"✅ Térkép inicializálva {routePoints.Count} ponttal");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ InitializeMap error: {ex.Message}");
+        }
+    }
+
+    // === Térkép frissítése ===
+    private async Task UpdateMap()
+    {
+        try
+        {
+            // FONTOS: Objektum tömb létrehozása, NEM közvetlenül a routePoints!
+            var routeData = routePoints.Select(p => new
+            {
+                attractionName = p.AttractionName,
+                address = p.Address,
+                latitude = p.Latitude,
+                longitude = p.Longitude,
+                startTime = p.StartTime.ToString(@"hh\:mm"),
+                endTime = p.EndTime.ToString(@"hh\:mm")
+            }).ToArray();
+
+            // Cast object-re, hogy biztosan tömbként menjen át
+            await JSRuntime.InvokeVoidAsync("updateMap", (object)routeData);
+            Console.WriteLine($"✅ Térkép frissítve {routePoints.Count} ponttal");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ UpdateMap error: {ex.Message}");
+        }
+    }
+
+    // === AUTOCOMPLETE CALLBACK - JavaScript hívja meg ===
+    [JSInvokable]
+    public async Task OnPlaceSelected(PlaceData placeData)
+    {
+        try
+        {
+            // Utolsó pont lekérése
+            var lastPoint = routePoints.LastOrDefault();
+            var newVisitDate = lastPoint?.VisitDate ?? DateTime.Now.AddDays(7);
+            var newStartTime = lastPoint?.EndTime.Add(TimeSpan.FromHours(1)) ?? new TimeSpan(9, 0, 0);
+            
+            // Ha már késő van, következő napra tesszük
+            if (newStartTime.TotalHours >= 22)
+            {
+                newVisitDate = newVisitDate.AddDays(1);
+                newStartTime = new TimeSpan(9, 0, 0);
+            }
+            
+            // Új pont hozzáadása
+            routePoints.Add(new RoutePoint
+            {
+                Id = routePoints.Any() ? routePoints.Max(p => p.Id) + 1 : 1,
+                Order = routePoints.Count + 1,
+                AttractionName = placeData.Name,
+                Address = placeData.Address,
+                VisitDate = newVisitDate,
+                StartTime = newStartTime,
+                EndTime = newStartTime.Add(TimeSpan.FromHours(2)),
+                Category = "Látnivaló",
+                Latitude = placeData.Latitude,
+                Longitude = placeData.Longitude,
+                PlaceId = placeData.PlaceId
+            });
+            
+            RecalculateTotals();
+            await UpdateMap();
+            
+            // Input mező ürítése
+            await JSRuntime.InvokeVoidAsync("eval", 
+                "document.getElementById('autocomplete-input').value = ''");
+            
+            StateHasChanged();
+            
+            Console.WriteLine($"✅ Új hely hozzáadva: {placeData.Name}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ OnPlaceSelected error: {ex.Message}");
+        }
+    }
+
+    // === Útvonalpont törlése ===
+    private async Task RemoveRoutePoint(int id)
+    {
+        try
+        {
+            var point = routePoints.FirstOrDefault(p => p.Id == id);
+            if (point != null && routePoints.Count > 1)
+            {
+                routePoints.Remove(point);
+                
+                // Sorrend újraszámozása
+                for (int i = 0; i < routePoints.Count; i++)
+                {
+                    routePoints[i].Order = i + 1;
+                }
+                
+                RecalculateTotals();
+                await UpdateMap();
+                StateHasChanged();
+                
+                Console.WriteLine($"✅ Pont törölve: {point.AttractionName}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ RemoveRoutePoint error: {ex.Message}");
+        }
+    }
+
+    // === Statisztikák újraszámolása ===
     private void RecalculateTotals()
     {
         if (routePoints.Any())
@@ -536,7 +672,6 @@
             var lastDate = routePoints.Max(p => p.VisitDate);
             totalDays = (lastDate - firstDate).Days + 1;
             
-            // Számoljuk össze az összes időt
             double totalMinutes = 0;
             foreach (var point in routePoints)
             {
@@ -551,15 +686,75 @@
         }
     }
 
+    // === Léptetés előre ===
+    private void NextStep()
+    {
+        if (currentStep < 4)
+        {
+            currentStep++;
+            StateHasChanged();
+        }
+    }
+
+    // === Léptetés hátra ===
+    private void PreviousStep()
+    {
+        if (currentStep > 1)
+        {
+            currentStep--;
+            StateHasChanged();
+        }
+    }
+
+    // === Repjegy kiválasztása ===
+    private void SelectFlight(int flightId)
+    {
+        selectedFlightId = selectedFlightId == flightId ? null : flightId;
+        StateHasChanged();
+    }
+
+    // === Hotel kiválasztása ===
+    private void SelectHotel(int hotelId)
+    {
+        selectedHotelId = selectedHotelId == hotelId ? null : hotelId;
+        StateHasChanged();
+    }
+
+    // === Autó kiválasztása ===
+    private void SelectCar(int carId)
+    {
+        selectedCarId = selectedCarId == carId ? null : carId;
+        StateHasChanged();
+    }
+
+    // === Foglalás véglegesítése ===
     private void FinishBooking()
     {
-        // Foglalás véglegesítése
-        var summary = $"Útvonal: {routePoints.Count} helyszín, {totalDays} nap, {totalHours} óra\n";
-        summary += $"Repjegy: {(selectedFlightId.HasValue ? "Kiválasztva" : "Nincs")}\n";
-        summary += $"Szállás: {(selectedHotelId.HasValue ? "Kiválasztva" : "Nincs")}\n";
-        summary += $"Autó: {(selectedCarId.HasValue ? "Kiválasztva" : "Nincs")}";
+        var summary = $"📋 Foglalás összesítő:\n";
+        summary += $"  🗺️ Útvonal: {routePoints.Count} helyszín, {totalDays} nap, {totalHours} óra\n";
+        summary += $"  ✈️ Repjegy: {(selectedFlightId.HasValue ? "Kiválasztva (#" + selectedFlightId + ")" : "Nincs")}\n";
+        summary += $"  🏨 Szállás: {(selectedHotelId.HasValue ? "Kiválasztva (#" + selectedHotelId + ")" : "Nincs")}\n";
+        summary += $"  🚗 Autó: {(selectedCarId.HasValue ? "Kiválasztva (#" + selectedCarId + ")" : "Nincs")}";
         
         Console.WriteLine(summary);
-        // Itt navigálhatsz egy összesítő oldalra vagy mentheted az adatokat
+        
+        // Itt menthetnéd az adatokat az API-ba vagy adatbázisba
+        // await HttpClient.PostAsJsonAsync("/api/bookings", bookingData);
+    }
+
+    // === PlaceData osztály a JavaScript callback-hez ===
+    public class PlaceData
+    {
+        public string Name { get; set; } = "";
+        public string Address { get; set; } = "";
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public string PlaceId { get; set; } = "";
+    }
+
+    // === Cleanup ===
+    public void Dispose()
+    {
+        dotNetHelper?.Dispose();
     }
 }
