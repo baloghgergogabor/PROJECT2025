@@ -8,6 +8,7 @@
 @using TeUtad.SERVICE
 @inject FelhasznaloSzerviz Felhasznalo
 @inject NavigationManager nav
+@inject IJSRuntime jsRun
 
 
 <PageTitle>Regisztráció — TeUtad</PageTitle>
@@ -126,6 +127,40 @@
                             <ValidationMessage For="@(() => registerModel.ConfirmPassword)" class="text-danger small" />
                         </div>
 
+                        <!-- Kezdő Város -->
+                        <div class="mb-3">
+                            <label for="KezdoVaros" class="form-label fw-semibold">Tartozkodó Városa</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white">
+                                    <i class="bi bi-person text-muted"></i>
+                                </span>
+                                <InputText @bind-Value="registerModel.KezdoVaros"
+                                           class="form-control"
+                                           id="KezdoVaros"
+                                           placeholder="Budapest" />
+                            </div>
+                            <ValidationMessage For="@(() => registerModel.KezdoVaros)" class="text-danger small" />
+                        </div>
+
+                        <!-- SzuletesiNap -->
+                        <div class="mb-3">
+                            <label for="SzuletesiNap" class="form-label fw-semibold">Tartozkodó Városa</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white">
+                                    <i class="bi bi-person text-muted"></i>
+                                </span>
+                                <InputDate @bind-Value="registerModel.SzuletesiNap"
+                                           TValue="DateOnly"
+                                           class="form-control"
+                                           id="SzuletesiNap"
+                                           Placeholder="2000.10.10"
+                                           />
+                            </div>
+                            <ValidationMessage For="@(() => registerModel.SzuletesiNap)" class="text-danger small" />
+                        </div>
+
+
+
 
                         <DataAnnotationsValidator/>
 
@@ -172,17 +207,28 @@
 
     public class RegisterModel
     {
+        [Required]
         [MinLength(3, ErrorMessage = "A névnek legalább 3 karakter hosszúnak kell lennie")]
         public string FullName { get; set; }
 
+        [Required]
         [EmailAddress(ErrorMessage = "Érvényes e-mail címet adj meg")]
         public string Email { get; set; }
 
+        [Required]
         [MinLength(8, ErrorMessage = "A jelszónak legalább 8 karakter hosszúnak kell lennie")]
         public string Password { get; set; }
 
+        [Required]
         [Compare(nameof(Password), ErrorMessage = "A jelszavak nem egyeznek")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public string KezdoVaros { get; set; }
+
+        [Required]
+        public DateOnly SzuletesiNap { get; set; }
+
     }
 
     private void TogglePasswordVisibility()
@@ -244,16 +290,25 @@
 
     private async Task HandleRegister()
     {
-        var Sha = SHA256.Create();
+        var Sha = new SHA256Managed();
         // Regisztrációs logika ide
         felhasznloAdat = new FelhasznaloAdat
             {
                 FelhasznaloNev = registerModel.FullName,
-                JelszoHash = Encoding.ASCII.GetString(Sha.ComputeHash(Encoding.UTF8.GetBytes(registerModel.Password))),
-                Email = registerModel.Email
+                JelszoHash = Convert.ToBase64String(Sha.ComputeHash(Encoding.UTF8.GetBytes(registerModel.Password))),
+                Email = registerModel.Email,
+                SzerepId = 2,
             };
-        await Felhasznalo.PostFelhasznalo(felhasznloAdat);
-        nav.NavigateTo("/");
+        var felhasznalok = await Felhasznalo.GetAllFelhasznalo();
+        if (felhasznalok.Where(fel => fel.FelhasznaloNev == felhasznloAdat.FelhasznaloNev && fel.Email == felhasznloAdat.Email).Any())
+        {
+            await jsRun.InvokeVoidAsync("alert", "Már van ilyen felhasználó!");
+        }
+        else
+        {
+            await Felhasznalo.PostFelhasznalo(felhasznloAdat);
+            nav.NavigateTo("/");
+        }
         // Például API hívás, token mentés, átirányítás stb.
         Console.WriteLine($"Regisztráció: {registerModel.FullName} ({registerModel.Email})");
     }

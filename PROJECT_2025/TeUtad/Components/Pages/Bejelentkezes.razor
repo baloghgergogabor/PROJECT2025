@@ -1,10 +1,18 @@
 @page "/bejelentkezes"
 @rendermode InteractiveServer
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
 @using Microsoft.AspNetCore.Components.Web
 @using System.ComponentModel.DataAnnotations
+@using System.Text
+@using System.Security.Cryptography
+@using System.Security.Claims
 @using TeUtad.LIB.Modul
 @using TeUtad.SERVICE
 @inject FelhasznaloSzerviz Felhasznalo
+@inject SzerepSzerviz Szerep
+@inject NavigationManager nav
+@inject IJSRuntime jsRun
 <PageTitle>Bejelentkezés — TeUtad</PageTitle>
 
 <head>
@@ -34,20 +42,19 @@
                     <EditForm Model="@loginModel" OnValidSubmit="@HandleLogin">
                         <DataAnnotationsValidator />
 
-                        <!-- Email -->
+                        <!-- FelhasznaloNev -->
                         <div class="mb-3">
-                            <label for="email" class="form-label fw-semibold"></label>
+                            <label for="Nev" class="form-label fw-semibold"></label>
                             <div class="input-group">
                                 <span class="input-group-text bg-white">
                                     <i class="bi bi-envelope text-muted"></i>
                                 </span>
-                                <InputText @bind-Value="loginModel.Email" 
-                                type="email" 
+                                <InputText @bind-Value="loginModel.FelhasznaloNev" 
                                 class="form-control" 
-                                id="email" 
-                                placeholder="pelda@email.com" />
+                                id="Nev" 
+                                placeholder="Kovácskata" />
                             </div>
-                            <ValidationMessage For="@(() => loginModel.Email)" class="text-danger small" />
+                            <ValidationMessage For="@(() => loginModel.FelhasznaloNev)" class="text-danger small" />
                         </div>
 
                         <!-- Password -->
@@ -124,26 +131,43 @@
 
     public class LoginModel
     {
-        [Required(ErrorMessage = "Az e-mail cím megadása kötelező")]
-        [EmailAddress(ErrorMessage = "Érvényes e-mail címet adj meg")]
-        public string Email { get; set; } = string.Empty;
+        [Required(ErrorMessage = "A felhasznaló név megadása kötelező")]
+        public string FelhasznaloNev { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "A jelszó megadása kötelező")]
         [MinLength(6, ErrorMessage = "A jelszónak legalább 6 karakter hosszúnak kell lennie")]
         public string Password { get; set; } = string.Empty;
 
-        public bool RememberMe { get; set; } = false;
     }
 
     private void TogglePasswordVisibility()
     {
         showPassword = !showPassword;
     }
+    [CascadingParameter]
+    public HttpContext? HttpContext { get; set; }
 
     private async Task HandleLogin()
     {
         // Bejelentkezési logika ide
         // Például API hívás, token mentés stb.
-        Console.WriteLine($"Bejelentkezés: {loginModel.Email}");
+        var Sha = new SHA256Managed();
+        // Bejelentkezési logika ide
+        var FelahasznaloProbalkozas = Felhasznalok.Where(x => x.FelhasznaloNev == loginModel.FelhasznaloNev).FirstOrDefault();
+        if (FelahasznaloProbalkozas is null || FelahasznaloProbalkozas.JelszoHash != Convert.ToBase64String(Sha.ComputeHash(Encoding.UTF8.GetBytes(loginModel.Password))))
+        {
+            await jsRun.InvokeVoidAsync("alert", "Nem megfelelő E-mail cím vagy jelszó!");
+            return;
+        }
+        Szerep Szerpe = await Szerep.GetByIdSzerep(FelahasznaloProbalkozas.SzerepId);
+        var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, loginModel.FelhasznaloNev),
+                new Claim(ClaimTypes.Role, Szerpe.Szerepe)
+            };
+        var idententity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        var principal = new ClaimsPrincipal(idententity);
+        await HttpContext.SignInAsync(principal);
+        nav.NavigateTo("/");
     }
 }
