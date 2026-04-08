@@ -1,5 +1,6 @@
 @page "/ut-tervezes"
 @using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Components
 @inject IJSRuntime JSRuntime
 @implements IDisposable
 @rendermode InteractiveServer
@@ -7,10 +8,10 @@
 <PageTitle>Út tervezése — TeUtad</PageTitle>
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL9wuHLIfIK1LLTkqPA6sW4ltfXl2rbfo&libraries=places&callback=Function.prototype" async defer></script>
     <script src="/js/googleMaps.js"></script>
@@ -19,23 +20,73 @@
 
 
 <div class="container py-5">
+    @* Dátumválasztó - Mobile-friendly *@
+    <div class="card border-0 shadow-sm rounded-4 mb-4">
+        <div class="card-body p-3 p-md-4">
+            <div class="row g-3 align-items-end">
+                <div class="col-12 col-md-4">
+                    <label class="form-label fw-semibold mb-2">
+                        <i class="bi bi-calendar-event me-2"></i>
+                        Utazás kezdete
+                    </label>
+                    <input type="date"
+                           class="form-control form-control-lg"
+                           @bind="tripStartDate"
+                           @bind:event="oninput"
+                           @onchange="OnTripDateChanged" />
+                </div>
+                <div class="col-12 col-md-8">
+                    <div class="alert alert-info mb-0 py-2 px-3 small">
+                        <i class="bi bi-info-circle me-1"></i>
+                        <strong>Kiválasztott dátum:</strong> @tripStartDate.ToString("yyyy. MMMM dd. (dddd)")
+                        - Állomások automatikusan erre a napra lesznek tervezve
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     @* Lépésjelző *@
     <div class="step-indicator">
         <div class="step-item @(currentStep >= 1 ? "completed" : "") @(currentStep == 1 ? "active" : "")">
             <div class="step-circle">
-                @if (currentStep > 1) { <i class="bi bi-check-lg"></i> } else { <span>1</span> }
+                @if (currentStep > 1)
+                {
+                    <i class="bi bi-check-lg"></i>
+                }
+                else
+                {
+
+                    <span>1</span>
+                }
             </div>
             <div class="small fw-semibold">Útvonal</div>
         </div>
         <div class="step-item @(currentStep >= 2 ? "completed" : "") @(currentStep == 2 ? "active" : "")">
             <div class="step-circle">
-                @if (currentStep > 2) { <i class="bi bi-check-lg"></i> } else { <span>2</span> }
+                @if (currentStep > 2)
+                {
+                    <i class="bi bi-check-lg"></i>
+                }
+                else
+                {
+
+                    <span>2</span>
+                }
             </div>
             <div class="small fw-semibold">Repjegy</div>
         </div>
         <div class="step-item @(currentStep >= 3 ? "completed" : "") @(currentStep == 3 ? "active" : "")">
             <div class="step-circle">
-                @if (currentStep > 3) { <i class="bi bi-check-lg"></i> } else { <span>3</span> }
+                @if (currentStep > 3)
+                {
+                    <i class="bi bi-check-lg"></i>
+                }
+                else
+                {
+
+                    <span>3</span>
+                }
             </div>
             <div class="small fw-semibold">Szállás</div>
         </div>
@@ -48,7 +99,7 @@
     @* Fő tartalom kártya *@
     <div class="card border-0 shadow-sm rounded-4">
         <div class="card-body p-4 p-md-5">
-            
+
             @if (currentStep == 1)
             {
                 @* 1. LÉPÉS: Útvonaltervezés *@
@@ -56,26 +107,26 @@
                     <i class="bi bi-map me-2 text-primary"></i>
                     Útvonal tervezése
                 </h2>
-                
+
                 <div class="row">
                     <div class="col-lg-4 mb-4 mb-lg-0">
                         <h5 class="fw-semibold mb-3">Útvonal pontok</h5>
-                        
+
                         @* Autocomplete keresés *@
                         <div class="mb-3">
                             <label class="form-label small text-muted">
                                 <i class="bi bi-search me-1"></i>
                                 Új helyszín keresése
                             </label>
-                            <input type="text" 
-                                   id="autocomplete-input" 
-                                   class="form-control" 
+                            <input type="text"
+                                   id="autocomplete-input"
+                                   class="form-control"
                                    placeholder="Pl. Halászbástya, Parlament..." />
-                            <small class="text-muted">Kezdj el gépelni és válassz a listából!</small>
+                            <small class="text-muted m-3">Kezdj el gépelni és válassz a listából!</small>
                         </div>
 
                         <hr class="my-3" />
-                        
+
                         @* Útvonalpontok listája *@
                         @foreach (var point in routePoints)
                         {
@@ -88,18 +139,181 @@
                                             <i class="bi bi-geo-alt me-1"></i>@point.Address
                                         </div>
                                         <span class="badge bg-primary-subtle text-primary mt-1">@point.Category</span>
+
+                                        @* Nyitvatartási idő *@
+                                        @if (!string.IsNullOrEmpty(point.OpeningHours))
+                                        {
+                                            <div class="small mt-2">
+                                                <i class="bi bi-clock me-1"></i>
+                                                <span class="@(point.IsOpen == true ? "text-success" : point.IsOpen == false ? "text-danger" : "text-muted")">
+                                                    @point.OpeningHours
+                                                </span>
+                                            </div>
+                                        }
                                     </div>
-                                    <button type="button" class="btn btn-sm btn-outline-danger" @onclick="@(() => RemoveRoutePoint(point.Id))">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
+
+                                    <div class="d-flex flex-column gap-1">
+                                        @* Fel/Le gombok *@
+                                        @if (point.Order > 1)
+                                        {
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                    @onclick="@(() => MovePointUp(point.Id))"
+                                                    title="Fel">
+                                                <i class="bi bi-arrow-up"></i>
+                                            </button>
+                                        }
+                                        @if (point.Order < routePoints.Count)
+                                        {
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                    @onclick="@(() => MovePointDown(point.Id))"
+                                                    title="Le">
+                                                <i class="bi bi-arrow-down"></i>
+                                            </button>
+                                        }
+                                        <button type="button" class="btn btn-sm btn-outline-danger"
+                                                @onclick="@(() => RemoveRoutePoint(point.Id))"
+                                                title="Törlés">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="small">
+
+                                @* Zárva figyelmeztetés *@
+                                @if (point.WillBeClosed)
+                                {
+                                    <div class="alert alert-warning py-2 px-3 mb-2 small">
+                                        <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                                        <strong>Figyelem!</strong> A Google Maps szerint ez a lokáció már zárva lesz mire odaérnél!
+                                    </div>
+                                }
+
+                                <div class="small mb-2">
                                     <i class="bi bi-calendar me-1"></i>
                                     @point.VisitDate.ToString("yyyy. MM. dd.")
                                     <i class="bi bi-clock ms-2 me-1"></i>
                                     @point.StartTime.ToString(@"hh\:mm") - @point.EndTime.ToString(@"hh\:mm")
                                 </div>
+
+                                @* Időtartam beállítás - Mobilbarát *@
+                                <div class="border border-secondary rounded-3 m-2 px-2 px-md-3 py-2">
+                                    <p class="fw-semibold m-0 small mb-2 mb-md-0">Mennyi időt tervezel itt tartózkodni?</p>
+                                    <div class="d-flex align-items-center justify-content-center gap-2">
+                                        <button class="btn btn-primary btn-sm" @onclick="@(() => DecreaseTime(point))">
+                                            <i class="bi bi-dash"></i>
+                                        </button>
+                                        <span class="fw-bold mx-2">@point.TimeBefore óra</span>
+                                        <button class="btn btn-primary btn-sm" @onclick="@(() => IncreaseTime(point))">
+                                            <i class="bi bi-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
+
+                            @* Közlekedési mód választás (csak ha nem az utolsó pont) *@
+                            @if (point.Order < routePoints.Count)
+                            {
+                                <div class="border border-warning rounded-3 m-2 mb-3 p-3 bg-light">
+                                    <p class="fw-semibold mb-2 small">
+                                        <i class="bi bi-arrow-right-circle me-1"></i>
+                                        Hogyan jutsz el a következő állomásra?
+                                    </p>
+
+                                    @* Közlekedési opciók *@
+                                    <div class="row g-2 mb-2">
+                                        @foreach (var mode in new[] {
+                                                        ("DRIVING", "car-front", "Autó", "primary"),
+                                                        ("WALKING", "person-walking", "Gyalog", "success"),
+                                                        ("BICYCLING", "bicycle", "Kerékpár", "info"),
+                                                        ("TRANSIT", "bus-front", "Tömegközl.", "warning")
+                                                        })
+                                        {
+                                            var (modeKey, icon, label, color) = mode;
+                                            var isSelected = point.TravelModeToNext == modeKey;
+                                            var hasInfo = point.TravelOptions.ContainsKey(modeKey);
+
+                                            <div class="col-6 col-md-3">
+                                                <button type="button"
+                                                        class="btn @(isSelected ? $"btn-{color}" : $"btn-outline-{color}") btn-sm w-100 position-relative"
+                                                        @onclick="@(() => SelectTravelMode(point, modeKey))">
+                                                    <i class="bi bi-@icon d-block mb-1"></i>
+                                                    <small class="d-block">@label</small>
+                                                    @if (hasInfo && point.TravelOptions[modeKey].Duration != "...")
+                                                    {
+                                                        <small class="d-block fw-bold">@point.TravelOptions[modeKey].Duration</small>
+                                                        <small class="d-block text-muted" style="font-size: 0.7em;">@point.TravelOptions[modeKey].Distance</small>
+                                                    }
+                                                    else if (!hasInfo)
+                                                    {
+                                                        <div class="spinner-border spinner-border-sm mt-1" role="status">
+                                                            <span class="visually-hidden">Számítás...</span>
+                                                        </div>
+                                                    }
+                                                </button>
+                                            </div>
+                                        }
+                                    </div>
+
+                                    @* Összehasonlítás gomb *@
+                                    @if (point.TravelOptions.Count == 4 && point.TravelOptions.All(x => x.Value.Duration != "..."))
+                                    {
+                                        <div class="alert alert-info mb-0 py-2 small">
+                                            <i class="bi bi-info-circle me-1"></i>
+                                            <strong>Leggyorsabb:</strong>
+                                            @{
+                                                var fastest = point.TravelOptions.OrderBy(x => x.Value.DurationMinutes).First();
+                                                var fastestLabel = fastest.Key switch
+                                                {
+                                                    "DRIVING" => "Autó",
+                                                    "WALKING" => "Gyalog",
+                                                    "BICYCLING" => "Kerékpár",
+                                                    "TRANSIT" => "Tömegközlekedés",
+                                                    _ => fastest.Key
+                                                };
+                                            }
+                                            @fastestLabel (@fastest.Value.Duration, @fastest.Value.Distance)
+                                        </div>
+                                    }
+
+                                    @* Tömegközlekedési részletek *@
+                                    @if (point.TravelModeToNext == "TRANSIT" &&
+                                                            point.TravelOptions.ContainsKey("TRANSIT") &&
+                                                            point.TravelOptions["TRANSIT"].TransitDetails != null)
+                                    {
+                                        var transit = point.TravelOptions["TRANSIT"].TransitDetails;
+                                        <div class="alert alert-info mb-0 p-2 small mt-2">
+                                            <div class="fw-bold mb-1">
+                                                <i class="bi bi-info-circle me-1"></i>Útvonal részletei:
+                                            </div>
+                                            @foreach (var step in transit.Steps)
+                                            {
+                                                <div class="mb-2">
+                                                    @if (step.TravelMode == "TRANSIT")
+                                                    {
+                                                        <div>
+                                                            <i class="bi bi-@GetTransitIcon(step.VehicleType) me-1"></i>
+                                                            <strong>@step.LineName</strong> irány: @step.HeadSign
+                                                        </div>
+                                                        <div class="ms-3 text-muted small">
+                                                            <div>Felszállás: @step.DepartureStop (@step.DepartureTime)</div>
+                                                            <div>Leszállás: @step.ArrivalStop (@step.ArrivalTime)</div>
+                                                            <div>@step.NumStops megálló (@step.Duration)</div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div>
+                                                            <i class="bi bi-person-walking me-1"></i>
+                                                            Gyalog @step.Distance (@step.Duration)
+                                                        </div>
+                                                    }
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            }
+
+                            <hr />
                         }
 
                         @* Statisztikák *@
@@ -356,6 +570,19 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 @code {
+    // === Query paraméterek az Index-ből ===
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "destination")]
+    public string? DestinationQuery { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "date")]
+    public string? DateQuery { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "from")]
+    public string? FromQuery { get; set; }
+
     // === Állapot változók ===
     private int currentStep = 1;
     private int? selectedFlightId = null;
@@ -363,7 +590,10 @@
     private int? selectedCarId = null;
     private int totalHours = 0;
     private int totalDays = 2;
-    
+
+    // Utazás kezdő dátuma
+    private DateTime tripStartDate = DateTime.Now.AddDays(7);
+
     // DotNetObjectReference az autocomplete callback-hez
     private DotNetObjectReference<UtTervezes>? dotNetHelper;
 
@@ -371,36 +601,77 @@
     private class RoutePoint
     {
         public int Id { get; set; }
+        public int TimeBefore { get; set; } = 2;
         public int Order { get; set; }
-        public string AttractionName { get; set; }
-        public string Address { get; set; }
+        public string AttractionName { get; set; } = "";
+        public string Address { get; set; } = "";
         public DateTime VisitDate { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
-        public string Category { get; set; }
+        public string Category { get; set; } = "";
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public string PlaceId { get; set; } = "";
+
+        // Nyitvatartási információk
+        public string OpeningHours { get; set; } = "";
+        public bool? IsOpen { get; set; } = null;
+        public bool WillBeClosed { get; set; } = false;
+
+        // Közlekedési adatok a következő ponthoz
+        public string TravelModeToNext { get; set; } = "WALKING";
+        public Dictionary<string, TravelInfo> TravelOptions { get; set; } = new();
+    }
+
+    // === Utazási információ osztály ===
+    private class TravelInfo
+    {
+        public string Duration { get; set; } = "...";
+        public string Distance { get; set; } = "...";
+        public int DurationMinutes { get; set; } = 0;
+        public TransitDetails? TransitDetails { get; set; } = null;
+    }
+
+    // === Tömegközlekedési részletek ===
+    private class TransitDetails
+    {
+        public List<TransitStep> Steps { get; set; } = new();
+    }
+
+    private class TransitStep
+    {
+        public string TravelMode { get; set; } = "";
+        public string VehicleType { get; set; } = "";
+        public string LineName { get; set; } = "";
+        public string HeadSign { get; set; } = "";
+        public string DepartureStop { get; set; } = "";
+        public string ArrivalStop { get; set; } = "";
+        public string DepartureTime { get; set; } = "";
+        public string ArrivalTime { get; set; } = "";
+        public int NumStops { get; set; }
+        public string Duration { get; set; } = "";
+        public string Distance { get; set; } = "";
     }
 
     // === Kezdő útvonalpontok ===
     private List<RoutePoint> routePoints = new List<RoutePoint>
     {
-        new RoutePoint 
-        { 
-            Id = 1, Order = 1, 
-            AttractionName = "Halászbástya", 
+        new RoutePoint
+        {
+            Id = 1, Order = 1,
+
+            AttractionName = "Halászbástya",
             Address = "Budapest, Szentháromság tér",
-            VisitDate = DateTime.Now.AddDays(7), 
-            StartTime = new TimeSpan(9, 0, 0), 
+            VisitDate = DateTime.Now.AddDays(7),
+            StartTime = new TimeSpan(9, 0, 0),
             EndTime = new TimeSpan(11, 0, 0),
             Category = "Látnivaló",
-            Latitude = 47.5023, 
+            Latitude = 47.5023,
             Longitude = 19.0348
         },
-        new RoutePoint 
-        { 
-            Id = 2, Order = 2, 
+        new RoutePoint
+        {
+            Id = 2, Order = 2,
             AttractionName = "Parlament",
             Address = "Budapest, Kossuth Lajos tér 1-3",
             VisitDate = DateTime.Now.AddDays(7),
@@ -410,8 +681,8 @@
             Latitude = 47.5075,
             Longitude = 19.0458
         },
-        new RoutePoint 
-        { 
+        new RoutePoint
+        {
             Id = 3, Order = 3,
             AttractionName = "Széchenyi Gyógyfürdő",
             Address = "Budapest, Állatkerti krt. 9-11",
@@ -428,15 +699,15 @@
     private class Flight
     {
         public int Id { get; set; }
-        public string Airline { get; set; }
-        public string FlightNumber { get; set; }
-        public string DepartureCity { get; set; }
-        public string ArrivalCity { get; set; }
-        public string DepartureTime { get; set; }
-        public string ArrivalTime { get; set; }
-        public string Duration { get; set; }
+        public string Airline { get; set; } = "";
+        public string FlightNumber { get; set; } = "";
+        public string DepartureCity { get; set; } = "";
+        public string ArrivalCity { get; set; } = "";
+        public string DepartureTime { get; set; } = "";
+        public string ArrivalTime { get; set; } = "";
+        public string Duration { get; set; } = "";
         public int Price { get; set; }
-        public string Class { get; set; }
+        public string Class { get; set; } = "";
         public bool DirectFlight { get; set; }
         public int Stops { get; set; }
     }
@@ -454,14 +725,14 @@
     private class Hotel
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Location { get; set; }
+        public string Name { get; set; } = "";
+        public string Location { get; set; } = "";
         public int Stars { get; set; }
         public double Rating { get; set; }
         public int PricePerNight { get; set; }
-        public List<string> Amenities { get; set; }
+        public List<string> Amenities { get; set; } = new();
         public int MaxGuests { get; set; }
-        public string RoomType { get; set; }
+        public string RoomType { get; set; } = "";
     }
 
     // === Elérhető szállások ===
@@ -477,14 +748,14 @@
     private class Car
     {
         public int Id { get; set; }
-        public string Brand { get; set; }
-        public string Model { get; set; }
-        public string Icon { get; set; }
+        public string Brand { get; set; } = "";
+        public string Model { get; set; } = "";
+        public string Icon { get; set; } = "";
         public int Seats { get; set; }
         public int Luggage { get; set; }
-        public string Transmission { get; set; }
+        public string Transmission { get; set; } = "";
         public int PricePerDay { get; set; }
-        public List<string> Features { get; set; }
+        public List<string> Features { get; set; } = new();
     }
 
     // === Elérhető autók ===
@@ -498,10 +769,156 @@
         new Car { Id = 6, Brand = "Audi", Model = "A6", Icon = "🚙", Seats = 5, Luggage = 3, Transmission = "Automata", PricePerDay = 35000, Features = new List<string> { "Klíma", "GPS", "Bőrülés", "Ülésfűtés" } }
     };
 
+    // === Közlekedési mód kiválasztása ===
+    private async Task SelectTravelMode(RoutePoint point, string mode)
+    {
+        point.TravelModeToNext = mode;
+
+        // Ha még nincs kiszámolva, indítsuk el
+        if (!point.TravelOptions.ContainsKey(mode) || point.TravelOptions[mode].Duration == "...")
+        {
+            await CalculateTravelTime(point, mode);
+        }
+
+        await UpdateMap();
+        StateHasChanged();
+    }
+
+    // === Utazási idő számítása Google Distance Matrix API-val ===
+    private async Task CalculateTravelTime(RoutePoint fromPoint, string travelMode)
+    {
+        try
+        {
+            var toPoint = routePoints.FirstOrDefault(p => p.Order == fromPoint.Order + 1);
+            if (toPoint == null) return;
+
+            var result = await JSRuntime.InvokeAsync<TravelInfo>(
+                "calculateTravelTime",
+                fromPoint.Latitude,
+                fromPoint.Longitude,
+                toPoint.Latitude,
+                toPoint.Longitude,
+                travelMode
+            );
+
+            if (!fromPoint.TravelOptions.ContainsKey(travelMode))
+            {
+                fromPoint.TravelOptions[travelMode] = result;
+            }
+            else
+            {
+                fromPoint.TravelOptions[travelMode] = result;
+            }
+
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ Travel time calculation error: {ex.Message}");
+        }
+    }
+
+    // === Összes közlekedési mód kiszámítása egy pontra ===
+    private async Task CalculateAllTravelModes(RoutePoint point)
+    {
+        if (point.Order >= routePoints.Count) return;
+
+        var modes = new[] { "DRIVING", "WALKING", "BICYCLING", "TRANSIT" };
+
+        foreach (var mode in modes)
+        {
+            await CalculateTravelTime(point, mode);
+        }
+    }
+
     // === Inicializálás oldal betöltésekor ===
     protected override void OnInitialized()
     {
+        // Állomások dátumának frissítése a tripStartDate szerint
+        foreach (var point in routePoints)
+        {
+            point.VisitDate = tripStartDate;
+        }
+
         RecalculateTotals();
+    }
+
+    // === Query paraméterek kezelése ===
+    protected override async Task OnParametersSetAsync()
+    {
+        try
+        {
+            // 1. Dátum kezelése
+            if (!string.IsNullOrEmpty(DateQuery) && DateTime.TryParse(DateQuery, out var parsedDate))
+            {
+                tripStartDate = parsedDate;
+                OnTripDateChanged();
+                Console.WriteLine($"✅ Dátum beállítva: {tripStartDate:yyyy-MM-dd}");
+            }
+
+            // 2. Úticél geocoding - csak ha van érték
+            if (!string.IsNullOrEmpty(DestinationQuery))
+            {
+                Console.WriteLine($"🔍 Geocoding úticél: {DestinationQuery}");
+                await GeocodeAndCenterMap(DestinationQuery);
+            }
+
+            // 3. Indulási hely tárolása (későbbi repjegy foglaláshoz)
+            if (!string.IsNullOrEmpty(FromQuery))
+            {
+                Console.WriteLine($"✈️ Indulási hely: {FromQuery}");
+                // TODO: Repjegy kereséshez használható később
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ OnParametersSetAsync error: {ex.Message}");
+        }
+    }
+
+    // === Úticél geocoding és térkép centrálása ===
+    private async Task GeocodeAndCenterMap(string destination)
+    {
+        try
+        {
+            // Geocode az úticélt
+            var result = await JSRuntime.InvokeAsync<GeocodeResult>("geocodeAddress", destination);
+
+            if (result != null)
+            {
+                Console.WriteLine($"📍 Koordináták: {result.Latitude}, {result.Longitude}");
+
+                // Térkép középpontjának beállítása az úticélra
+                await JSRuntime.InvokeVoidAsync("centerMap", result.Latitude, result.Longitude, 12);
+
+                // Első állomást frissítjük az úticéllal (opcionális)
+                if (routePoints.Count > 0)
+                {
+                    var firstPoint = routePoints.First();
+                    firstPoint.AttractionName = destination;
+                    firstPoint.Address = result.FormattedAddress;
+                    firstPoint.Latitude = result.Latitude;
+                    firstPoint.Longitude = result.Longitude;
+
+                    await UpdateMap();
+                    StateHasChanged();
+                }
+
+                Console.WriteLine($"✅ Térkép centrálva: {destination}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ Geocoding error: {ex.Message}");
+        }
+    }
+
+    // === Geocode eredmény osztály ===
+    public class GeocodeResult
+    {
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public string FormattedAddress { get; set; } = "";
     }
 
     // === Térkép és autocomplete inicializálása ===
@@ -513,16 +930,22 @@
             {
                 // Várunk, hogy a Google Maps betöltődjön
                 await Task.Delay(1500);
-                
+
                 // DotNetObjectReference létrehozása
                 dotNetHelper = DotNetObjectReference.Create(this);
-                
+
                 // Térkép inicializálása
                 await InitializeMap();
-                
+
                 // Autocomplete inicializálása
                 await JSRuntime.InvokeVoidAsync("initAutocomplete", "autocomplete-input", dotNetHelper);
-                
+
+                // Kezdő útvonalpontok közlekedési módjainak kiszámítása
+                foreach (var point in routePoints.Where(p => p.Order < routePoints.Count))
+                {
+                    await CalculateAllTravelModes(point);
+                }
+
                 Console.WriteLine("✅ Google Maps és Autocomplete inicializálva!");
             }
             catch (Exception ex)
@@ -570,7 +993,8 @@
                 latitude = p.Latitude,
                 longitude = p.Longitude,
                 startTime = p.StartTime.ToString(@"hh\:mm"),
-                endTime = p.EndTime.ToString(@"hh\:mm")
+                endTime = p.EndTime.ToString(@"hh\:mm"),
+                travelModeToNext = p.TravelModeToNext
             }).ToArray();
 
             // Cast object-re, hogy biztosan tömbként menjen át
@@ -591,18 +1015,18 @@
         {
             // Utolsó pont lekérése
             var lastPoint = routePoints.LastOrDefault();
-            var newVisitDate = lastPoint?.VisitDate ?? DateTime.Now.AddDays(7);
+            var newVisitDate = lastPoint?.VisitDate ?? tripStartDate;
             var newStartTime = lastPoint?.EndTime.Add(TimeSpan.FromHours(1)) ?? new TimeSpan(9, 0, 0);
-            
+
             // Ha már késő van, következő napra tesszük
             if (newStartTime.TotalHours >= 22)
             {
                 newVisitDate = newVisitDate.AddDays(1);
                 newStartTime = new TimeSpan(9, 0, 0);
             }
-            
+
             // Új pont hozzáadása
-            routePoints.Add(new RoutePoint
+            var newPoint = new RoutePoint
             {
                 Id = routePoints.Any() ? routePoints.Max(p => p.Id) + 1 : 1,
                 Order = routePoints.Count + 1,
@@ -614,18 +1038,31 @@
                 Category = "Látnivaló",
                 Latitude = placeData.Latitude,
                 Longitude = placeData.Longitude,
-                PlaceId = placeData.PlaceId
-            });
-            
+                PlaceId = placeData.PlaceId,
+                TimeBefore = 2,
+                TravelModeToNext = "WALKING"
+            };
+
+            routePoints.Add(newPoint);
+
+            // Nyitvatartási idő ellenőrzése
+            await CheckOpeningHours(newPoint);
+
+            // Ha volt előző pont, számoljuk ki az összes utazási módot
+            if (lastPoint != null)
+            {
+                await CalculateAllTravelModes(lastPoint);
+            }
+
             RecalculateTotals();
             await UpdateMap();
-            
+
             // Input mező ürítése
-            await JSRuntime.InvokeVoidAsync("eval", 
+            await JSRuntime.InvokeVoidAsync("eval",
                 "document.getElementById('autocomplete-input').value = ''");
-            
+
             StateHasChanged();
-            
+
             Console.WriteLine($"✅ Új hely hozzáadva: {placeData.Name}");
         }
         catch (Exception ex)
@@ -643,17 +1080,17 @@
             if (point != null && routePoints.Count > 1)
             {
                 routePoints.Remove(point);
-                
+
                 // Sorrend újraszámozása
                 for (int i = 0; i < routePoints.Count; i++)
                 {
                     routePoints[i].Order = i + 1;
                 }
-                
+
                 RecalculateTotals();
                 await UpdateMap();
                 StateHasChanged();
-                
+
                 Console.WriteLine($"✅ Pont törölve: {point.AttractionName}");
             }
         }
@@ -671,7 +1108,7 @@
             var firstDate = routePoints.Min(p => p.VisitDate);
             var lastDate = routePoints.Max(p => p.VisitDate);
             totalDays = (lastDate - firstDate).Days + 1;
-            
+
             double totalMinutes = 0;
             foreach (var point in routePoints)
             {
@@ -735,11 +1172,187 @@
         summary += $"  ✈️ Repjegy: {(selectedFlightId.HasValue ? "Kiválasztva (#" + selectedFlightId + ")" : "Nincs")}\n";
         summary += $"  🏨 Szállás: {(selectedHotelId.HasValue ? "Kiválasztva (#" + selectedHotelId + ")" : "Nincs")}\n";
         summary += $"  🚗 Autó: {(selectedCarId.HasValue ? "Kiválasztva (#" + selectedCarId + ")" : "Nincs")}";
-        
+
         Console.WriteLine(summary);
-        
+
         // Itt menthetnéd az adatokat az API-ba vagy adatbázisba
         // await HttpClient.PostAsJsonAsync("/api/bookings", bookingData);
+    }
+
+    // === Dátum változás kezelése ===
+    private void OnTripDateChanged()
+    {
+        // Összes állomás dátumának frissítése
+        foreach (var point in routePoints)
+        {
+            point.VisitDate = tripStartDate;
+        }
+
+        // Nyitvatartási idők újraellenőrzése
+        foreach (var point in routePoints)
+        {
+            _ = CheckOpeningHours(point);
+        }
+
+        StateHasChanged();
+    }
+
+    // === Állomás fel/le mozgatása ===
+    private async Task MovePointUp(int pointId)
+    {
+        var point = routePoints.FirstOrDefault(p => p.Id == pointId);
+        if (point == null || point.Order <= 1) return;
+
+        var prevPoint = routePoints.FirstOrDefault(p => p.Order == point.Order - 1);
+        if (prevPoint == null) return;
+
+        // Sorrend csere
+        (point.Order, prevPoint.Order) = (prevPoint.Order, point.Order);
+
+        // Lista rendezése
+        routePoints = routePoints.OrderBy(p => p.Order).ToList();
+
+        // Újraszámítás
+        await RecalculateAfterReorder();
+    }
+
+    private async Task MovePointDown(int pointId)
+    {
+        var point = routePoints.FirstOrDefault(p => p.Id == pointId);
+        if (point == null || point.Order >= routePoints.Count) return;
+
+        var nextPoint = routePoints.FirstOrDefault(p => p.Order == point.Order + 1);
+        if (nextPoint == null) return;
+
+        // Sorrend csere
+        (point.Order, nextPoint.Order) = (nextPoint.Order, point.Order);
+
+        // Lista rendezése
+        routePoints = routePoints.OrderBy(p => p.Order).ToList();
+
+        // Újraszámítás
+        await RecalculateAfterReorder();
+    }
+
+    private async Task RecalculateAfterReorder()
+    {
+        // Utazási idők újraszámítása
+        for (int i = 0; i < routePoints.Count - 1; i++)
+        {
+            var currentPoint = routePoints[i];
+            currentPoint.TravelOptions.Clear();
+            await CalculateAllTravelModes(currentPoint);
+        }
+
+        RecalculateSchedule();
+        await UpdateMap();
+        StateHasChanged();
+    }
+
+    // === Időtartam változás ===
+    private async Task IncreaseTime(RoutePoint point)
+    {
+        point.TimeBefore++;
+        point.EndTime = point.StartTime.Add(TimeSpan.FromHours(point.TimeBefore));
+        RecalculateSchedule();
+        await CheckOpeningHours(point);
+        StateHasChanged();
+    }
+
+    private async Task DecreaseTime(RoutePoint point)
+    {
+        if (point.TimeBefore > 1)
+        {
+            point.TimeBefore--;
+            point.EndTime = point.StartTime.Add(TimeSpan.FromHours(point.TimeBefore));
+            RecalculateSchedule();
+            await CheckOpeningHours(point);
+            StateHasChanged();
+        }
+    }
+
+    // === Menetrend újraszámítása ===
+    private void RecalculateSchedule()
+    {
+        for (int i = 1; i < routePoints.Count; i++)
+        {
+            var prevPoint = routePoints[i - 1];
+            var currentPoint = routePoints[i];
+
+            if (prevPoint.TravelOptions.ContainsKey(prevPoint.TravelModeToNext))
+            {
+                var travelMinutes = prevPoint.TravelOptions[prevPoint.TravelModeToNext].DurationMinutes;
+                currentPoint.StartTime = prevPoint.EndTime.Add(TimeSpan.FromMinutes(travelMinutes));
+            }
+            else
+            {
+                currentPoint.StartTime = prevPoint.EndTime.Add(TimeSpan.FromMinutes(30));
+            }
+
+            currentPoint.EndTime = currentPoint.StartTime.Add(TimeSpan.FromHours(currentPoint.TimeBefore));
+
+            if (currentPoint.StartTime.TotalHours >= 22)
+            {
+                currentPoint.VisitDate = prevPoint.VisitDate.AddDays(1);
+                currentPoint.StartTime = new TimeSpan(9, 0, 0);
+                currentPoint.EndTime = currentPoint.StartTime.Add(TimeSpan.FromHours(currentPoint.TimeBefore));
+            }
+        }
+
+        RecalculateTotals();
+    }
+
+    // === Nyitvatartási idő ellenőrzése ===
+    private async Task CheckOpeningHours(RoutePoint point)
+    {
+        if (string.IsNullOrEmpty(point.PlaceId)) return;
+
+        try
+        {
+            var placeDetails = await JSRuntime.InvokeAsync<PlaceDetails>(
+                "getPlaceOpeningHours",
+                point.PlaceId
+            );
+
+            if (placeDetails != null)
+            {
+                point.OpeningHours = placeDetails.OpeningHoursText ?? "";
+                point.IsOpen = placeDetails.IsOpenNow;
+
+                if (placeDetails.OpeningPeriods != null && placeDetails.OpeningPeriods.Any())
+                {
+                    var arrivalDay = (int)point.VisitDate.DayOfWeek;
+                    var arrivalMinutes = (int)point.StartTime.TotalMinutes;
+
+                    var todayPeriod = placeDetails.OpeningPeriods
+                        .FirstOrDefault(p => p.Open.Day == arrivalDay);
+
+                    if (todayPeriod != null && todayPeriod.Close != null)
+                    {
+                        var closeMinutes = todayPeriod.Close.Hours * 60 + todayPeriod.Close.Minutes;
+                        point.WillBeClosed = arrivalMinutes >= closeMinutes;
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Opening hours check error: {ex.Message}");
+        }
+    }
+
+    // === Transit ikon ===
+    private string GetTransitIcon(string vehicleType)
+    {
+        return vehicleType switch
+        {
+            "BUS" => "bus-front",
+            "SUBWAY" => "train-subway",
+            "TRAM" => "train-lightrail-front",
+            "RAIL" => "train-front",
+            "FERRY" => "ferry",
+            _ => "bus-front"
+        };
     }
 
     // === PlaceData osztály a JavaScript callback-hez ===
@@ -750,6 +1363,27 @@
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public string PlaceId { get; set; } = "";
+    }
+
+    // === PlaceDetails osztály nyitvatartási időhöz ===
+    public class PlaceDetails
+    {
+        public string? OpeningHoursText { get; set; }
+        public bool? IsOpenNow { get; set; }
+        public List<OpeningPeriod>? OpeningPeriods { get; set; }
+    }
+
+    public class OpeningPeriod
+    {
+        public DayTime Open { get; set; } = new();
+        public DayTime? Close { get; set; }
+    }
+
+    public class DayTime
+    {
+        public int Day { get; set; }
+        public int Hours { get; set; }
+        public int Minutes { get; set; }
     }
 
     // === Cleanup ===

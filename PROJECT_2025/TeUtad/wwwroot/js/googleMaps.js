@@ -127,32 +127,73 @@ function addMarkersToMap(routePoints) {
 
 /**
  * Útvonal rajzolása a pontok között
+ * @param {Array} routePoints - Útvonalpontok (kell: travelModeToNext mező)
  */
 function drawRoute(routePoints) {
     if (routePoints.length < 2) return;
 
+    // Töröljük az előző útvonalat
+    if (directionsRenderer) {
+        directionsRenderer.setMap(null);
+    }
+
+    // Új renderer minden szakaszhoz
     const waypoints = routePoints.slice(1, -1).map(point => ({
         location: { lat: point.latitude, lng: point.longitude },
         stopover: true
     }));
 
+    // Az első pont közlekedési módját használjuk (később ezt lehet finomítani szakaszonként)
+    const travelMode = routePoints[0].travelModeToNext || 'WALKING';
+    const googleTravelMode = {
+        'DRIVING': google.maps.TravelMode.DRIVING,
+        'WALKING': google.maps.TravelMode.WALKING,
+        'BICYCLING': google.maps.TravelMode.BICYCLING,
+        'TRANSIT': google.maps.TravelMode.TRANSIT
+    }[travelMode] || google.maps.TravelMode.WALKING;
+
     const request = {
         origin: { lat: routePoints[0].latitude, lng: routePoints[0].longitude },
         destination: { lat: routePoints[routePoints.length - 1].latitude, lng: routePoints[routePoints.length - 1].longitude },
         waypoints: waypoints,
-        travelMode: google.maps.TravelMode.WALKING,
+        travelMode: googleTravelMode,
         optimizeWaypoints: false
     };
+
+    // Új DirectionsRenderer a kiválasztott móddal
+    directionsRenderer = new google.maps.DirectionsRenderer({
+        map: map,
+        suppressMarkers: true,
+        polylineOptions: {
+            strokeColor: getColorForTravelMode(travelMode),
+            strokeWeight: 4,
+            strokeOpacity: 0.7
+        }
+    });
 
     directionsService.route(request, (result, status) => {
         if (status === 'OK') {
             directionsRenderer.setDirections(result);
-            console.log('Route drawn successfully');
+            console.log('Route drawn successfully with mode:', travelMode);
         } else {
             console.error('Directions request failed:', status);
         }
     });
 }
+
+/**
+ * Szín meghatározása közlekedési mód alapján
+ */
+function getColorForTravelMode(mode) {
+    const colors = {
+        'DRIVING': '#0d6efd',    // Kék - autó
+        'WALKING': '#28a745',    // Zöld - gyalog
+        'BICYCLING': '#17a2b8',  // Ciánkék - kerékpár
+        'TRANSIT': '#ffc107'     // Sárga - tömegközlekedés
+    };
+    return colors[mode] || '#0d6efd';
+}
+
 
 /**
  * Markerek törlése
@@ -183,6 +224,52 @@ window.updateMap = function(routePoints) {
         drawRoute(routePoints);
     }
 }
+
+/**
+ * Szakaszos útvonalrajzolás - minden szakasz más színnel
+ * (Opcionális verzió - jelenleg nincs használva)
+ */
+window.drawSegmentedRoute = function(routePoints) {
+    if (routePoints.length < 2) return;
+
+    // Minden egyes szakaszhoz külön DirectionsRenderer
+    for (let i = 0; i < routePoints.length - 1; i++) {
+        const origin = { lat: routePoints[i].latitude, lng: routePoints[i].longitude };
+        const destination = { lat: routePoints[i + 1].latitude, lng: routePoints[i + 1].longitude };
+        const travelMode = routePoints[i].travelModeToNext || 'WALKING';
+        
+        const googleTravelMode = {
+            'DRIVING': google.maps.TravelMode.DRIVING,
+            'WALKING': google.maps.TravelMode.WALKING,
+            'BICYCLING': google.maps.TravelMode.BICYCLING,
+            'TRANSIT': google.maps.TravelMode.TRANSIT
+        }[travelMode] || google.maps.TravelMode.WALKING;
+
+        const renderer = new google.maps.DirectionsRenderer({
+            map: map,
+            suppressMarkers: true,
+            preserveViewport: true,
+            polylineOptions: {
+                strokeColor: getColorForTravelMode(travelMode),
+                strokeWeight: 4,
+                strokeOpacity: 0.7
+            }
+        });
+
+        const request = {
+            origin: origin,
+            destination: destination,
+            travelMode: googleTravelMode
+        };
+
+        directionsService.route(request, (result, status) => {
+            if (status === 'OK') {
+                renderer.setDirections(result);
+            }
+        });
+    }
+}
+
 
 /**
  * Autocomplete inicializálása egy input mezőhöz
@@ -311,6 +398,194 @@ window.centerMap = function(latitude, longitude, zoom = 14) {
     
     map.setCenter({ lat: latitude, lng: longitude });
     map.setZoom(zoom);
+}
+
+/**
+ * Utazási idő és távolság számítása két pont között
+ * @param {number} fromLat - Kiindulási pont szélesség
+ * @param {number} fromLng - Kiindulási pont hosszúság
+ * @param {number} toLat - Cél pont szélesség
+ * @param {number} toLng - Cél pont hosszúság
+ * @param {string} travelMode - Közlekedési mód (DRIVING, WALKING, BICYCLING, TRANSIT)
+ * @returns {Promise<object>} - { duration: "15 perc", distance: "1.2 km", durationMinutes: 15 }
+ */
+window.calculateTravelTime = function(fromLat, fromLng, toLat, toLng, travelMode) {
+    return new Promise((resolve, reject) => {
+        if (!google || !google.maps) {
+            reject('Google Maps not loaded');
+            return;
+        }
+
+        const service = new google.maps.DistanceMatrixService();
+        
+        const origin = new google.maps.LatLng(fromLat, fromLng);
+        const destination = new google.maps.LatLng(toLat, toLng);
+
+        const request = {
+            origins: [origin],
+            destinations: [destination],
+            travelMode: google.maps.TravelMode[travelMode],
+            unitSystem: google.maps.UnitSystem.METRIC,
+            avoidHighways: false,
+            avoidTolls: false
+        };
+
+        service.getDistanceMatrix(request, (response, status) => {
+            if (status === 'OK') {
+                const result = response.rows[0].elements[0];
+                
+                if (result.status === 'OK') {
+                    const durationSeconds = result.duration.value;
+                    const durationMinutes = Math.ceil(durationSeconds / 60);
+                    const distanceMeters = result.distance.value;
+                    
+                    // Formázás
+                    let durationText;
+                    if (durationMinutes < 60) {
+                        durationText = `${durationMinutes} perc`;
+                    } else {
+                        const hours = Math.floor(durationMinutes / 60);
+                        const mins = durationMinutes % 60;
+                        durationText = mins > 0 ? `${hours}ó ${mins}p` : `${hours} óra`;
+                    }
+
+                    let distanceText;
+                    if (distanceMeters < 1000) {
+                        distanceText = `${distanceMeters} m`;
+                    } else {
+                        const km = (distanceMeters / 1000).toFixed(1);
+                        distanceText = `${km} km`;
+                    }
+
+                    const travelInfo = {
+                        duration: durationText,
+                        distance: distanceText,
+                        durationMinutes: durationMinutes,
+                        transitDetails: null
+                    };
+
+                    // Ha tömegközlekedés, további részletek kérése
+                    if (travelMode === 'TRANSIT') {
+                        getTransitDetails(origin, destination).then(transitDetails => {
+                            travelInfo.transitDetails = transitDetails;
+                            resolve(travelInfo);
+                        }).catch(() => {
+                            // Ha nem sikerül, visszaadjuk részletek nélkül
+                            resolve(travelInfo);
+                        });
+                    } else {
+                        resolve(travelInfo);
+                    }
+                } else {
+                    console.warn(`Route not available for ${travelMode}: ${result.status}`);
+                    resolve({
+                        duration: "N/A",
+                        distance: "N/A",
+                        durationMinutes: 999999,
+                        transitDetails: null
+                    });
+                }
+            } else {
+                console.error('Distance Matrix request failed:', status);
+                reject('Distance calculation failed: ' + status);
+            }
+        });
+    });
+}
+
+/**
+ * Tömegközlekedési részletek lekérése Directions API-val
+ */
+function getTransitDetails(origin, destination) {
+    return new Promise((resolve, reject) => {
+        const directionsService = new google.maps.DirectionsService();
+        
+        directionsService.route({
+            origin: origin,
+            destination: destination,
+            travelMode: google.maps.TravelMode.TRANSIT,
+            transitOptions: {
+                departureTime: new Date(Date.now() + 3600000) // 1 óra múlva
+            }
+        }, (result, status) => {
+            if (status === 'OK' && result.routes.length > 0) {
+                const route = result.routes[0];
+                const leg = route.legs[0];
+                
+                const steps = leg.steps.map(step => {
+                    if (step.travel_mode === 'TRANSIT') {
+                        const transit = step.transit;
+                        return {
+                            travelMode: 'TRANSIT',
+                            vehicleType: transit.line.vehicle.type,
+                            lineName: transit.line.short_name || transit.line.name,
+                            headSign: transit.headsign,
+                            departureStop: transit.departure_stop.name,
+                            arrivalStop: transit.arrival_stop.name,
+                            departureTime: transit.departure_time.text,
+                            arrivalTime: transit.arrival_time.text,
+                            numStops: transit.num_stops,
+                            duration: step.duration.text,
+                            distance: step.distance.text
+                        };
+                    } else {
+                        return {
+                            travelMode: 'WALKING',
+                            duration: step.duration.text,
+                            distance: step.distance.text
+                        };
+                    }
+                });
+                
+                resolve({ steps: steps });
+            } else {
+                reject('Transit details not available');
+            }
+        });
+    });
+}
+
+/**
+ * Nyitvatartási idő lekérése Place ID alapján
+ */
+window.getPlaceOpeningHours = async function(placeId) {
+    return new Promise((resolve, reject) => {
+        if (!placesService) {
+            reject('Places service not initialized');
+            return;
+        }
+
+        placesService.getDetails({
+            placeId: placeId,
+            fields: ['opening_hours']
+        }, (place, status) => {
+            if (status === google.maps.places.PlacesServiceStatus.OK && place.opening_hours) {
+                const openingHours = place.opening_hours;
+                
+                const result = {
+                    openingHoursText: openingHours.weekday_text ? 
+                        openingHours.weekday_text.join('\n') : null,
+                    isOpenNow: openingHours.isOpen ? openingHours.isOpen() : null,
+                    openingPeriods: openingHours.periods ? openingHours.periods.map(period => ({
+                        open: {
+                            day: period.open.day,
+                            hours: period.open.hours,
+                            minutes: period.open.minutes
+                        },
+                        close: period.close ? {
+                            day: period.close.day,
+                            hours: period.close.hours,
+                            minutes: period.close.minutes
+                        } : null
+                    })) : null
+                };
+                
+                resolve(result);
+            } else {
+                resolve(null);
+            }
+        });
+    });
 }
 
 // Debug segédfüggvény
