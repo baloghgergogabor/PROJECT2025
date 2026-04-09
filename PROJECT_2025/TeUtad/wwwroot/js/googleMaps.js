@@ -8,6 +8,12 @@ let directionsRenderer;
 let autocompleteService;
 let placesService;
 
+// ✅ TRANSIT CACHE - Megoldás az adatok eltérésére
+// Kulcs: "fromLat,fromLng_toLat,toLng"
+// Érték: { transitDetails, timestamp }
+let transitCache = {};
+const CACHE_EXPIRY_MS = 30 * 60 * 1000; // 30 perc
+
 /**
  * Térkép inicializálása
  * @param {Array} routePoints - Útvonalpontok tömbje
@@ -72,12 +78,18 @@ function addMarkersToMap(routePoints) {
     clearMarkers();
 
     routePoints.forEach((point, index) => {
+        // UGYANAZ a színgenerálás mint a C#-ban
+        const order = index + 1;
+        const totalPoints = routePoints.length;
+        const hue = (order * 360 / Math.max(totalPoints, 1)) % 360;
+        const markerColor = `hsl(${hue}, 70%, 45%)`;
+        
         const marker = new google.maps.Marker({
             position: { lat: point.latitude, lng: point.longitude },
             map: map,
             title: point.attractionName,
             label: {
-                text: (index + 1).toString(),
+                text: order.toString(),
                 color: 'white',
                 fontSize: '14px',
                 fontWeight: 'bold'
@@ -85,7 +97,7 @@ function addMarkersToMap(routePoints) {
             icon: {
                 path: google.maps.SymbolPath.CIRCLE,
                 scale: 20,
-                fillColor: index === 0 ? '#28a745' : (index === routePoints.length - 1 ? '#dc3545' : '#0d6efd'),
+                fillColor: markerColor,  // ✅ HSL szín
                 fillOpacity: 1,
                 strokeColor: 'white',
                 strokeWeight: 3
@@ -174,11 +186,93 @@ function drawRoute(routePoints) {
     directionsService.route(request, (result, status) => {
         if (status === 'OK') {
             directionsRenderer.setDirections(result);
+            
+            // ✅ ÚTVONAL RÉSZLETEK MEGJELENÍTÉSE
+            displayRouteDetails(result, travelMode);
+            
             console.log('Route drawn successfully with mode:', travelMode);
         } else {
             console.error('Directions request failed:', status);
         }
     });
+}
+
+/**
+ * Útvonal részletek megjelenítése a térkép alatt
+ */
+function displayRouteDetails(directionsResult, travelMode) {
+    const panel = document.getElementById('route-details-panel');
+    const content = document.getElementById('route-details-content');
+    
+    if (!panel || !content) {
+        console.warn('Route details panel not found');
+        return;
+    }
+    
+    // Panel láthatóvá tétele
+    panel.style.display = 'block';
+    
+    // Tartalom törlése
+    content.innerHTML = '';
+    
+    // Útvonal lábak (legs) iterálása
+    const route = directionsResult.routes[0];
+    let html = '';
+    
+    route.legs.forEach((leg, legIndex) => {
+        html += `
+            <div class="mb-3 pb-2 border-bottom">
+                <div class="fw-bold text-primary mb-1">
+                    ${legIndex + 1}. szakasz: ${leg.start_address} → ${leg.end_address}
+                </div>
+                <div class="small">
+                    <i class="bi bi-clock me-1"></i>${leg.duration.text} 
+                    <i class="bi bi-geo-alt ms-2 me-1"></i>${leg.distance.text}
+                </div>
+        `;
+        
+        // Ha TRANSIT mód, részletes lépések
+        if (travelMode === 'TRANSIT' && leg.steps) {
+            html += '<div class="mt-2 ms-3 small">';
+            leg.steps.forEach((step, stepIndex) => {
+                if (step.travel_mode === 'TRANSIT' && step.transit) {
+                    const transit = step.transit;
+                    const vehicle = transit.line.vehicle;
+                    html += `
+                        <div class="mb-2">
+                            <strong>${getTransitIcon(vehicle.type)} ${transit.line.short_name || transit.line.name}</strong>
+                            <div class="ms-3 text-muted">
+                                <div>🚏 ${transit.departure_stop.name} (${transit.departure_time.text})</div>
+                                <div>🚏 ${transit.arrival_stop.name} (${transit.arrival_time.text})</div>
+                                <div>📍 ${transit.num_stops} megálló • ${step.duration.text}</div>
+                            </div>
+                        </div>
+                    `;
+                } else if (step.travel_mode === 'WALKING') {
+                    html += `<div class="text-muted">🚶 Gyalog ${step.distance.text} (${step.duration.text})</div>`;
+                }
+            });
+            html += '</div>';
+        }
+        
+        html += '</div>';
+    });
+    
+    content.innerHTML = html;
+}
+
+/**
+ * Transit ikon helper
+ */
+function getTransitIcon(vehicleType) {
+    const icons = {
+        'BUS': '🚌',
+        'SUBWAY': '🚇',
+        'TRAM': '🚊',
+        'RAIL': '🚆',
+        'FERRY': '⛴️'
+    };
+    return icons[vehicleType] || '🚌';
 }
 
 /**
@@ -466,13 +560,36 @@ window.calculateTravelTime = function(fromLat, fromLng, toLat, toLng, travelMode
 
                     // Ha tömegközlekedés, további részletek kérése
                     if (travelMode === 'TRANSIT') {
-                        getTransitDetails(origin, destination).then(transitDetails => {
-                            travelInfo.transitDetails = transitDetails;
+                        // ✅ CACHE KULCS GENERÁLÁSA
+                        const cacheKey = `${fromLat.toFixed(6)},${fromLng.toFixed(6)}_${toLat.toFixed(6)},${toLng.toFixed(6)}`;
+                        
+                        // Ellenőrizzük van-e cache-elt adat
+                        const cached = transitCache[cacheKey];
+                        const now = Date.now();
+                        
+                        if (cached && (now - cached.timestamp) < CACHE_EXPIRY_MS) {
+                            // ✅ CACHE TALÁLAT - használjuk a mentett adatokat
+                            console.log('🔄 Transit cache hit:', cacheKey);
+                            travelInfo.transitDetails = cached.transitDetails;
                             resolve(travelInfo);
-                        }).catch(() => {
-                            // Ha nem sikerül, visszaadjuk részletek nélkül
-                            resolve(travelInfo);
-                        });
+                        } else {
+                            // ❌ NINCS CACHE - új lekérdezés
+                            console.log('🆕 Transit cache miss, fetching new data...');
+                            getTransitDetails(origin, destination).then(transitDetails => {
+                                // Mentés cache-be
+                                transitCache[cacheKey] = {
+                                    transitDetails: transitDetails,
+                                    timestamp: now
+                                };
+                                console.log('💾 Transit data cached:', cacheKey);
+                                
+                                travelInfo.transitDetails = transitDetails;
+                                resolve(travelInfo);
+                            }).catch(() => {
+                                // Ha nem sikerül, visszaadjuk részletek nélkül
+                                resolve(travelInfo);
+                            });
+                        }
                     } else {
                         resolve(travelInfo);
                     }
@@ -593,4 +710,59 @@ window.checkGoogleMapsLoaded = function() {
     console.log('Google Maps loaded:', typeof google !== 'undefined');
     console.log('Map initialized:', map !== null);
     console.log('Markers count:', markers.length);
+}
+
+/**
+ * Egyszerű autocomplete Index oldalhoz (csak city/address szöveg, nincs callback)
+ * @param {string} inputId - Input mező ID-ja
+ */
+window.initSimpleAutocomplete = function(inputId) {
+    const input = document.getElementById(inputId);
+    if (!input) {
+        console.error('Input element not found:', inputId);
+        return;
+    }
+
+    // Autocomplete beállítása - CSAK városok és címek
+    const autocomplete = new google.maps.places.Autocomplete(input, {
+        types: ['(cities)'], // Csak városok
+        fields: ['name', 'formatted_address']
+    });
+
+    // Amikor kiválaszt egy helyet, betöltjük az input mezőbe
+    autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        
+        if (!place || !place.name) {
+            console.warn('No place selected');
+            return;
+        }
+
+        // Az input mező értékét automatikusan beállítja az autocomplete
+        // Nem kell manuálisan frissíteni, mert @bind:event="oninput" figyel rá
+        console.log(`✅ Autocomplete selected: ${place.name || place.formatted_address}`);
+    });
+
+    console.log(`✅ Simple autocomplete initialized for: ${inputId}`);
+}
+
+/**
+ * Transit cache törlése (manuális frissítéshez)
+ */
+window.clearTransitCache = function() {
+    transitCache = {};
+    console.log('🗑️ Transit cache cleared');
+}
+
+/**
+ * Transit cache állapotának lekérdezése (debug célra)
+ */
+window.getTransitCacheInfo = function() {
+    const keys = Object.keys(transitCache);
+    console.log(`📦 Transit cache entries: ${keys.length}`);
+    keys.forEach(key => {
+        const age = Date.now() - transitCache[key].timestamp;
+        console.log(`  ${key}: ${Math.floor(age / 1000)}s ago`);
+    });
+    return transitCache;
 }
