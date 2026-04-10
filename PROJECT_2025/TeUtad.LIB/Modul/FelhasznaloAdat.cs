@@ -15,7 +15,5 @@ namespace TeUtad.LIB.Modul
         public string JelszoHash { get; set; }
         public string Email { get; set; }
         public int SzerepId { get; set; }
-        public int KezdoVarosId { get; set; }
-        public DateOnly SzuletesiId { get; set; }
     }
 }

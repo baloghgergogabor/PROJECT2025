@@ -1,9 +1,12 @@
 @page "/regisztracio"
 @rendermode InteractiveServer
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
 @using Microsoft.AspNetCore.Components.Web
 @using System.Security.Cryptography
 @using System.ComponentModel.DataAnnotations
 @using System.Text
+@using System.Security.Claims
 @using TeUtad.LIB.Modul
 @using TeUtad.SERVICE
 @inject FelhasznaloSzerviz Felhasznalo
@@ -127,40 +130,6 @@
                             <ValidationMessage For="@(() => registerModel.ConfirmPassword)" class="text-danger small" />
                         </div>
 
-                        <!-- Kezdő Város -->
-                        <div class="mb-3">
-                            <label for="KezdoVaros" class="form-label fw-semibold">Tartozkodó Városa</label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-white">
-                                    <i class="bi bi-buildings text-muted"></i>
-                                </span>
-                                <InputText @bind-Value="registerModel.KezdoVaros"
-                                           class="form-control"
-                                           id="KezdoVaros"
-                                           placeholder="Budapest" />
-                            </div>
-                            <ValidationMessage For="@(() => registerModel.KezdoVaros)" class="text-danger small" />
-                        </div>
-
-                        <!-- SzuletesNap -->
-                        <div class="mb-3">
-                            <label for="SzuletesNap" class="form-label fw-semibold">Születesnap</label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-white">
-                                    <i class="bi bi-cake text-muted"></i>
-                                </span>
-                                <InputDate @bind-Value="registerModel.SzuletesNap"
-                                           TValue="DateOnly"
-                                           class="form-control"
-                                           id="SzuletesNap"
-                                           Placeholder="@DateTime.Now.ToString("yyyy-MM-dd")" />
-                            </div>
-                            <ValidationMessage For="@(() => registerModel.SzuletesNap)" class="text-danger small" />
-                        </div>
-
-
-
-
                         <DataAnnotationsValidator/>
 
                         <!-- Register Button -->
@@ -222,12 +191,6 @@
         [Compare(nameof(Password), ErrorMessage = "A jelszavak nem egyeznek")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
-        public string KezdoVaros { get; set; }
-
-        [Required]
-        public DateOnly SzuletesNap { get; set; }
-
     }
 
     private void TogglePasswordVisibility()
@@ -287,6 +250,9 @@
         };
     }
 
+    [CascadingParameter]
+    public HttpContext? HttpContext { get; set; }
+
     private async Task HandleRegister()
     {
         var Sha = new SHA256Managed();
@@ -296,16 +262,25 @@
                 FelhasznaloNev = registerModel.FullName,
                 JelszoHash = Convert.ToBase64String(Sha.ComputeHash(Encoding.UTF8.GetBytes(registerModel.Password))),
                 Email = registerModel.Email,
-                SzerepId = 2,
+                SzerepId = 2
             };
         var felhasznalok = await Felhasznalo.GetAllFelhasznalo();
         if (felhasznalok.Where(fel => fel.FelhasznaloNev == felhasznloAdat.FelhasznaloNev && fel.Email == felhasznloAdat.Email).Any())
         {
             await jsRun.InvokeVoidAsync("alert", "Már van ilyen felhasználó!");
         }
+    
         else
         {
             await Felhasznalo.PostFelhasznalo(felhasznloAdat);
+            var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name, felhasznloAdat.FelhasznaloNev),
+                        new Claim(ClaimTypes.Role, "User")
+                    };
+            var idententity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(idententity);
+            await HttpContext.SignInAsync(principal);
             nav.NavigateTo("/");
         }
     }

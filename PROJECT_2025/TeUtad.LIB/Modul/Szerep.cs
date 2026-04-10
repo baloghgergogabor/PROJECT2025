@@ -11,7 +11,6 @@ namespace TeUtad.LIB.Modul
     {
         [Key]
         public int SzerepId { get; set; }
-        public int FelhasznaloId { get; set; }
         public string Szerepe { get; set; }
     }
 }
