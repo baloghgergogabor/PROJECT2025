@@ -1,0 +1,5 @@
+{
+    "ConnectionStrings": {
+        "Default": "Server=.\\SQLBGEXPRESS;Database=Utazas;User=sa;Password=RootPassword;TrustServerCertificate=true"
+    }
+}
