@@ -12,6 +12,5 @@ namespace TeUtad.LIB.Modul
         [Key]
         public int id { get; set; }
         public string VarosNev { get; set; }
-        public string Leiras { get; set; }
     }
 }

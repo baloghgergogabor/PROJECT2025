@@ -16,5 +16,6 @@ namespace TeUtad.LIB.Modul
         public int FelhasznaloId { get; set; }
         public int AutoId { get; set; }
         public int RepuloJegyId {  get; set; }
+        public DateOnly UtazasKezdes { get; set; }
     }
 }

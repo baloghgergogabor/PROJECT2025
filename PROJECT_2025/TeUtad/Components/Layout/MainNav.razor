@@ -5,7 +5,7 @@
         </a>
 
         <button class="navbar-toggler border-0" type="button"
-                data-bs-toggle="collapse" data-bs-target="#mainNav">
+        data-bs-toggle="collapse" data-bs-target="#mainNav">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -27,23 +27,43 @@
 
             <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
                 <!-- Profile Button -->
-                <a href="/profil" class="btn btn-link p-0 text-decoration-none" title="Profilom">
-                    <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">
-                        KJ
-                    </div>
-                </a>
+                <AuthorizeView Roles="Admin,User">
+                    <Authorized>
+                        <a href="/profil" class="btn btn-link p-0 text-decoration-none" title="Profilom">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">
+                                @nev
+                            </div>
+                        </a>
+                    </Authorized>
+                    <NotAuthorized>
+                        <a href="/bejelentkezes" class="btn btn-outline-primary rounded-pill px-3">
+                            Bejelentkezés
+                        </a>
+                        <a href="/regisztracio" class="btn btn-primary rounded-pill px-3">
+                            Regisztráció
+                        </a>
+                    </NotAuthorized>
+                </AuthorizeView>
 
-                <a href="/bejelentkezes" class="btn btn-outline-primary rounded-pill px-3">
-                    Bejelentkezés
-                </a>
-                <a href="/regisztracio" class="btn btn-primary rounded-pill px-3">
-                    Regisztráció
-                </a>
             </div>
         </div>
     </div>
 </nav>
 
 @code {
-    // Navbar logika ide kerülhet később
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    public string nev = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await authenticationStateTask;
+        if (authState.User.Identity.IsAuthenticated)
+        {
+            var nevSplit = authState.User.Identity.Name.Trim().Split(' ');
+            var monogram = $"{nevSplit[0][0]}{nevSplit[1][0]}";
+            nev = monogram;
+        }
+    }
+
 }

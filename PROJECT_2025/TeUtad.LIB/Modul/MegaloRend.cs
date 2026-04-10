@@ -10,9 +10,10 @@ namespace TeUtad.LIB.Modul
     public class MegaloRend
     {
         [Key]
-        public int MegaloRendezId { get; set; }
+        public int MegaloRendId { get; set; }
         public int LatvanyosagId { get; set; }
         public int FelhasznaloId { get; set; }
         public int MegaloRendezese {  get; set; }
+        public TimeSpan MegalonalTartozkodas { get; set; }
     }
 }
