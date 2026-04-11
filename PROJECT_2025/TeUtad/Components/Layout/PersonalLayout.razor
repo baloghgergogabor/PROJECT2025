@@ -3,7 +3,90 @@
 <MainNav/>
 
 @Body
+<script>
+    window.togglePasswordVisibility = function(inputId, ikonId) {
+        const passwordInput = document.getElementById(inputId);
+        const szemIkon = document.getElementById(ikonId);
 
+        if (passwordInput && szemIkon) {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                szemIkon.className = 'bi bi-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                szemIkon.className = 'bi bi-eye';
+            }
+        }
+    }
+        window.passwordStrength = {
+        currentStrength: 0,
+
+        checkStrength: function(password, strengthElementId, barElementId, textElementId) {
+            if (!password || password.length === 0) {
+                this.currentStrength = 0;
+                this.updateUI(strengthElementId, barElementId, textElementId);
+                return 0;
+            }
+
+            let strength = 0;
+
+            // Length check
+            if (password.length >= 8) strength++;
+
+            // Contains number
+            if (/\d/.test(password)) strength++;
+
+            // Contains lowercase and uppercase
+            if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength++;
+
+            // Contains special character
+            if (/[^a-zA-Z0-9]/.test(password)) strength++;
+
+            this.currentStrength = Math.min(strength, 3);
+            this.updateUI(strengthElementId, barElementId, textElementId);
+
+            return this.currentStrength;
+        },
+
+        updateUI: function(strengthElementId, barElementId, textElementId) {
+            const strength = this.currentStrength;
+
+            // Get colors and text
+            let color, text;
+            switch(strength) {
+                case 1:
+                    color = 'danger';
+                    text = 'Gyenge jelszó';
+                    break;
+                case 2:
+                    color = 'warning';
+                    text = 'Közepes jelszó';
+                    break;
+                case 3:
+                    color = 'success';
+                    text = 'Erős jelszó';
+                    break;
+                default:
+                    color = 'secondary';
+                    text = '';
+            }
+
+            // Update the strength bar
+            const bar = document.getElementById(barElementId);
+            if (bar) {
+                bar.style.width = (strength * 33.33) + '%';
+                bar.className = `password-strength-bar bg-${color}`;
+            }
+
+            // Update the strength text
+            const textElement = document.getElementById(textElementId);
+            if (textElement) {
+                textElement.className = `text-${color} small`;
+                textElement.textContent = text;
+            }
+        }   
+    };
+</script>
 @code {
 
 }

@@ -5,9 +5,9 @@
 <PageTitle>Profilom — TeUtad</PageTitle>
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
 </head>
 
 
@@ -52,7 +52,7 @@
             <div class="card border-0 shadow-sm rounded-4 mb-4">
                 <div class="card-body p-4">
                     <h5 class="fw-bold mb-4">Statisztikák</h5>
-                    
+
                     <div class="row g-3">
                         <div class="col-6">
                             <div class="stat-card">
@@ -117,7 +117,7 @@
             <div class="card border-0 shadow-sm rounded-4 mb-4">
                 <div class="card-body p-4">
                     <h5 class="fw-bold mb-4">Személyes adatok</h5>
-                    
+
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label class="form-label small text-muted">Teljes név</label>
@@ -156,7 +156,7 @@
             <div class="card border-0 shadow-sm rounded-4 mb-4">
                 <div class="card-body p-4">
                     <h5 class="fw-bold mb-4">Beállítások</h5>
-                    
+
                     <div class="setting-item">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
@@ -227,7 +227,7 @@
             <div class="card border-0 shadow-sm rounded-4">
                 <div class="card-body p-4">
                     <h5 class="fw-bold mb-4">Biztonság</h5>
-                    
+
                     <div class="setting-item">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
@@ -284,7 +284,7 @@
         public string Country { get; set; }
         public string AvatarUrl { get; set; }
         public DateTime JoinDate { get; set; }
-        
+
         // Stats
         public int TotalTrips { get; set; }
         public int CitiesVisited { get; set; }
@@ -292,54 +292,54 @@
         public int CountriesVisited { get; set; }
         public string FavoriteCategory { get; set; }
         public int AverageTripDuration { get; set; }
-        
+
         // Settings
         public bool EmailNotifications { get; set; }
         public bool Newsletter { get; set; }
         public bool PrivateProfile { get; set; }
         public string Language { get; set; }
         public string Currency { get; set; }
-        
+
         // Security
         public DateTime LastPasswordChange { get; set; }
     }
 
     private UserProfile userProfile = new UserProfile
-    {
-        FullName = "Kovács János",
-        Email = "kovacs.janos@email.com",
-        PhoneNumber = "+36 30 123 4567",
-        BirthDate = new DateTime(1990, 5, 15),
-        City = "Budapest",
-        Country = "Magyarország",
-        AvatarUrl = "", // Üres = inicialék megjelenítése
-        JoinDate = new DateTime(2023, 6, 1),
-        
-        TotalTrips = 12,
-        CitiesVisited = 28,
-        TotalDays = 67,
-        CountriesVisited = 8,
-        FavoriteCategory = "Kultúra",
-        AverageTripDuration = 5,
-        
-        EmailNotifications = true,
-        Newsletter = false,
-        PrivateProfile = false,
-        Language = "hu",
-        Currency = "HUF",
-        
-        LastPasswordChange = new DateTime(2024, 11, 20)
-    };
+        {
+            FullName = "Kovács János",
+            Email = "kovacs.janos@email.com",
+            PhoneNumber = "+36 30 123 4567",
+            BirthDate = new DateTime(1990, 5, 15),
+            City = "Budapest",
+            Country = "Magyarország",
+            AvatarUrl = "", // Üres = inicialék megjelenítése
+            JoinDate = new DateTime(2023, 6, 1),
+
+            TotalTrips = 12,
+            CitiesVisited = 28,
+            TotalDays = 67,
+            CountriesVisited = 8,
+            FavoriteCategory = "Kultúra",
+            AverageTripDuration = 5,
+
+            EmailNotifications = true,
+            Newsletter = false,
+            PrivateProfile = false,
+            Language = "hu",
+            Currency = "HUF",
+
+            LastPasswordChange = new DateTime(2024, 11, 20)
+        };
 
     private string GetInitials(string fullName)
     {
         if (string.IsNullOrWhiteSpace(fullName))
             return "?";
-        
+
         var parts = fullName.Split(' ', StringSplitOptions.RemoveEmptyEntries);
         if (parts.Length >= 2)
             return $"{parts[0][0]}{parts[1][0]}".ToUpper();
-        
+
         return fullName[0].ToString().ToUpper();
     }
 

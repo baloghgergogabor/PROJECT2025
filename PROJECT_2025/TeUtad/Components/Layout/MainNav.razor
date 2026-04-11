@@ -71,9 +71,17 @@
         var authState = await authenticationStateTask;
         if (authState.User.Identity.IsAuthenticated)
         {
-            var nevSplit = authState.User.Identity.Name.Trim().Split(' ');
-            var monogram = $"{nevSplit[0][0]}{nevSplit[1][0]}";
-            nev = monogram;
+            string nevTrim = authState.User.Identity.Name.Trim();
+            if (nevTrim.Contains(' '))
+            {
+                var nevSplit = authState.User.Identity.Name.Trim().Split(' ');
+                var monogram = $"{nevSplit[0][0]}{nevSplit[1][0]}";
+                nev = monogram;
+            }
+            else
+            {
+                nev = Convert.ToString(nevTrim[0]);
+            }
         }
     }
 

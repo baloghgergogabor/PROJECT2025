@@ -21,6 +21,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     {
         options.Cookie.Name = "auth_token";
         options.LoginPath = "/bejelentkezes";
+        options.LoginPath = "/regisztracio";
         options.Cookie.MaxAge = TimeSpan.FromMinutes(30);
     });
 builder.Services.AddAuthorization();

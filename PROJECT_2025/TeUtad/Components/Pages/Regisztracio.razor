@@ -1,5 +1,4 @@
 @page "/regisztracio"
-@rendermode InteractiveServer
 @using Microsoft.AspNetCore.Authentication
 @using Microsoft.AspNetCore.Authentication.Cookies
 @using Microsoft.AspNetCore.Components.Web
@@ -8,6 +7,7 @@
 @using System.Text
 @using System.Security.Claims
 @using TeUtad.LIB.Modul
+@using TeUtad.MODEL
 @using TeUtad.SERVICE
 @inject FelhasznaloSzerviz Felhasznalo
 @inject NavigationManager nav
@@ -83,30 +83,26 @@
                                     <i class="bi bi-lock text-muted"></i>
                                 </span>
                                 <InputText @bind-Value="registerModel.Password" 
-                                type="@(showPassword ? "text" : "password")" 
+                                type="password" 
                                 class="form-control" 
                                 id="password" 
                                 placeholder="Legalább 8 karakter"
-                                @oninput="@((e) => CheckPasswordStrength(e.Value?.ToString()))" />
+                                oninput="window.passwordStrength.checkStrength(this.value, 'password-strength-value', 'strength-bar', 'strength-text')" />
                                 <button class="btn btn-outline-secondary" 
-                                type="button" 
-                                @onclick="TogglePasswordVisibility">
-                                    <i class="bi bi-eye@(showPassword ? "-slash" : "")"></i>
+                                type="button"
+                                onclick="window.togglePasswordVisibility('password','szem')">
+                                    <i id="szem" class="bi bi-eye"></i>
                                 </button>
                             </div>
                             <ValidationMessage For="@(() => registerModel.Password)" class="text-danger small" />
 
-                            <!-- Password Strength Indicator -->
-                            @if (!string.IsNullOrEmpty(registerModel.Password))
-                            {
-                                <div class="password-strength mt-2">
-                                    <div class="password-strength-bar bg-@GetPasswordStrengthColor()" 
-                                    style="width: @(passwordStrength * 33.33)%"></div>
-                                </div>
-                                <small class="text-@GetPasswordStrengthColor()">
-                                    @GetPasswordStrengthText()
-                                </small>
-                            }
+                            <div class="password-strength mt-2" id="password-strength-container">
+                                <div class="password-strength-bar bg-secondary"
+                                     id="strength-bar"
+                                     style="width: 0%"></div>
+                            </div>
+                            <small id="strength-text" class="text-secondary small"></small>
+                            <input type="hidden" id="password-strength-value" />
                         </div>
 
                         <!-- Confirm Password -->
@@ -117,14 +113,14 @@
                                     <i class="bi bi-lock-fill text-muted"></i>
                                 </span>
                                 <InputText @bind-Value="registerModel.ConfirmPassword" 
-                                type="@(showConfirmPassword ? "text" : "password")" 
+                                type="password" 
                                 class="form-control" 
                                 id="confirmPassword" 
                                 placeholder="Jelszó újra" />
                                 <button class="btn btn-outline-secondary" 
-                                type="button" 
-                                @onclick="ToggleConfirmPasswordVisibility">
-                                    <i class="bi bi-eye@(showConfirmPassword ? "-slash" : "")"></i>
+                                type="button"
+                                    onclick="window.togglePasswordVisibility('confirmPassword','szemConfirm')">
+                                    <i id="szemConfirm" class="bi bi-eye"></i>
                                 </button>
                             </div>
                             <ValidationMessage For="@(() => registerModel.ConfirmPassword)" class="text-danger small" />
@@ -167,41 +163,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 @code {
-    RegisterModel registerModel = new RegisterModel();
-    private bool showPassword = false;
-    private bool showConfirmPassword = false;
-    private int passwordStrength = 0;
+    [SupplyParameterFromForm]
+    RegiszterModel registerModel { get; set; } = new();
     FelhasznaloAdat felhasznloAdat = new(); 
+    private int passwordStrength = 0;
 
-    public class RegisterModel
-    {
-        [Required]
-        [MinLength(3, ErrorMessage = "A névnek legalább 3 karakter hosszúnak kell lennie")]
-        public string FullName { get; set; }
-
-        [Required]
-        [EmailAddress(ErrorMessage = "Érvényes e-mail címet adj meg")]
-        public string Email { get; set; }
-
-        [Required]
-        [MinLength(8, ErrorMessage = "A jelszónak legalább 8 karakter hosszúnak kell lennie")]
-        public string Password { get; set; }
-
-        [Required]
-        [Compare(nameof(Password), ErrorMessage = "A jelszavak nem egyeznek")]
-        public string ConfirmPassword { get; set; }
-
-    }
-
-    private void TogglePasswordVisibility()
-    {
-        showPassword = !showPassword;
-    }
-
-    private void ToggleConfirmPasswordVisibility()
-    {
-        showConfirmPassword = !showConfirmPassword;
-    }
 
     private void CheckPasswordStrength(string password)
     {
