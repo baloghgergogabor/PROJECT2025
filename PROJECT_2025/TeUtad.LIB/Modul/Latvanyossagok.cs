@@ -11,10 +11,9 @@ namespace TeUtad.LIB.Modul
     {
         [Key]
         public int id { get; set; }
-
-        public int VarosId { get; set; }
         public string Latvanyossag {  get; set; }
         public bool UNESCO {  get; set; }
-
+        public string GoogleMapsId { get; set; }
+        public string Cim { get; set; }
     }
 }

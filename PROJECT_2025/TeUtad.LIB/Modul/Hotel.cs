@@ -12,8 +12,7 @@ namespace TeUtad.LIB.Modul
         [Key]
         public int id { get; set; }
         public string HotelNev { get; set; }
-        public int VarosId { get; set; }
         public int Ar {get; set; }
-
+        public string GoogleMapsAzonosito { get; set; }
     }
 }

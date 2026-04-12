@@ -12,7 +12,7 @@ namespace TeUtad.SERVICE
 
         public async Task UpdateHotel(Hotel Hotel) => await _http.PatchAsJsonAsync($"api/Hotel", Hotel);
 
-        public async Task DeleteHotel(int id) => await _http.DeleteFromJsonAsync<Hotel>($"api/Hotel/{id}");
+        public async Task DeleteHotel(int id) => await _http.DeleteAsync($"api/Hotel/{id}");
 
     }
 }

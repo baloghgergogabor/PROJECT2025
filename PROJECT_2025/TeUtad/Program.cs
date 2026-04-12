@@ -17,7 +17,6 @@ builder.Services.AddScoped<LatvanyossagokSzerviz>();
 builder.Services.AddScoped<RepuloJegySzerviz>();
 builder.Services.AddScoped<SzerepSzerviz>();
 builder.Services.AddScoped<UtazasSzerviz>();
-builder.Services.AddScoped<VarosSzerviz>();
 builder.Services.AddScoped<MegaloRendSzerviz>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>

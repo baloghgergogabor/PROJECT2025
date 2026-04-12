@@ -13,9 +13,10 @@ namespace TeUtad.LIB.Modul
         public int Id { get; set; }
         public string Tavozas { get; set; }
         public string Erkezes { get; set; }
-        public DateTime Datum { get; set; }
+        public TimeSpan ElindulasiIdopont { get; set; }
+        public TimeSpan ErkezesiIndpont { get; set; }
         public string LegiTarsasag {  get; set; }
-        public int JegySzam {  get; set; }
+        public string JegySzam {  get; set; }
         public int Ar {  get; set; }
     }
 }
