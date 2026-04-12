@@ -9,7 +9,7 @@ namespace TeUtad.SERVICE
 
         public async Task PostUtazas(Utazas Utazas) => await _http.PostAsJsonAsync("api/Utazas", Utazas);
 
-        public async Task UpdateUtazas(int id, Utazas Utazas) => await _http.PatchAsJsonAsync($"api/Utazas/{id}", Utazas);
+        public async Task UpdateUtazas(Utazas Utazas) => await _http.PatchAsJsonAsync($"api/Utazas", Utazas);
 
         public async Task DeleteUtazas(int id) => await _http.DeleteFromJsonAsync<Utazas>($"api/Utazas/{id}");
 

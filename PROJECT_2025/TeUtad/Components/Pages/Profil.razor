@@ -1,384 +1,276 @@
 @page "/profil"
 @using Microsoft.AspNetCore.Components.Web
-@rendermode InteractiveServer
+@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims
+@using TeUtad.LIB.Modul
+@using System.Security.Cryptography
+@using System.Text
+@using TeUtad.MODEL
+@using TeUtad.SERVICE
+@rendermode @(new InteractiveServerRenderMode())
+@inject FelhasznaloSzerviz FelhasznaloSzerv
+@inject UtazasSzerviz UtazasSzerv
+@inject FelhasznaloAuthState AutheriState
+@inject NavigationManager nav
 
 <PageTitle>Profilom — TeUtad</PageTitle>
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
 </head>
 
 
 <!-- Profile Header -->
 <div class="profile-header text-white">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-auto">
-                <div class="profile-avatar">
-                    @if (!string.IsNullOrEmpty(userProfile.AvatarUrl))
-                    {
-                        <img src="@userProfile.AvatarUrl" alt="@userProfile.FullName" class="w-100 h-100 rounded-circle" />
-                    }
-                    else
-                    {
-                        <span>@GetInitials(userProfile.FullName)</span>
-                    }
-                </div>
-            </div>
-            <div class="col">
-                <h2 class="fw-bold mb-1">@userProfile.FullName</h2>
-                <p class="mb-2 opacity-75">@userProfile.Email</p>
-                <span class="badge bg-white text-primary">
-                    <i class="bi bi-calendar me-1"></i>
-                    Csatlakozott: @userProfile.JoinDate.ToString("yyyy. MMMM")
-                </span>
-            </div>
-            <div class="col-auto">
-                <button type="button" class="btn btn-light rounded-pill" @onclick="EditProfile">
-                    <i class="bi bi-pencil me-2"></i>
-                    Profil szerkesztése
-                </button>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-auto">
+				<div class="profile-avatar">
+					<span>@GetInitials(felhasznalo.FelhasznaloNev)</span>
+				</div>
+			</div>
+			<div class="col">
+				<h2 class="fw-bold mb-1">@felhasznalo.FelhasznaloNev</h2>
+				<p class="mb-2 opacity-75">@felhasznalo.Email</p>
+			</div>
+			<div class="col-auto">
+				<button type="button" class="btn btn-light rounded-pill" @onclick="EditProfile">
+					<i class="bi bi-pencil me-2"></i>
+					Profil szerkesztése
+				</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="container pb-5">
-    <div class="row g-4">
-        <!-- Left Column - Stats -->
-        <div class="col-lg-4">
-            <div class="card border-0 shadow-sm rounded-4 mb-4">
-                <div class="card-body p-4">
-                    <h5 class="fw-bold mb-4">Statisztikák</h5>
+	<div class="row g-4">
+		<!-- Left Column - Stats -->
+		<div class="col-lg-4">
+			<div class="card border-0 shadow-sm rounded-4 mb-4">
+				<div class="card-body p-4">
+					<h5 class="fw-bold mb-4">Statisztikák</h5>
 
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <div class="stat-card">
-                                <div class="stat-value">@userProfile.TotalTrips</div>
-                                <div class="small text-muted">Utazás</div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="stat-card">
-                                <div class="stat-value">@userProfile.CitiesVisited</div>
-                                <div class="small text-muted">Város</div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="stat-card">
-                                <div class="stat-value">@userProfile.TotalDays</div>
-                                <div class="small text-muted">Nap</div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="stat-card">
-                                <div class="stat-value">@userProfile.CountriesVisited</div>
-                                <div class="small text-muted">Ország</div>
-                            </div>
-                        </div>
-                    </div>
+					<div class="row g-3">
+						<div>
+							<div class="stat-card">
+								<div class="stat-value">@utakSzama</div>
+								<div class="small text-muted">Utazás</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-                    <div class="mt-4 pt-3 border-top">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="small text-muted">Kedvenc kategória:</span>
-                            <span class="small fw-semibold">@userProfile.FavoriteCategory</span>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <span class="small text-muted">Átlagos időtartam:</span>
-                            <span class="small fw-semibold">@userProfile.AverageTripDuration nap</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<!-- Quick Actions -->
+			<div class="card border-0 shadow-sm rounded-4">
+				<div class="card-body p-4">
+					<h5 class="fw-bold mb-3">Gyors műveletek</h5>
+					<div class="d-grid gap-2">
+						<a href="/ut-tervezes" class="btn btn-primary rounded-pill">
+							<i class="bi bi-plus-circle me-2"></i>
+							Új út tervezése
+						</a>
+						<a href="/korabbi-utak" class="btn btn-outline-primary rounded-pill">
+							<i class="bi bi-clock-history me-2"></i>
+							Korábbi utak
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
 
-            <!-- Quick Actions -->
-            <div class="card border-0 shadow-sm rounded-4">
-                <div class="card-body p-4">
-                    <h5 class="fw-bold mb-3">Gyors műveletek</h5>
-                    <div class="d-grid gap-2">
-                        <a href="/ut-tervezes" class="btn btn-primary rounded-pill">
-                            <i class="bi bi-plus-circle me-2"></i>
-                            Új út tervezése
-                        </a>
-                        <a href="/korabbi-utak" class="btn btn-outline-primary rounded-pill">
-                            <i class="bi bi-clock-history me-2"></i>
-                            Korábbi utak
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+		<!-- Right Column - Settings & Info -->
+		<div class="col-lg-8">
+			<!-- Personal Information -->
+			<div class="card border-0 shadow-sm rounded-4 mb-4">
+				<div class="card-body p-4">
+					<h5 class="fw-bold mb-4">Személyes adatok</h5>
 
-        <!-- Right Column - Settings & Info -->
-        <div class="col-lg-8">
-            <!-- Personal Information -->
-            <div class="card border-0 shadow-sm rounded-4 mb-4">
-                <div class="card-body p-4">
-                    <h5 class="fw-bold mb-4">Személyes adatok</h5>
+					<div class="row g-3">
+						<div class="col-md-6">
+							<label class="form-label small text-muted">Teljes név</label>
+							<input type="text" class="form-control" @bind="felhasznalo.FelhasznaloNev" disabled="@(!isEditing)" />
+						</div>
+						<div class="col-md-6">
+							<label class="form-label small text-muted">E-mail cím</label>
+							<input type="email" class="form-control" @bind="felhasznalo.Email" disabled="@(!isEditing)" />
+						</div>
+					</div>
 
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <label class="form-label small text-muted">Teljes név</label>
-                            <input type="text" class="form-control" @bind="userProfile.FullName" disabled="@(!isEditing)" />
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label small text-muted">E-mail cím</label>
-                            <input type="email" class="form-control" @bind="userProfile.Email" disabled="@(!isEditing)" />
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label small text-muted">Születési dátum</label>
-                            <input type="date" class="form-control" @bind="userProfile.BirthDate" disabled="@(!isEditing)" />
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label small text-muted">Város</label>
-                            <input type="text" class="form-control" @bind="userProfile.City" disabled="@(!isEditing)" />
-                        </div>
-                    </div>
+					@if (isEditing)
+					{
+						<div class="d-flex gap-2 mt-4">
+							<button type="button" class="btn btn-primary rounded-pill" @onclick="SaveProfile">
+								<i class="bi bi-check-circle me-2"></i>
+								Mentés
+							</button>
+							<button type="button" class="btn btn-outline-secondary rounded-pill" @onclick="CancelEdit">
+								Mégse
+							</button>
+						</div>
+					}
+				</div>
+			</div>
 
-                    @if (isEditing)
-                    {
-                        <div class="d-flex gap-2 mt-4">
-                            <button type="button" class="btn btn-primary rounded-pill" @onclick="SaveProfile">
-                                <i class="bi bi-check-circle me-2"></i>
-                                Mentés
-                            </button>
-                            <button type="button" class="btn btn-outline-secondary rounded-pill" @onclick="CancelEdit">
-                                Mégse
-                            </button>
-                        </div>
-                    }
-                </div>
-            </div>
+			<!-- Security -->
+			<div class="card border-0 shadow-sm rounded-4">
+				<div class="card-body p-4">
+					<h5 class="fw-bold mb-4">Biztonság</h5>
 
-            <!-- Preferences -->
-            <div class="card border-0 shadow-sm rounded-4 mb-4">
-                <div class="card-body p-4">
-                    <h5 class="fw-bold mb-4">Beállítások</h5>
+					<div class="setting-item">
+						<div class="d-flex justify-content-between align-items-center">
+							<div>
+								<div class="fw-semibold">Jelszó megváltoztatása</div>
+							</div>
+							<button type="button" class="btn btn-outline-primary btn-sm rounded-pill" @onclick="ChangePassword">
+								Módosítás
+							</button>
+						</div>
+					</div>
 
-                    <div class="setting-item">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="fw-semibold">Értesítések</div>
-                                <div class="small text-muted">E-mail értesítések közelgő utakról</div>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" @bind="userProfile.EmailNotifications" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="setting-item">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="fw-semibold">Hírlevél</div>
-                                <div class="small text-muted">Utazási tippek és ajánlatok</div>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" @bind="userProfile.Newsletter" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="setting-item">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="fw-semibold">Privát profil</div>
-                                <div class="small text-muted">Utazásaid csak neked láthatók</div>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" @bind="userProfile.PrivateProfile" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="setting-item">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="fw-semibold">Nyelv</div>
-                                <div class="small text-muted">Alkalmazás nyelve</div>
-                            </div>
-                            <select class="form-select form-select-sm w-auto" @bind="userProfile.Language">
-                                <option value="hu">Magyar</option>
-                                <option value="en">English</option>
-                                <option value="de">Deutsch</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="setting-item">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="fw-semibold">Pénznem</div>
-                                <div class="small text-muted">Alapértelmezett pénznem</div>
-                            </div>
-                            <select class="form-select form-select-sm w-auto" @bind="userProfile.Currency">
-                                <option value="HUF">HUF (Ft)</option>
-                                <option value="EUR">EUR (€)</option>
-                                <option value="USD">USD ($)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Security -->
-            <div class="card border-0 shadow-sm rounded-4">
-                <div class="card-body p-4">
-                    <h5 class="fw-bold mb-4">Biztonság</h5>
-
-                    <div class="setting-item">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="fw-semibold">Jelszó megváltoztatása</div>
-                                <div class="small text-muted">Utoljára módosítva: @userProfile.LastPasswordChange.ToString("yyyy. MM. dd.")</div>
-                            </div>
-                            <button type="button" class="btn btn-outline-primary btn-sm rounded-pill" @onclick="ChangePassword">
-                                Módosítás
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="setting-item">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="fw-semibold">Kétfaktoros hitelesítés</div>
-                                <div class="small text-muted">Extra biztonság a fiókodhoz</div>
-                            </div>
-                            <button type="button" class="btn btn-outline-primary btn-sm rounded-pill" @onclick="Setup2FA">
-                                Beállítás
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="setting-item">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="fw-semibold text-danger">Fiók törlése</div>
-                                <div class="small text-muted">Véglegesen törli az összes adatodat</div>
-                            </div>
-                            <button type="button" class="btn btn-outline-danger btn-sm rounded-pill" @onclick="DeleteAccount">
-                                Törlés
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+					<div class="setting-item">
+						<div class="d-flex justify-content-between align-items-center">
+							<div>
+								<div class="fw-semibold">Kijelentkezés és FiókTörlése</div>
+							</div>
+							<button type="button" class="btn btn-outline-danger btn-sm rounded-pill" @onclick="KijelentkezesEsTorlesAtiranyit">
+								Kijelentkezés
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+@if (jelszoValt)
+{
+	<div class="modal fade show" tabindex="-1" style="display: block; background-color: rgba(0,0,0,0.5);" @onclick="Bezar">
+		<div class="modal-dialog modal-dialog-centered" @onclick:stopPropagation="true">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Jelszó modosítás</h5>
+					<button type="button" class="btn-close" @onclick="Bezar"></button>
+				</div>
+				<div class="modal-body">
+					<input @bind="RegiJelszo"
+					class="form-control mb-2"
+					placeholder="Régi jelszava ide"
+					autofocus />
+					<input @bind="Ujelszo"
+					class="form-control"
+					placeholder="Új jelszava ide"
+					/>
+				</div>
+				<p>@error</p>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" @onclick="Bezar">Bezar</button>
+					<button type="button" class="btn btn-primary" @onclick="JelszoMod">Módositás</button>
+				</div>
+			</div>
+		</div>
+	</div>
+}
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 @code {
-    private bool isEditing = false;
+	public List<FelhasznaloAdat> Felhasznalok;
+	public FelhasznaloAdat felhasznalo { get; set; } = new();
+	public int utakSzama = 0;
+	private bool isEditing = false;
+	private bool jelszoValt = false;
+	private string Ujelszo = "";
+	private string RegiJelszo = "";
+	private string error = "";
 
-    private class UserProfile
-    {
-        public string FullName { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
-        public DateTime BirthDate { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
-        public string AvatarUrl { get; set; }
-        public DateTime JoinDate { get; set; }
+	protected override async Task OnInitializedAsync()
+	{
+		var Utazasok = await UtazasSzerv.GetAllUtazas();
+		var authState = await AutheriState.GetAuthenticationStateAsync();
+		var felhasznaloId = Convert.ToInt32(authState.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+		Felhasznalok = await FelhasznaloSzerv.GetAllFelhasznalo();
+		felhasznalo = Felhasznalok.FirstOrDefault(x => x.id == felhasznaloId);
+		utakSzama = Utazasok.Count(x => x.FelhasznaloId == felhasznalo.id);
+	}
+	private string GetInitials(string fullName)
+	{
+		if (string.IsNullOrWhiteSpace(fullName))
+			return "?";
 
-        // Stats
-        public int TotalTrips { get; set; }
-        public int CitiesVisited { get; set; }
-        public int TotalDays { get; set; }
-        public int CountriesVisited { get; set; }
-        public string FavoriteCategory { get; set; }
-        public int AverageTripDuration { get; set; }
+		var parts = fullName.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+		if (parts.Length >= 2)
+			return $"{parts[0][0]}{parts[1][0]}".ToUpper();
 
-        // Settings
-        public bool EmailNotifications { get; set; }
-        public bool Newsletter { get; set; }
-        public bool PrivateProfile { get; set; }
-        public string Language { get; set; }
-        public string Currency { get; set; }
+		return fullName[0].ToString().ToUpper();
+	}
 
-        // Security
-        public DateTime LastPasswordChange { get; set; }
-    }
+	private void EditProfile()
+	{
+		isEditing = true;
+		StateHasChanged();
+	}
 
-    private UserProfile userProfile = new UserProfile
-        {
-            FullName = "Kovács János",
-            Email = "kovacs.janos@email.com",
-            PhoneNumber = "+36 30 123 4567",
-            BirthDate = new DateTime(1990, 5, 15),
-            City = "Budapest",
-            Country = "Magyarország",
-            AvatarUrl = "", // Üres = inicialék megjelenítése
-            JoinDate = new DateTime(2023, 6, 1),
+	private async void SaveProfile()
+	{
+		await FelhasznaloSzerv.UpdateFelhasznalo(felhasznalo);
+		var mostaniAuthState = await AutheriState.GetAuthenticationStateAsync();
+		var mostaniFelhasznaloPrincable = mostaniAuthState.User;
+		var newIdentity = new ClaimsIdentity(mostaniFelhasznaloPrincable.Identity?.AuthenticationType);
+		foreach (var claim in mostaniFelhasznaloPrincable.Claims)
+		{
+			if (claim.Type != ClaimTypes.Name)
+				newIdentity.AddClaim(claim);
+		}
+		newIdentity.AddClaim(new Claim(ClaimTypes.Name, felhasznalo.FelhasznaloNev));
 
-            TotalTrips = 12,
-            CitiesVisited = 28,
-            TotalDays = 67,
-            CountriesVisited = 8,
-            FavoriteCategory = "Kultúra",
-            AverageTripDuration = 5,
+		var newUser = new ClaimsPrincipal(newIdentity);
 
-            EmailNotifications = true,
-            Newsletter = false,
-            PrivateProfile = false,
-            Language = "hu",
-            Currency = "HUF",
+		AutheriState.UpdateAuthenticationState(newUser);
 
-            LastPasswordChange = new DateTime(2024, 11, 20)
-        };
+		isEditing = false;
+		StateHasChanged();
+	}
 
-    private string GetInitials(string fullName)
-    {
-        if (string.IsNullOrWhiteSpace(fullName))
-            return "?";
+	private void CancelEdit()
+	{
+		isEditing = false;
+		// Itt visszaállíthatnád az eredeti adatokat
+	}
 
-        var parts = fullName.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-        if (parts.Length >= 2)
-            return $"{parts[0][0]}{parts[1][0]}".ToUpper();
-
-        return fullName[0].ToString().ToUpper();
-    }
-
-    private void EditProfile()
-    {
-        isEditing = true;
-        StateHasChanged();
-    }
-
-    private void SaveProfile()
-    {
-        isEditing = false;
-        // Itt menthetnéd az adatokat az API-ba
-        Console.WriteLine("Profil mentve");
-        StateHasChanged();
-    }
-
-    private void CancelEdit()
-    {
-        isEditing = false;
-        // Itt visszaállíthatnád az eredeti adatokat
-        StateHasChanged();
-    }
-
-    private void ChangePassword()
-    {
-        Console.WriteLine("Jelszó változtatás");
-        // Navigálás jelszó változtatás oldalra vagy modal megjelenítése
-    }
-
-    private void Setup2FA()
-    {
-        Console.WriteLine("2FA beállítás");
-        // 2FA beállítás folyamat indítása
-    }
-
-    private void DeleteAccount()
-    {
-        Console.WriteLine("Fiók törlés megerősítés");
-        // Megerősítő modal megjelenítése
-    }
+	private async void ChangePassword()
+	{
+		jelszoValt = true;
+	}
+	private void KijelentkezesEsTorlesAtiranyit()
+	{
+		nav.NavigateTo("/KijelentTorles");
+	}
+	private void Bezar()
+	{
+		jelszoValt = false;
+	}
+	private void JelszoMod()
+	{
+		var Sha = new SHA256Managed();
+		RegiJelszo = Convert.ToBase64String(Sha.ComputeHash(Encoding.UTF8.GetBytes(RegiJelszo)));
+		if (RegiJelszo == felhasznalo.JelszoHash)
+		{
+			felhasznalo.JelszoHash = Convert.ToBase64String(Sha.ComputeHash(Encoding.UTF8.GetBytes(Ujelszo)));
+			FelhasznaloSzerv.UpdateFelhasznalo(felhasznalo);
+			RegiJelszo = "";
+			Ujelszo = "";
+			Bezar();
+			StateHasChanged();
+		}
+		else
+		{
+			RegiJelszo = "";
+			Ujelszo = "";
+			error = "A régi jelszavad nem egyezik meg!";
+		}
+	}
 }

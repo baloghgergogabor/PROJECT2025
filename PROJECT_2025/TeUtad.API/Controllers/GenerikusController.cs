@@ -33,7 +33,7 @@ namespace TeUtad.API.Controllers
             await _interface.Update(entity);
             return Ok();
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> Torol(int id)
         {
             await _interface.Delete(id);

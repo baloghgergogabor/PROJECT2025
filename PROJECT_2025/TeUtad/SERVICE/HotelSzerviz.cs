@@ -10,7 +10,7 @@ namespace TeUtad.SERVICE
 
         public async Task PostHotel(Hotel Hotel) => await _http.PostAsJsonAsync("api/Hotel", Hotel);
 
-        public async Task UpdateHotel(int id, Hotel Hotel) => await _http.PatchAsJsonAsync($"api/Hotel/{id}", Hotel);
+        public async Task UpdateHotel(Hotel Hotel) => await _http.PatchAsJsonAsync($"api/Hotel", Hotel);
 
         public async Task DeleteHotel(int id) => await _http.DeleteFromJsonAsync<Hotel>($"api/Hotel/{id}");
 

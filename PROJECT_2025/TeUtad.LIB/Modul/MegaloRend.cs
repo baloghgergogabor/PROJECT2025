@@ -14,6 +14,6 @@ namespace TeUtad.LIB.Modul
         public int LatvanyosagId { get; set; }
         public int FelhasznaloId { get; set; }
         public int MegaloRendezese {  get; set; }
-        public TimeSpan MegalonalTartozkodas { get; set; }
+        public TimeSpan MegalonalTartozkodasIdo { get; set; }
     }
 }

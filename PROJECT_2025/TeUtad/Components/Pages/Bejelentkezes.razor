@@ -12,7 +12,6 @@
 @inject FelhasznaloSzerviz Felhasznalo
 @inject SzerepSzerviz Szerep
 @inject NavigationManager nav
-@inject IJSRuntime jsRun
 <PageTitle>Bejelentkezés — TeUtad</PageTitle>
 
 <head>
@@ -84,7 +83,7 @@
                             <i class="bi bi-box-arrow-in-right me-2"></i>
                             Bejelentkezés
                         </button>
-                        <p>
+                        <p class="text-danger">
                             @error
                         </p>
                         <!-- Divider -->
@@ -124,16 +123,17 @@
     {
         var Sha = new SHA256Managed();
         List<FelhasznaloAdat> Felhasznalok = await Felhasznalo.GetAllFelhasznalo();
-        var FelahasznaloProbalkozas = Felhasznalok.Where(x => x.FelhasznaloNev == loginModel.FelhasznaloNev).FirstOrDefault();
+        var FelhasznaloProbalkozas = Felhasznalok.Where(x => x.FelhasznaloNev == loginModel.FelhasznaloNev).FirstOrDefault();
         var jelszoPorba = Convert.ToBase64String(Sha.ComputeHash(Encoding.UTF8.GetBytes(loginModel.Password)));
-        if (FelahasznaloProbalkozas is null || FelahasznaloProbalkozas.JelszoHash != jelszoPorba)
+        if (FelhasznaloProbalkozas is null || FelhasznaloProbalkozas.JelszoHash != jelszoPorba)
         {
             error = "A jelszo vagy felhasználonév rossz!";
             return;
         }
-        Szerep Szerpe = await Szerep.GetByIdSzerep(FelahasznaloProbalkozas.SzerepId);
+        Szerep Szerpe = await Szerep.GetByIdSzerep(FelhasznaloProbalkozas.SzerepId);
         var claims = new List<Claim>
             {
+                new Claim(ClaimTypes.NameIdentifier, FelhasznaloProbalkozas.id.ToString()),
                 new Claim(ClaimTypes.Name, loginModel.FelhasznaloNev),
                 new Claim(ClaimTypes.Role, Szerpe.Szerepe)
             };

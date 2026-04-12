@@ -9,7 +9,7 @@ namespace TeUtad.SERVICE
 
         public async Task PostVaros(Varos Varos) => await _http.PostAsJsonAsync("api/Varos", Varos);
 
-        public async Task UpdateVaros(int id, Varos Varos) => await _http.PatchAsJsonAsync($"api/Varos/{id}", Varos);
+        public async Task UpdateVaros(Varos Varos) => await _http.PatchAsJsonAsync($"api/Varos", Varos);
 
         public async Task DeleteVaros(int id) => await _http.DeleteFromJsonAsync<Varos>($"api/Varos/{id}");
 

@@ -10,7 +10,7 @@ namespace TeUtad.SERVICE
 
         public async Task PostAuto(Auto Auto) => await _http.PostAsJsonAsync("api/Felhasznalo", Auto);
 
-        public async Task UpdateAuto(int id, Auto Auto) => await _http.PatchAsJsonAsync($"api/Felhasznalo/{id}", Auto);
+        public async Task UpdateAuto(Auto Auto) => await _http.PatchAsJsonAsync($"api/Felhasznalo", Auto);
 
         public async Task DeleteAuto(int id) => await _http.DeleteFromJsonAsync<Auto>($"api/Felhasznalo/{id}");
 

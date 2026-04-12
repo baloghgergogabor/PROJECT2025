@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Components.Authorization;
 using TeUtad.Components;
+using TeUtad.MODEL;
 using TeUtad.SERVICE;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,7 @@ builder.Services.AddScoped<RepuloJegySzerviz>();
 builder.Services.AddScoped<SzerepSzerviz>();
 builder.Services.AddScoped<UtazasSzerviz>();
 builder.Services.AddScoped<VarosSzerviz>();
+builder.Services.AddScoped<MegaloRendSzerviz>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
@@ -25,9 +28,10 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.Cookie.MaxAge = TimeSpan.FromMinutes(30);
     });
 builder.Services.AddAuthorization();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<FelhasznaloAuthState>();
+builder.Services.AddScoped<AuthenticationStateProvider, FelhasznaloAuthState>();
 builder.Services.AddCascadingAuthenticationState();
-
-
 
 var app = builder.Build();
 

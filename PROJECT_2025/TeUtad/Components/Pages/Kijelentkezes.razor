@@ -1,0 +1,29 @@
+﻿@page "/Kijelentkez"
+@using Microsoft.AspNetCore.Authentication
+@inject NavigationManager nav
+<div class="container d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="card shadow-lg border-0" style="width: 400px;">
+        <div class="card-body text-center p-5">
+            <div class="spinner-grow text-danger mb-3" style="width: 3rem; height: 3rem;" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <h4>Kijelentkezés</h4>
+            <p class="text-muted">Folyamatban, kérjük várjon...</p>
+            <div class="progress mt-3" style="height: 2px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                     style="width: 100%"></div>
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+	[CascadingParameter]
+	public HttpContext HttpContext{ get; set;}
+
+	protected override async Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+		await HttpContext.SignOutAsync();
+		nav.NavigateTo("/");
+	}
+}

@@ -10,7 +10,7 @@ namespace TeUtad.SERVICE
 
         public async Task PostRepuloJegy(RepuloJegy RepuloJegy) => await _http.PostAsJsonAsync("api/RepuloJegy", RepuloJegy);
 
-        public async Task UpdateRepuloJegy(int id, RepuloJegy RepuloJegy) => await _http.PatchAsJsonAsync($"api/RepuloJegy/{id}", RepuloJegy);
+        public async Task UpdateRepuloJegy(RepuloJegy RepuloJegy) => await _http.PatchAsJsonAsync($"api/RepuloJegy", RepuloJegy);
 
         public async Task DeleteRepuloJegy(int id) => await _http.DeleteFromJsonAsync<RepuloJegy>($"api/RepuloJegy/{id}");
 

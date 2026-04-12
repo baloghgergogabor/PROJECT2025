@@ -1,0 +1,61 @@
+﻿@page "/KijelentTorles"
+@rendermode InteractiveServer
+@using System.Security.Claims
+@using TeUtad.LIB.Modul
+@using TeUtad.MODEL
+@using TeUtad.SERVICE
+@inject FelhasznaloSzerviz FelhaszSzerv
+@inject NavigationManager nav
+@inject FelhasznaloAuthState AutheriState
+@inject UtazasSzerviz Utazas
+@inject MegaloRendSzerviz Megalok
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+	<div class="col-md-6">
+		<div class="border border-0 rounded-4 shadow-lg p-5 text-center shadow-lg" style="background-color: #e9ecef;">
+			<h1 class="text-danger mb-4">Figyelem!</h1>
+			<h3 class="mb-4">Biztosan ki akarsz jelentkezni vagy törölni a profilodat?</h3>
+			<p class="text-muted mb-4">A fiók törlése végleges és nem visszavonható!</p>
+			<div class="d-flex justify-content-center gap-3">
+				<button @onclick="Kijelentkez" class="btn btn-warning rounded-pill btn-lg">
+					Kijelentkezés
+				</button>
+				<button @onclick="Torles" class="btn btn-danger rounded-pill btn-lg">
+					Fiók törlése
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+@code {
+
+	public void Kijelentkez()
+	{
+		nav.NavigateTo("/Kijelentkez");
+	}
+	public async void Torles()
+	{
+		var authState = await AutheriState.GetAuthenticationStateAsync();
+		var felhasznaloId = Convert.ToInt32(authState.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+		var Utazasok = await Utazas.GetAllUtazas();
+		var MegalokRend = await Megalok.GetAllMegaloRend();
+		var felhasznaloUtazasai = Utazasok.Where(x => x.FelhasznaloId == felhasznaloId); 
+		if (felhasznaloUtazasai.Any())
+		{
+			foreach (var item in felhasznaloUtazasai)
+			{
+				await Utazas.DeleteUtazas(item.id);
+			}
+		}
+		var felhasznaloMegaloi = MegalokRend.Where(x => x.FelhasznaloId == felhasznaloId);
+		if (felhasznaloMegaloi.Any())
+		{
+			foreach (var item in felhasznaloMegaloi)
+			{
+				await Megalok.DeleteMegaloRend(item.MegaloRendId);
+			}
+		}
+		FelhaszSzerv.DeleteFelhasznalo(felhasznaloId);
+		Kijelentkez();
+	}
+}

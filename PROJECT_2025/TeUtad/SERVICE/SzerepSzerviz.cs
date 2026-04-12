@@ -9,7 +9,7 @@ namespace TeUtad.SERVICE
 
         public async Task PostSzerep(Szerep Szerep) => await _http.PostAsJsonAsync("api/Szerep", Szerep);
 
-        public async Task UpdateSzerep(int id, Szerep Szerep) => await _http.PatchAsJsonAsync($"api/Szerep/{id}", Szerep);
+        public async Task UpdateSzerep(Szerep Szerep) => await _http.PatchAsJsonAsync($"api/Szerep", Szerep);
 
         public async Task DeleteSzerep(int id) => await _http.DeleteFromJsonAsync<Szerep>($"api/Szerep/{id}");
 

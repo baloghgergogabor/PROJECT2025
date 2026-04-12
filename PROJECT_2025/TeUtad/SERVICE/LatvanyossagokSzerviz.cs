@@ -9,7 +9,7 @@ namespace TeUtad.SERVICE
 
         public async Task PostLatvanyossagok(Latvanyossagok Latvanyossagok) => await _http.PostAsJsonAsync("api/Latvanyossagok", Latvanyossagok);
 
-        public async Task UpdateLatvanyossagok(int id, Latvanyossagok Latvanyossagok) => await _http.PatchAsJsonAsync($"api/Latvanyossagok/{id}", Latvanyossagok);
+        public async Task UpdateLatvanyossagok(Latvanyossagok Latvanyossagok) => await _http.PatchAsJsonAsync($"api/Latvanyossagok", Latvanyossagok);
 
         public async Task DeleteLatvanyossagok(int id) => await _http.DeleteFromJsonAsync<Latvanyossagok>($"api/Latvanyossagok/{id}");
 

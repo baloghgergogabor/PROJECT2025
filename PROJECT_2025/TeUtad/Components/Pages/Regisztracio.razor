@@ -98,8 +98,8 @@
 
                             <div class="password-strength mt-2" id="password-strength-container">
                                 <div class="password-strength-bar bg-secondary"
-                                     id="strength-bar"
-                                     style="width: 0%"></div>
+                                id="strength-bar"
+                                style="width: 0%"></div>
                             </div>
                             <small id="strength-text" class="text-secondary small"></small>
                             <input type="hidden" id="password-strength-value" />
@@ -119,7 +119,7 @@
                                 placeholder="Jelszó újra" />
                                 <button class="btn btn-outline-secondary" 
                                 type="button"
-                                    onclick="window.togglePasswordVisibility('confirmPassword','szemConfirm')">
+                                onclick="window.togglePasswordVisibility('confirmPassword','szemConfirm')">
                                     <i id="szemConfirm" class="bi bi-eye"></i>
                                 </button>
                             </div>
@@ -133,7 +133,9 @@
                             <i class="bi bi-person-plus me-2"></i>
                             Fiók létrehozása
                         </button>
-
+                        <p class="text-danger">
+                            @error
+                        </p>
                         <!-- Divider -->
                         <div class="position-relative my-4">
                             <hr class="text-muted">
@@ -167,7 +169,7 @@
     RegiszterModel registerModel { get; set; } = new();
     FelhasznaloAdat felhasznloAdat = new(); 
     private int passwordStrength = 0;
-
+    string error = "";
 
     private void CheckPasswordStrength(string password)
     {
@@ -233,14 +235,16 @@
         var felhasznalok = await Felhasznalo.GetAllFelhasznalo();
         if (felhasznalok.Where(fel => fel.FelhasznaloNev == felhasznloAdat.FelhasznaloNev && fel.Email == felhasznloAdat.Email).Any())
         {
-            await jsRun.InvokeVoidAsync("alert", "Már van ilyen felhasználó!");
+            error = "Már van ilyen felhasználó!";
+            return;
         }
-    
+
         else
         {
             await Felhasznalo.PostFelhasznalo(felhasznloAdat);
             var claims = new List<Claim>
                     {
+                        new Claim(ClaimTypes.NameIdentifier, felhasznloAdat.id.ToString()),
                         new Claim(ClaimTypes.Name, felhasznloAdat.FelhasznaloNev),
                         new Claim(ClaimTypes.Role, "User")
                     };

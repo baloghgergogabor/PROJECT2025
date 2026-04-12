@@ -9,7 +9,7 @@ namespace TeUtad.SERVICE
 
         public async Task PostMegaloRend(MegaloRend MegaloRend) => await _http.PostAsJsonAsync("api/MegaloRend", MegaloRend);
 
-        public async Task UpdateMegaloRend(int id, MegaloRend MegaloRend) => await _http.PatchAsJsonAsync($"api/MegaloRend/{id}", MegaloRend);
+        public async Task UpdateMegaloRend(MegaloRend MegaloRend) => await _http.PatchAsJsonAsync($"api/MegaloRend", MegaloRend);
 
         public async Task DeleteMegaloRend(int id) => await _http.DeleteFromJsonAsync<MegaloRend>($"api/MegaloRend/{id}");
 
