@@ -1,0 +1,249 @@
+﻿@page "/Admin"
+@using TeUtad.LIB.Modul
+@using TeUtad.MODEL
+@using TeUtad.SERVICE
+@using System.Security.Cryptography
+@using System.Text
+@inject FelhasznaloSzerviz FelhasznloSzerv
+@inject NavigationManager nav
+@rendermode InteractiveServer
+
+<table class="table">
+	<thead>
+		<td>FelhasználoId</td>
+		<td>Felhasználonév</td>
+		<td>Müvelet</td>
+	</thead>
+	<tbody>
+		@foreach(var item in Felhasznalok){
+			<tr>
+				<td>@item.id</td>
+				<td>@item.FelhasznaloNev</td>
+				<td><button class="btn btn-danger btn-sm rounded-pill" @onclick="() => FelhasnznaloTorlese(item.id)"></button></td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<button class="btn btn-outline-primary rounded-pill" @onclick="UjAdminHozzasa">
+	Új admin létre hozzása
+</button>
+
+@if(ujadminLetrehoz)
+{
+	<div class="modal fade show" tabindex="-1" style="display: block; background-color: rgba(0,0,0,0.5);" @onclick="Bezar">
+		<div class="modal-dialog modal-dialog-centered" @onclick:stopPropagation="true">
+			        <!-- Register Card -->
+        <div class="register-card">
+            <div class="card border-0 shadow-lg rounded-4">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="fw-bold mb-2">Új fiók létrehozása</h2>
+                    <p class="text-muted mb-4">Kezdd el a tervezést még ma</p>
+
+                    <EditForm Model="@registerModel" OnValidSubmit="@HandleRegister" FormName="Regisztralas">
+
+                        <!-- Név -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-semibold">Teljes név</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white">
+                                    <i class="bi bi-person text-muted"></i>
+                                </span>
+                                <InputText @bind-Value="registerModel.FullName" 
+                                class="form-control" 
+                                id="name" 
+                                placeholder="Kovács János" />
+                            </div>
+                            <ValidationMessage For="@(() => registerModel.FullName)" class="text-danger small" />
+                        </div>
+
+                        <!-- E-mail -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold">E-mail cím</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white">
+                                    <i class="bi bi-envelope text-muted"></i>
+                                </span>
+                                <InputText @bind-Value="registerModel.Email" 
+                                type="email" 
+                                class="form-control" 
+                                id="email" 
+                                placeholder="pelda@email.com" />
+                            </div>
+                            <ValidationMessage For="@(() => registerModel.Email)" class="text-danger small" />
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-semibold">Jelszó</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white">
+                                    <i class="bi bi-lock text-muted"></i>
+                                </span>
+                                <InputText @bind-Value="registerModel.Password" 
+                                type="password" 
+                                class="form-control" 
+                                id="password" 
+                                placeholder="Legalább 8 karakter"
+                                oninput="window.passwordStrength.checkStrength(this.value, 'password-strength-value', 'strength-bar', 'strength-text')" />
+                                <button class="btn btn-outline-secondary" 
+                                type="button"
+                                onclick="window.togglePasswordVisibility('password','szem')">
+                                    <i id="szem" class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                            <ValidationMessage For="@(() => registerModel.Password)" class="text-danger small" />
+
+                            <div class="password-strength mt-2" id="password-strength-container">
+                                <div class="password-strength-bar bg-secondary"
+                                id="strength-bar"
+                                style="width: 0%"></div>
+                            </div>
+                            <small id="strength-text" class="text-secondary small"></small>
+                            <input type="hidden" id="password-strength-value" />
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label fw-semibold">Jelszó megerősítése</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white">
+                                    <i class="bi bi-lock-fill text-muted"></i>
+                                </span>
+                                <InputText @bind-Value="registerModel.ConfirmPassword" 
+                                type="password" 
+                                class="form-control" 
+                                id="confirmPassword" 
+                                placeholder="Jelszó újra" />
+                                <button class="btn btn-outline-secondary" 
+                                type="button"
+                                onclick="window.togglePasswordVisibility('confirmPassword','szemConfirm')">
+                                    <i id="szemConfirm" class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                            <ValidationMessage For="@(() => registerModel.ConfirmPassword)" class="text-danger small" />
+                        </div>
+
+                        <DataAnnotationsValidator/>
+
+                        <!-- Register Button -->
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold rounded-pill mb-3">
+                            <i class="bi bi-person-plus me-2"></i>
+                            Fiók létrehozása
+                        </button>
+                        <p class="text-danger">
+                            @error
+                        </p>
+                        <!-- Divider -->
+                        <div class="position-relative my-4">
+                            <hr class="text-muted">
+                            <span class="position-absolute top-50 start-50 translate-middle bg-white px-3 text-muted small">
+                                vagy
+                            </span>
+                        </div>
+                    </EditForm>
+                    </div>
+                  </div>
+              </div>
+		</div>
+	</div>
+}
+
+@code {
+   public List<FelhasznaloAdat> Felhasznalok = new();
+   [SupplyParameterFromForm]
+   RegiszterModel registerModel { get; set; } = new();
+   FelhasznaloAdat UjAdmin = new();
+   bool ujadminLetrehoz = false;
+   string error = "";
+   private int passwordStrength = 0;
+   private void CheckPasswordStrength(string password)
+   {
+        if (string.IsNullOrEmpty(password))
+        {
+            passwordStrength = 0;
+            return;
+        }
+
+            int strength = 0;
+
+            // Hossz
+            if (password.Length >= 8) strength++;
+
+            // Tartalmaz számot
+            if (password.Any(char.IsDigit)) strength++;
+
+            // Tartalmaz kis- és nagybetűt
+            if (password.Any(char.IsLower) && password.Any(char.IsUpper)) strength++;
+
+            // Tartalmaz speciális karaktert
+            if (password.Any(c => !char.IsLetterOrDigit(c))) strength++;
+
+            passwordStrength = Math.Min(strength, 3);
+        }
+
+            private string GetPasswordStrengthColor()
+            {
+                return passwordStrength switch
+                {
+                    1 => "danger",
+                    2 => "warning",
+                    3 => "success",
+                    _ => "secondary"
+                };
+            }
+
+    private string GetPasswordStrengthText()
+    {
+            return passwordStrength switch
+        {
+            1 => "Gyenge jelszó",
+            2 => "Közepes jelszó",
+            3 => "Erős jelszó",
+            _ => ""
+        };
+    }
+
+
+	protected override async Task OnInitializedAsync()
+	{
+		Felhasznalok = await FelhasznloSzerv.GetAllFelhasznalo();
+	}
+	public async Task FelhasnznaloTorlese(int felhaszanloId)
+	{
+		await FelhasznloSzerv.DeleteFelhasznalo(felhaszanloId);
+		StateHasChanged();
+	}
+	public void UjAdminHozzasa()
+	{
+		ujadminLetrehoz = true;
+	}
+	public void Bezar()
+	{
+		ujadminLetrehoz = false;
+	}
+        private async Task HandleRegister()
+    {
+        var Sha = new SHA256Managed();
+        // Regisztrációs logika ide
+        UjAdmin = new FelhasznaloAdat
+            {
+                FelhasznaloNev = registerModel.FullName,
+                JelszoHash = Convert.ToBase64String(Sha.ComputeHash(Encoding.UTF8.GetBytes(registerModel.Password))),
+                Email = registerModel.Email,
+                SzerepId = 1
+            };
+        var felhasznalok = await FelhasznloSzerv.GetAllFelhasznalo();
+        if (felhasznalok.Where(fel => fel.FelhasznaloNev == UjAdmin.FelhasznaloNev && fel.Email == UjAdmin.Email).Any())
+        {
+            error = "Már van ilyen felhasználó!";
+            return;
+        }
+
+        else
+        {
+            Bezar();
+        }
+    }
+
+}
