@@ -1,7 +1,10 @@
 @page "/"
 @rendermode InteractiveServer
+@using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Components
 @using Microsoft.AspNetCore.Components.Web
 @using System.Web
+
 @inject IJSRuntime JSRuntime
 
 
@@ -11,7 +14,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-    
+
+    <script src="/js/googleMaps.js"></script>
+
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL9wuHLIfIK1LLTkqPA6sW4ltfXl2rbfo&libraries=places&callback=Function.prototype" async defer></script>
 </head>
@@ -22,11 +27,11 @@
 <section class="hero-section d-flex align-items-center text-white">
     <div class="container text-center py-5">
         <span class="badge bg-white text-primary fw-semibold mb-3 px-3 py-2 fs-6">
-            Utazz aggodalom nélkül TeUtad-on
+            Utazz aggodalom nélkül a TeUtad-on
         </span>
 
         <h1 class="display-4 fw-bold mb-4">
-            Hová szeretnél menni?
+            Hova szeretne menni?
         </h1>
 
         @* Úticél és dátum keresés - Mobilbarát *@
@@ -34,17 +39,17 @@
             @* Indulási hely - Opcionális (csak repjegy esetén) *@
             <div class="col-12 col-md-5">
                 <input id="index-from-input"
-                       class="form-control form-control-lg" 
-                       type="text" 
-                       placeholder="Indulási hely (opcionális, repjegyhez)" 
+                       class="form-control form-control-lg"
+                       type="text"
+                       placeholder="Indulási hely"
                        @bind="honnan"
                        @bind:event="oninput">
             </div>
 
             @* Csere gomb *@
             <div class="col-12 col-md-2 d-flex justify-content-center">
-                <button type="button" 
-                        class="btn btn-info btn-lg rounded-circle" 
+                <button type="button"
+                        class="btn btn-info btn-lg rounded-circle"
                         @onclick="uticelcsere"
                         style="width: 50px; height: 50px;">
                     <i class="bi bi-arrow-left-right"></i>
@@ -54,9 +59,9 @@
             @* Úticél - Kötelező *@
             <div class="col-12 col-md-5">
                 <input id="index-destination-input"
-                       class="form-control form-control-lg @(string.IsNullOrWhiteSpace(hova) ? "border-warning" : "")" 
-                       type="text" 
-                       placeholder="Úticél (kötelező)" 
+                       class="form-control form-control-lg @(string.IsNullOrWhiteSpace(hova) ? "border-warning" : "")"
+                       type="text"
+                       placeholder="Úticél (kötelező)"
                        @bind="hova"
                        @bind:event="oninput">
                 @if (string.IsNullOrWhiteSpace(hova))
@@ -71,8 +76,8 @@
                     <i class="bi bi-calendar-event me-2"></i>
                     Mikor szeretnél utazni?
                 </label>
-                <input type="date" 
-                       class="form-control form-control-lg text-center" 
+                <input type="date"
+                       class="form-control form-control-lg text-center"
                        @bind="tripStartDate"
                        min="@DateTime.Now.ToString("yyyy-MM-dd")">
             </div>
@@ -82,7 +87,7 @@
             Tervezz személyre szabott utakat percek alatt. A TeUtad elkészíti a tökéletes útvonalat — a te ízlésed szerint.
         </p>
 
-        <a href="/ut-tervezes?destination=@System.Web.HttpUtility.UrlEncode(hova)&date=@tripStartDate.ToString("yyyy-MM-dd")&from=@System.Web.HttpUtility.UrlEncode(honnan)" 
+        <a href="/ut-tervezes?destination=@System.Web.HttpUtility.UrlEncode(hova)&date=@tripStartDate.ToString("yyyy-MM-dd")&from=@System.Web.HttpUtility.UrlEncode(honnan)"
            class="btn btn-warning btn-lg rounded-pill px-5 py-3 fw-bold shadow fs-5 @(string.IsNullOrWhiteSpace(hova) ? "disabled" : "")">
             <i class="bi bi-plus-circle me-2"></i>
             Út tervezésének indítása
@@ -93,7 +98,7 @@
             <div class="mt-3">
                 <small class="text-white opacity-75">
                     <i class="bi bi-info-circle me-1"></i>
-                    Adj meg egy úticélt a tervezés indításához
+                    Adjon meg egy úticélt a tervezés indításához!
                 </small>
             </div>
         }
@@ -108,9 +113,6 @@
             <h2 class="fw-bold mb-1">Népszerű úticélok</h2>
             <p class="text-muted mb-0">Ezreket inspirált már a TeUtad</p>
         </div>
-        <a href="#" class="btn btn-outline-primary rounded-pill d-none d-md-inline-flex">
-            Összes megtekintése <i class="bi bi-arrow-right ms-1"></i>
-        </a>
     </div>
 
     <div class="row g-4">
@@ -136,9 +138,9 @@
                         </div>
                     </div>
                     <div class="card-footer bg-transparent border-0 pb-3">
-                        <a href="#" class="btn btn-outline-primary btn-sm rounded-pill w-100">
+                        <button class="btn btn-outline-primary btn-sm rounded-pill w-100" @onclick="@(() => SelectDestination(destination.Name))">
                             Ezt tervezem
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -157,10 +159,20 @@
             <h4 class="fw-bold mb-2">Álmodd meg a saját utazásod!</h4>
             <p class="opacity-75">Nem tetszik ezek közül egyik sem?</p>
             <p class="opacity-75"> Tekintsd meg az összes úticélunkat vagy ha kalandvágyó vagy kezdd el tervezni a saját utazásod!</p>
-            <a href="/ut-tervezes" class="btn btn-warning btn-lg rounded-pill px-5 fw-bold shadow-sm">
+            <a href="/ut-tervezes?destination=@System.Web.HttpUtility.UrlEncode(hova)&date=@tripStartDate.ToString("yyyy-MM-dd")&from=@System.Web.HttpUtility.UrlEncode(honnan)"
+               class="btn btn-warning btn-lg rounded-pill px-5 fw-bold shadow-sm @(string.IsNullOrWhiteSpace(hova) ? "disabled" : "")">
                 <i class="bi bi-plus-circle me-2"></i>
                 Út tervezésének indítása
             </a>
+            @if (string.IsNullOrWhiteSpace(hova))
+            {
+                <div class="mt-3">
+                    <small class="text-white opacity-75">
+                        <i class="bi bi-info-circle me-1"></i>
+                        Adjon meg egy úticélt fent a tervezés indításához!
+                    </small>
+                </div>
+            }
         </div>
     </div>
 </main>
@@ -175,56 +187,46 @@
                 </span>
                 <span class="text-muted small ms-2">— YourWay</span>
             </div>
-            <div class="col-md-4 text-center">
-                <a href="#" class="text-muted text-decoration-none small me-3">Rólunk</a>
-                <a href="#" class="text-muted text-decoration-none small me-3">Adatvédelem</a>
-                <a href="#" class="text-muted text-decoration-none small me-3">Feltételek</a>
-                <a href="#" class="text-muted text-decoration-none small">Kapcsolat</a>
-            </div>
-            <div class="col-md-4 text-center text-md-end">
-                <a href="#" class="text-muted me-3"><i class="bi bi-instagram fs-5"></i></a>
-                <a href="#" class="text-muted me-3"><i class="bi bi-twitter-x fs-5"></i></a>
-                <a href="#" class="text-muted"><i class="bi bi-facebook fs-5"></i></a>
-            </div>
         </div>
         <div class="text-center text-muted small mt-3">
-            © 2025 TeUtad. Minden jog fenntartva.
+            © 2025 TeUtad
         </div>
     </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-@code {
 
+<script>
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            initSimpleAutocomplete('index-destination-input');
+            initSimpleAutocomplete('index-from-input');
+            console.log(' Autocomplete OK');
+        }, 1500);
+    });
+</script>
+
+
+
+@code {
     string debug = "";
     string honnan = "";
     string hova = "";
     DateTime tripStartDate = DateTime.Now.AddDays(7);
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    protected override void OnInitialized()
     {
-        if (firstRender)
-        {
-            // Várunk, hogy a Google Maps betöltődjön
-            await Task.Delay(1000);
-            
-            try
-            {
-                // Autocomplete az úticél mezőre
-                await JSRuntime.InvokeVoidAsync("initSimpleAutocomplete", "index-destination-input");
-                
-                // Autocomplete az indulási hely mezőre
-                await JSRuntime.InvokeVoidAsync("initSimpleAutocomplete", "index-from-input");
-                
-                Console.WriteLine("✅ Index autocomplete inicializálva");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"❌ Autocomplete init error: {ex.Message}");
-            }
-        }
+        base.OnInitialized();
+
+        // TELJESEN RANDOM SHUFFLE (Párizs is benne van)
+        var random = new Random();
+        destinations = allDestinations.OrderBy(x => random.Next()).ToList();
+
+        Console.WriteLine($"✅ {destinations.Count} úticél betöltve (Első: {destinations[0].Name})");
     }
+
+
 
     void uticelcsere()
     {
@@ -235,7 +237,14 @@
         StateHasChanged();
     }
 
+    void SelectDestination(string destinationName)
+    {
+        hova = destinationName;
+        StateHasChanged();
 
+        // Scroll up to search box
+        JSRuntime.InvokeVoidAsync("window.scrollTo", 0, 0);
+    }
 
     private class Destination
     {
@@ -245,13 +254,45 @@
         public string BadgeKey { get; set; }
         public string BadgeColor { get; set; }
         public string LocationKey { get; set; }
-
     }
 
-    private List<Destination> destinations = new List<Destination>
+    // ÖSSZES úticél lista (ezt használjuk random-hoz)
+    private List<Destination> allDestinations = new List<Destination>
     {
-        new Destination { Id = 1, Name = "Paris, Franciaország", Emoji = "🗼", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_paris"}
+        new Destination { Id = 1, Name = "Párizs, Franciaország", Emoji = "🗼", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_paris"},
+        new Destination { Id = 2, Name = "Tokió, Japán", Emoji = "🗾", BadgeKey = "badge_adventure", BadgeColor = "danger", LocationKey = "loc_tokyo"},
+        new Destination { Id = 3, Name = "New York, USA", Emoji = "🗽", BadgeKey = "badge_bestseller", BadgeColor = "warning", LocationKey = "loc_newyork"},
+        new Destination { Id = 4, Name = "London, Egyesült Királyság", Emoji = "🎡", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_london"},
+        new Destination { Id = 5, Name = "Dubai, EAE", Emoji = "🏜️", BadgeKey = "badge_new", BadgeColor = "info", LocationKey = "loc_dubai"},
+        new Destination { Id = 6, Name = "Róma, Olaszország", Emoji = "🏛️", BadgeKey = "badge_bestseller", BadgeColor = "warning", LocationKey = "loc_rome"},
+        new Destination { Id = 7, Name = "Barcelona, Spanyolország", Emoji = "⚽", BadgeKey = "badge_deal", BadgeColor = "success", LocationKey = "loc_barcelona"},
+        new Destination { Id = 8, Name = "Isztambul, Törökország", Emoji = "🕌", BadgeKey = "badge_adventure", BadgeColor = "danger", LocationKey = "loc_istanbul"},
+        new Destination { Id = 9, Name = "Amszterdam, Hollandia", Emoji = "🚲", BadgeKey = "badge_eco", BadgeColor = "success", LocationKey = "loc_amsterdam"},
+        new Destination { Id = 10, Name = "Szingapúr", Emoji = "🦁", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_singapore"},
+        new Destination { Id = 11, Name = "Bangkok, Thaiföld", Emoji = "🛕", BadgeKey = "badge_deal", BadgeColor = "success", LocationKey = "loc_bangkok"},
+        new Destination { Id = 12, Name = "Prága, Csehország", Emoji = "🏰", BadgeKey = "badge_bestseller", BadgeColor = "warning", LocationKey = "loc_prague"},
+        new Destination { Id = 13, Name = "Lisszabon, Portugália", Emoji = "🌊", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_lisbon"},
+        new Destination { Id = 14, Name = "Bécs, Ausztria", Emoji = "🎻", BadgeKey = "badge_bestseller", BadgeColor = "warning", LocationKey = "loc_vienna"},
+        new Destination { Id = 15, Name = "Sydney, Ausztrália", Emoji = "🦘", BadgeKey = "badge_adventure", BadgeColor = "danger", LocationKey = "loc_sydney"},
+        new Destination { Id = 16, Name = "Berlin, Németország", Emoji = "🐻", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_berlin"},
+        new Destination { Id = 17, Name = "Bali, Indonézia", Emoji = "🏖️", BadgeKey = "badge_eco", BadgeColor = "success", LocationKey = "loc_bali"},
+        new Destination { Id = 18, Name = "Athén, Görögország", Emoji = "🏺", BadgeKey = "badge_bestseller", BadgeColor = "warning", LocationKey = "loc_athens"},
+        new Destination { Id = 19, Name = "Marrákesh, Marokkó", Emoji = "🐪", BadgeKey = "badge_adventure", BadgeColor = "danger", LocationKey = "loc_marrakech"},
+        new Destination { Id = 20, Name = "Hong Kong", Emoji = "🏙️", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_hongkong"},
+        new Destination { Id = 21, Name = "Koppenhága, Dánia", Emoji = "🚴", BadgeKey = "badge_eco", BadgeColor = "success", LocationKey = "loc_copenhagen"},
+        new Destination { Id = 22, Name = "Rio de Janeiro, Brazília", Emoji = "🎭", BadgeKey = "badge_adventure", BadgeColor = "danger", LocationKey = "loc_rio"},
+        new Destination { Id = 23, Name = "Santorini, Görögország", Emoji = "🌅", BadgeKey = "badge_deal", BadgeColor = "success", LocationKey = "loc_santorini"},
+        new Destination { Id = 24, Name = "Edinburgh, Skócia", Emoji = "🏴", BadgeKey = "badge_bestseller", BadgeColor = "warning", LocationKey = "loc_edinburgh"},
+        new Destination { Id = 25, Name = "Kioto, Japán", Emoji = "⛩️", BadgeKey = "badge_adventure", BadgeColor = "danger", LocationKey = "loc_kyoto"},
+        new Destination { Id = 26, Name = "Reykjavik, Izland", Emoji = "🌋", BadgeKey = "badge_new", BadgeColor = "info", LocationKey = "loc_reykjavik"},
+        new Destination { Id = 27, Name = "Buenos Aires, Argentína", Emoji = "💃", BadgeKey = "badge_adventure", BadgeColor = "danger", LocationKey = "loc_buenosaires"},
+        new Destination { Id = 28, Name = "Krakkó, Lengyelország", Emoji = "🏰", BadgeKey = "badge_deal", BadgeColor = "success", LocationKey = "loc_krakow"},
+        new Destination { Id = 29, Name = "Dubrovnik, Horvátország", Emoji = "⛵", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_dubrovnik"},
+        new Destination { Id = 30, Name = "Bruges, Belgium", Emoji = "🍫", BadgeKey = "badge_eco", BadgeColor = "success", LocationKey = "loc_bruges"}
     };
+
+    // Megjelenített lista (OnInitialized() random-má teszi)
+    private List<Destination> destinations = new List<Destination>();
 
     private Dictionary<string, string> badges = new Dictionary<string, string>
     {
@@ -266,11 +307,35 @@
     private Dictionary<string, string> locations = new Dictionary<string, string>
     {
         ["loc_paris"] = "Nyugat-Európa · 5–10 nap",
+        ["loc_tokyo"] = "Kelet-Ázsia · 7–14 nap",
+        ["loc_newyork"] = "Észak-Amerika · 5–10 nap",
+        ["loc_london"] = "Nyugat-Európa · 4–8 nap",
+        ["loc_dubai"] = "Közel-Kelet · 4–7 nap",
+        ["loc_rome"] = "Dél-Európa · 5–9 nap",
+        ["loc_barcelona"] = "Dél-Európa · 4–8 nap",
+        ["loc_istanbul"] = "Közel-Kelet · 5–10 nap",
+        ["loc_amsterdam"] = "Nyugat-Európa · 3–6 nap",
+        ["loc_singapore"] = "Délkelet-Ázsia · 4–7 nap",
+        ["loc_bangkok"] = "Délkelet-Ázsia · 5–10 nap",
+        ["loc_prague"] = "Közép-Európa · 3–6 nap",
+        ["loc_lisbon"] = "Dél-Európa · 4–8 nap",
+        ["loc_vienna"] = "Közép-Európa · 3–6 nap",
+        ["loc_sydney"] = "Óceánia · 10–14 nap",
+        ["loc_berlin"] = "Közép-Európa · 4–7 nap",
+        ["loc_bali"] = "Délkelet-Ázsia · 7–14 nap",
+        ["loc_athens"] = "Dél-Európa · 4–8 nap",
         ["loc_marrakech"] = "Észak-Afrika · 4–7 nap",
-        ["loc_kyoto"] = "Kelet-Ázsia · 7–14 nap",
-        ["loc_costarica"] = "Közép-Amerika · 6–10 nap",
+        ["loc_hongkong"] = "Kelet-Ázsia · 5–8 nap",
+        ["loc_copenhagen"] = "Észak-Európa · 3–6 nap",
+        ["loc_rio"] = "Dél-Amerika · 7–12 nap",
         ["loc_santorini"] = "Mediterrán · 5–8 nap",
-        ["loc_serengeti"] = "Kelet-Afrika · 8–14 nap"
+        ["loc_edinburgh"] = "Nyugat-Európa · 3–6 nap",
+        ["loc_kyoto"] = "Kelet-Ázsia · 7–14 nap",
+        ["loc_reykjavik"] = "Észak-Európa · 5–9 nap",
+        ["loc_buenosaires"] = "Dél-Amerika · 7–12 nap",
+        ["loc_krakow"] = "Közép-Európa · 3–5 nap",
+        ["loc_dubrovnik"] = "Dél-Európa · 4–7 nap",
+        ["loc_bruges"] = "Nyugat-Európa · 2–4 nap"
     };
 
     private string GetBadgeText(string key)
@@ -287,4 +352,6 @@
     {
         // Opcionális: hover logika, pl. analytics tracking
     }
+
+
 }
