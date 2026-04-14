@@ -242,6 +242,7 @@
         else
         {
             await Felhasznalo.PostFelhasznalo(felhasznloAdat);
+            felhasznalok = await Felhasznalo.GetAllFelhasznalo();
             int? id = felhasznalok.FirstOrDefault(x => x.FelhasznaloNev == felhasznloAdat.FelhasznaloNev && x.Email == felhasznloAdat.Email && x.JelszoHash == felhasznloAdat.JelszoHash).id;
             var claims = new List<Claim>
                     {

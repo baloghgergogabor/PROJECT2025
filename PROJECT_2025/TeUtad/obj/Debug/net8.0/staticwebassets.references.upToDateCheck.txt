@@ -12,3 +12,7 @@ C:\Users\Gergő\Desktop\PROJECT2025_E\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\s
 C:\Users\Gergő\Desktop\PROJECT2025_E\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Gergő\Desktop\PROJECT2025_E\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Gergő\Desktop\dsadasdasdwe\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Gergő\Desktop\dsadasdasdwe\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Gergő\Desktop\dsadasdasdwe\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Gergő\Desktop\dsadasdasdwe\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Gergő\Desktop\dsadasdasdwe\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets.build.json
