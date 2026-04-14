@@ -4,7 +4,6 @@
 @using Microsoft.AspNetCore.Components
 @using Microsoft.AspNetCore.Components.Web
 @using System.Web
-
 @inject IJSRuntime JSRuntime
 
 
@@ -198,13 +197,13 @@
 
 
 <script>
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            initSimpleAutocomplete('index-destination-input');
-            initSimpleAutocomplete('index-from-input');
-            console.log(' Autocomplete OK');
-        }, 1500);
-    });
+
+    function initAutocomplete() {
+        initSimpleAutocomplete('index-destination-input');
+        initSimpleAutocomplete('index-from-input');
+        console.log("autocomplete ready")
+    }
+
 </script>
 
 
@@ -219,11 +218,20 @@
     {
         base.OnInitialized();
 
-        // TELJESEN RANDOM SHUFFLE (Párizs is benne van)
+        // Megkeveri a kártyákat a főoldalon
         var random = new Random();
         destinations = allDestinations.OrderBy(x => random.Next()).ToList();
 
-        Console.WriteLine($"✅ {destinations.Count} úticél betöltve (Első: {destinations[0].Name})");
+
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("initAutocomplete");
+        }
+
     }
 
 
@@ -259,36 +267,7 @@
     // ÖSSZES úticél lista (ezt használjuk random-hoz)
     private List<Destination> allDestinations = new List<Destination>
     {
-        new Destination { Id = 1, Name = "Párizs, Franciaország", Emoji = "🗼", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_paris"},
-        new Destination { Id = 2, Name = "Tokió, Japán", Emoji = "🗾", BadgeKey = "badge_adventure", BadgeColor = "danger", LocationKey = "loc_tokyo"},
-        new Destination { Id = 3, Name = "New York, USA", Emoji = "🗽", BadgeKey = "badge_bestseller", BadgeColor = "warning", LocationKey = "loc_newyork"},
-        new Destination { Id = 4, Name = "London, Egyesült Királyság", Emoji = "🎡", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_london"},
-        new Destination { Id = 5, Name = "Dubai, EAE", Emoji = "🏜️", BadgeKey = "badge_new", BadgeColor = "info", LocationKey = "loc_dubai"},
-        new Destination { Id = 6, Name = "Róma, Olaszország", Emoji = "🏛️", BadgeKey = "badge_bestseller", BadgeColor = "warning", LocationKey = "loc_rome"},
-        new Destination { Id = 7, Name = "Barcelona, Spanyolország", Emoji = "⚽", BadgeKey = "badge_deal", BadgeColor = "success", LocationKey = "loc_barcelona"},
-        new Destination { Id = 8, Name = "Isztambul, Törökország", Emoji = "🕌", BadgeKey = "badge_adventure", BadgeColor = "danger", LocationKey = "loc_istanbul"},
-        new Destination { Id = 9, Name = "Amszterdam, Hollandia", Emoji = "🚲", BadgeKey = "badge_eco", BadgeColor = "success", LocationKey = "loc_amsterdam"},
-        new Destination { Id = 10, Name = "Szingapúr", Emoji = "🦁", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_singapore"},
-        new Destination { Id = 11, Name = "Bangkok, Thaiföld", Emoji = "🛕", BadgeKey = "badge_deal", BadgeColor = "success", LocationKey = "loc_bangkok"},
-        new Destination { Id = 12, Name = "Prága, Csehország", Emoji = "🏰", BadgeKey = "badge_bestseller", BadgeColor = "warning", LocationKey = "loc_prague"},
-        new Destination { Id = 13, Name = "Lisszabon, Portugália", Emoji = "🌊", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_lisbon"},
-        new Destination { Id = 14, Name = "Bécs, Ausztria", Emoji = "🎻", BadgeKey = "badge_bestseller", BadgeColor = "warning", LocationKey = "loc_vienna"},
-        new Destination { Id = 15, Name = "Sydney, Ausztrália", Emoji = "🦘", BadgeKey = "badge_adventure", BadgeColor = "danger", LocationKey = "loc_sydney"},
-        new Destination { Id = 16, Name = "Berlin, Németország", Emoji = "🐻", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_berlin"},
-        new Destination { Id = 17, Name = "Bali, Indonézia", Emoji = "🏖️", BadgeKey = "badge_eco", BadgeColor = "success", LocationKey = "loc_bali"},
-        new Destination { Id = 18, Name = "Athén, Görögország", Emoji = "🏺", BadgeKey = "badge_bestseller", BadgeColor = "warning", LocationKey = "loc_athens"},
-        new Destination { Id = 19, Name = "Marrákesh, Marokkó", Emoji = "🐪", BadgeKey = "badge_adventure", BadgeColor = "danger", LocationKey = "loc_marrakech"},
-        new Destination { Id = 20, Name = "Hong Kong", Emoji = "🏙️", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_hongkong"},
-        new Destination { Id = 21, Name = "Koppenhága, Dánia", Emoji = "🚴", BadgeKey = "badge_eco", BadgeColor = "success", LocationKey = "loc_copenhagen"},
-        new Destination { Id = 22, Name = "Rio de Janeiro, Brazília", Emoji = "🎭", BadgeKey = "badge_adventure", BadgeColor = "danger", LocationKey = "loc_rio"},
-        new Destination { Id = 23, Name = "Santorini, Görögország", Emoji = "🌅", BadgeKey = "badge_deal", BadgeColor = "success", LocationKey = "loc_santorini"},
-        new Destination { Id = 24, Name = "Edinburgh, Skócia", Emoji = "🏴", BadgeKey = "badge_bestseller", BadgeColor = "warning", LocationKey = "loc_edinburgh"},
-        new Destination { Id = 25, Name = "Kioto, Japán", Emoji = "⛩️", BadgeKey = "badge_adventure", BadgeColor = "danger", LocationKey = "loc_kyoto"},
-        new Destination { Id = 26, Name = "Reykjavik, Izland", Emoji = "🌋", BadgeKey = "badge_new", BadgeColor = "info", LocationKey = "loc_reykjavik"},
-        new Destination { Id = 27, Name = "Buenos Aires, Argentína", Emoji = "💃", BadgeKey = "badge_adventure", BadgeColor = "danger", LocationKey = "loc_buenosaires"},
-        new Destination { Id = 28, Name = "Krakkó, Lengyelország", Emoji = "🏰", BadgeKey = "badge_deal", BadgeColor = "success", LocationKey = "loc_krakow"},
-        new Destination { Id = 29, Name = "Dubrovnik, Horvátország", Emoji = "⛵", BadgeKey = "badge_trending", BadgeColor = "primary", LocationKey = "loc_dubrovnik"},
-        new Destination { Id = 30, Name = "Bruges, Belgium", Emoji = "🍫", BadgeKey = "badge_eco", BadgeColor = "success", LocationKey = "loc_bruges"}
+
     };
 
     // Megjelenített lista (OnInitialized() random-má teszi)

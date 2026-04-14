@@ -1,0 +1,848 @@
+[
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Auto, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Auto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[TeUtad.LIB.Modul.Auto, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Auto, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Add",
+    "RelativePath": "api/Auto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.Auto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Auto, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Auto",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.Auto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Auto, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetId",
+    "RelativePath": "api/Auto/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TeUtad.LIB.Modul.Auto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Auto, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Torol",
+    "RelativePath": "api/Auto/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.FelhasznaloAdat, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Felhasznalo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[TeUtad.LIB.Modul.FelhasznaloAdat, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.FelhasznaloAdat, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Add",
+    "RelativePath": "api/Felhasznalo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.FelhasznaloAdat",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.FelhasznaloAdat, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Felhasznalo",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.FelhasznaloAdat",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.FelhasznaloAdat, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetId",
+    "RelativePath": "api/Felhasznalo/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TeUtad.LIB.Modul.FelhasznaloAdat",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.FelhasznaloAdat, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Torol",
+    "RelativePath": "api/Felhasznalo/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Hotel, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Hotel",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[TeUtad.LIB.Modul.Hotel, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Hotel, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Add",
+    "RelativePath": "api/Hotel",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.Hotel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Hotel, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Hotel",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.Hotel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Hotel, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetId",
+    "RelativePath": "api/Hotel/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TeUtad.LIB.Modul.Hotel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Hotel, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Torol",
+    "RelativePath": "api/Hotel/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Latvanyossagok, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Latvanyossagok",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[TeUtad.LIB.Modul.Latvanyossagok, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Latvanyossagok, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Add",
+    "RelativePath": "api/Latvanyossagok",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.Latvanyossagok",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Latvanyossagok, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Latvanyossagok",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.Latvanyossagok",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Latvanyossagok, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetId",
+    "RelativePath": "api/Latvanyossagok/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TeUtad.LIB.Modul.Latvanyossagok",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Latvanyossagok, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Torol",
+    "RelativePath": "api/Latvanyossagok/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.MegaloRend, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/MegaloRend",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[TeUtad.LIB.Modul.MegaloRend, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.MegaloRend, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Add",
+    "RelativePath": "api/MegaloRend",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.MegaloRend",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.MegaloRend, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/MegaloRend",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.MegaloRend",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.MegaloRend, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetId",
+    "RelativePath": "api/MegaloRend/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TeUtad.LIB.Modul.MegaloRend",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.MegaloRend, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Torol",
+    "RelativePath": "api/MegaloRend/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.RepuloJegy, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/RepuloJegy",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[TeUtad.LIB.Modul.RepuloJegy, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.RepuloJegy, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Add",
+    "RelativePath": "api/RepuloJegy",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.RepuloJegy",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.RepuloJegy, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/RepuloJegy",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.RepuloJegy",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.RepuloJegy, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetId",
+    "RelativePath": "api/RepuloJegy/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TeUtad.LIB.Modul.RepuloJegy",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.RepuloJegy, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Torol",
+    "RelativePath": "api/RepuloJegy/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Szerep, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Szerep",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[TeUtad.LIB.Modul.Szerep, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Szerep, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Add",
+    "RelativePath": "api/Szerep",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.Szerep",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Szerep, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Szerep",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.Szerep",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Szerep, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetId",
+    "RelativePath": "api/Szerep/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TeUtad.LIB.Modul.Szerep",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Szerep, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Torol",
+    "RelativePath": "api/Szerep/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Utazas, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Utazas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[TeUtad.LIB.Modul.Utazas, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Utazas, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Add",
+    "RelativePath": "api/Utazas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.Utazas",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Utazas, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Utazas",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.Utazas",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Utazas, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetId",
+    "RelativePath": "api/Utazas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TeUtad.LIB.Modul.Utazas",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.Utazas, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Torol",
+    "RelativePath": "api/Utazas/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.UtazasLatvanyossag, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/UtazasLatvanyossag",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[TeUtad.LIB.Modul.UtazasLatvanyossag, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.UtazasLatvanyossag, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Add",
+    "RelativePath": "api/UtazasLatvanyossag",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.UtazasLatvanyossag",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.UtazasLatvanyossag, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/UtazasLatvanyossag",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "TeUtad.LIB.Modul.UtazasLatvanyossag",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.UtazasLatvanyossag, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetId",
+    "RelativePath": "api/UtazasLatvanyossag/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TeUtad.LIB.Modul.UtazasLatvanyossag",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TeUtad.API.Controllers.GenerikusController\u00601[[TeUtad.LIB.Modul.UtazasLatvanyossag, TeUtad.LIB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Torol",
+    "RelativePath": "api/UtazasLatvanyossag/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -1,0 +1,21 @@
+body[b-jpaokt1ogj] {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    min-height: 100vh;
+}
+
+.login-card[b-jpaokt1ogj] {
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+.brand-link[b-jpaokt1ogj] {
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.2s;
+}
+
+    .brand-link:hover[b-jpaokt1ogj] {
+        opacity: 0.8;
+        color: white;
+    }

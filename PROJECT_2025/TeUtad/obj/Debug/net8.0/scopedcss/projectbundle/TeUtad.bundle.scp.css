@@ -1,0 +1,287 @@
+/* _content/TeUtad/Components/Pages/Bejelentkezes.razor.rz.scp.css */
+body[b-jpaokt1ogj] {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    min-height: 100vh;
+}
+
+.login-card[b-jpaokt1ogj] {
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+.brand-link[b-jpaokt1ogj] {
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.2s;
+}
+
+    .brand-link:hover[b-jpaokt1ogj] {
+        opacity: 0.8;
+        color: white;
+    }
+/* _content/TeUtad/Components/Pages/Index.razor.rz.scp.css */
+body[b-jddusmnocs] {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f0f4f8;
+}
+
+.navbar-brand span[b-jddusmnocs] {
+    color: #0d6efd;
+}
+
+.hero-section[b-jddusmnocs] {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    min-height: 420px;
+}
+
+.trip-card:hover[b-jddusmnocs] {
+    transform: translateY(-4px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,0.12);
+}
+
+.destination-img[b-jddusmnocs] {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+/* _content/TeUtad/Components/Pages/KorabbiUtak.razor.rz.scp.css */
+body[b-q7rc6qey5l] {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f0f4f8;
+}
+
+.trip-card[b-q7rc6qey5l] {
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+    .trip-card:hover[b-q7rc6qey5l] {
+        transform: translateY(-4px);
+        box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,0.12);
+    }
+
+.map-preview[b-q7rc6qey5l] {
+    height: 200px;
+    background: #e9ecef;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.trip-badge[b-q7rc6qey5l] {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+}
+
+.attraction-pill[b-q7rc6qey5l] {
+    display: inline-block;
+    background: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    margin: 0.25rem;
+    font-size: 0.875rem;
+}
+/* _content/TeUtad/Components/Pages/Profil.razor.rz.scp.css */
+body[b-xfg2wvu0ip] {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f0f4f8;
+}
+
+.profile-header[b-xfg2wvu0ip] {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.profile-avatar[b-xfg2wvu0ip] {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid white;
+    object-fit: cover;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.stat-card[b-xfg2wvu0ip] {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+}
+
+.stat-value[b-xfg2wvu0ip] {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.setting-item[b-xfg2wvu0ip] {
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    transition: background 0.2s;
+}
+
+    .setting-item:hover[b-xfg2wvu0ip] {
+        background: #f8f9fa;
+    }
+
+    .setting-item:last-child[b-xfg2wvu0ip] {
+        border-bottom: none;
+    }
+/* _content/TeUtad/Components/Pages/Regisztracio.razor.rz.scp.css */
+body[b-ptdp3r7zh0] {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    min-height: 100vh;
+}
+
+.register-card[b-ptdp3r7zh0] {
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+.brand-link[b-ptdp3r7zh0] {
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.2s;
+}
+
+    .brand-link:hover[b-ptdp3r7zh0] {
+        opacity: 0.8;
+        color: white;
+    }
+
+.password-strength[b-ptdp3r7zh0] {
+    height: 4px;
+    background: #e9ecef;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.password-strength-bar[b-ptdp3r7zh0] {
+    height: 100%;
+    transition: all 0.3s;
+}
+/* _content/TeUtad/Components/Pages/UtTervezes.razor.rz.scp.css */
+body[b-s52ej4ke8g] {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f0f4f8;
+}
+
+.step-indicator[b-s52ej4ke8g] {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+    .step-indicator[b-s52ej4ke8g]::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #dee2e6;
+        z-index: 0;
+    }
+
+.step-item[b-s52ej4ke8g] {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.step-circle[b-s52ej4ke8g] {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #dee2e6;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s;
+}
+
+.step-item.active .step-circle[b-s52ej4ke8g] {
+    background: #0d6efd;
+    border-color: #0d6efd;
+    color: white;
+}
+
+.step-item.completed .step-circle[b-s52ej4ke8g] {
+    background: #198754;
+    border-color: #198754;
+    color: white;
+}
+
+.route-point[b-s52ej4ke8g] {
+    background: white;
+    border: 2px solid #0d6efd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+#map[b-s52ej4ke8g] {
+    height: 500px;
+    border-radius: 12px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+}
+
+.flight-card[b-s52ej4ke8g], .hotel-card[b-s52ej4ke8g], .car-card[b-s52ej4ke8g] {
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+    .flight-card:hover[b-s52ej4ke8g], .hotel-card:hover[b-s52ej4ke8g], .car-card:hover[b-s52ej4ke8g] {
+        transform: translateY(-4px);
+        box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,0.12);
+    }
+
+    .flight-card.selected[b-s52ej4ke8g], .hotel-card.selected[b-s52ej4ke8g], .car-card.selected[b-s52ej4ke8g] {
+        border: 2px solid #0d6efd;
+        background: #f8f9ff;
+    }
+
+.price-badge[b-s52ej4ke8g] {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #0d6efd;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.skip-option[b-s52ej4ke8g] {
+    border: 2px dashed #dee2e6;
+    background: #f8f9fa;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+    .skip-option:hover[b-s52ej4ke8g] {
+        border-color: #0d6efd;
+        background: #f0f4f8;
+    }

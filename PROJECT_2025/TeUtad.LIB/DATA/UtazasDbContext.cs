@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Protocols;
 using System;
@@ -37,7 +37,7 @@ namespace TeUtad.LIB.Data
         public DbSet<Szerep> Szerep { get; set; }
         public DbSet<Latvanyossagok> Latvanyossagok { get; set; }
         public DbSet<Utazas> Utazas { get; set; }
-        public DbSet<MegaloRend> MegaloRend { get; set; }
+        public DbSet<UtazasLatvanyossag> UtazasLatvanyossag { get; set; }
 
     }
 }

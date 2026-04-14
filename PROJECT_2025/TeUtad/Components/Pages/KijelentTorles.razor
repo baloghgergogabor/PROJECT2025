@@ -8,7 +8,7 @@
 @inject NavigationManager nav
 @inject FelhasznaloAuthState AutheriState
 @inject UtazasSzerviz Utazas
-@inject MegaloRendSzerviz Megalok
+@inject UtazasLatvanyossagSzerviz Megalok
 
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
 	<div class="col-md-6">
@@ -38,7 +38,7 @@
 		var authState = await AutheriState.GetAuthenticationStateAsync();
 		var felhasznaloId = Convert.ToInt32(authState.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
 		var Utazasok = await Utazas.GetAllUtazas();
-		var MegalokRend = await Megalok.GetAllMegaloRend();
+		var MegalokRend = await Megalok.GetAllUtazasLatvanyossag();
 		var felhasznaloUtazasai = Utazasok.Where(x => x.FelhasznaloId == felhasznaloId); 
 		if (felhasznaloUtazasai.Any())
 		{
@@ -47,12 +47,13 @@
 				await Utazas.DeleteUtazas(item.id);
 			}
 		}
-		var felhasznaloMegaloi = MegalokRend.Where(x => x.FelhasznaloId == felhasznaloId);
+		int UtazasId = Utazasok.FirstOrDefault(x => x.FelhasznaloId == felhasznaloId).id;
+		var felhasznaloMegaloi = MegalokRend.Where(x => x.UtazasId == UtazasId);
 		if (felhasznaloMegaloi.Any())
 		{
 			foreach (var item in felhasznaloMegaloi)
 			{
-				await Megalok.DeleteMegaloRend(item.MegaloRendId);
+				await Megalok.DeleteUtazasLatvanyossag(item.Id);
 			}
 		}
 		FelhaszSzerv.DeleteFelhasznalo(felhasznaloId);

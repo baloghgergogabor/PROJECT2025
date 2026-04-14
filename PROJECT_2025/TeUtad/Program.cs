@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components.Authorization;
+using TeUtad.API.INTERFACE;
 using TeUtad.Components;
+using TeUtad.LIB.Modul;
 using TeUtad.MODEL;
 using TeUtad.SERVICE;
 
@@ -17,7 +19,9 @@ builder.Services.AddScoped<LatvanyossagokSzerviz>();
 builder.Services.AddScoped<RepuloJegySzerviz>();
 builder.Services.AddScoped<SzerepSzerviz>();
 builder.Services.AddScoped<UtazasSzerviz>();
-builder.Services.AddScoped<MegaloRendSzerviz>();
+builder.Services.AddScoped<UtazasLatvanyossagSzerviz>();
+builder.Services.AddScoped<AuthenticationStateProvider, FelhasznaloAuthState>();
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {

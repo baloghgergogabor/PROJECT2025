@@ -242,9 +242,10 @@
         else
         {
             await Felhasznalo.PostFelhasznalo(felhasznloAdat);
+            int? id = felhasznalok.FirstOrDefault(x => x.FelhasznaloNev == felhasznloAdat.FelhasznaloNev && x.Email == felhasznloAdat.Email && x.JelszoHash == felhasznloAdat.JelszoHash).id;
             var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.NameIdentifier, felhasznloAdat.id.ToString()),
+                        new Claim(ClaimTypes.NameIdentifier, id.ToString()),
                         new Claim(ClaimTypes.Name, felhasznloAdat.FelhasznaloNev),
                         new Claim(ClaimTypes.Role, "User")
                     };
