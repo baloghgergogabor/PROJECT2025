@@ -7,6 +7,7 @@
 @using TeUtad.LIB.Modul
 @using TeUtad.SERVICE
 @using TeUtad.MODEL
+@using TeUtad.LIB.Modul
 @inject IJSRuntime JSRuntime
 @inject FelhasznaloAuthState AuthStateProvider
 @inject UtazasSzerviz UtazasSzerviz
@@ -1102,7 +1103,7 @@
 
     // === AUTOCOMPLETE CALLBACK - JavaScript hívja meg ===
     [JSInvokable]
-    public async Task OnPlaceSelected(PlaceData placeData)
+    public async Task OnPlaceSelected(UtTervezeshez.PlaceData placeData)
     {
         try
         {
@@ -1402,7 +1403,7 @@
 
         try
         {
-            var placeDetails = await JSRuntime.InvokeAsync<PlaceDetails>(
+            var placeDetails = await JSRuntime.InvokeAsync<UtTervezeshez.PlaceDetails>(
                 "getPlaceOpeningHours",
                 point.PlaceId
             );
@@ -1448,36 +1449,7 @@
         };
     }
 
-    // === PlaceData osztály a JavaScript callback-hez ===
-    public class PlaceData
-    {
-        public string Name { get; set; } = "";
-        public string Address { get; set; } = "";
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
-        public string PlaceId { get; set; } = "";
-    }
 
-    // === PlaceDetails osztály nyitvatartási időhöz ===
-    public class PlaceDetails
-    {
-        public string? OpeningHoursText { get; set; }
-        public bool? IsOpenNow { get; set; }
-        public List<OpeningPeriod>? OpeningPeriods { get; set; }
-    }
-
-    public class OpeningPeriod
-    {
-        public DayTime Open { get; set; } = new();
-        public DayTime? Close { get; set; }
-    }
-
-    public class DayTime
-    {
-        public int Day { get; set; }
-        public int Hours { get; set; }
-        public int Minutes { get; set; }
-    }
 
     // === Szín generálás pontokhoz ===
     private string GetPointColor(int order)

@@ -1,5 +1,5 @@
-// Google Maps JavaScript Integration for TeUtad
-// Helyezd el: wwwroot/js/googleMaps.js
+
+
 
 let map;
 let markers = [];
@@ -12,7 +12,7 @@ let placesService;
 // Kulcs: "fromLat,fromLng_toLat,toLng"
 // Érték: { transitDetails, timestamp }
 let transitCache = {};
-const CACHE_EXPIRY_MS = 30 * 60 * 1000; // 30 perc
+const CACHE_EXPIRY_MS = 30 * 60 * 1000; // 30 percF
 
 /**
  * Térkép inicializálása
@@ -417,17 +417,22 @@ window.initAutocomplete = function(inputId, dotNetHelper) {
 /**
  * Geocoding - cím -> koordináták
  */
-window.geocodeAddress = async function(address) {
+window.geocodeAddress = async function (address) {
     const geocoder = new google.maps.Geocoder();
-    
+
     return new Promise((resolve, reject) => {
         geocoder.geocode({ address: address }, (results, status) => {
             if (status === 'OK' && results[0]) {
+                const lat = results[0].geometry.location.lat();
+                const lng = results[0].geometry.location.lng();
+
                 resolve({
-                    latitude: results[0].geometry.location.lat(),
-                    longitude: results[0].geometry.location.lng(),
+                    latitude: lat,
+                    longitude: lng,
                     formattedAddress: results[0].formatted_address
                 });
+
+                centerMap(lat, lng, 13);
             } else {
                 reject('Geocoding failed: ' + status);
             }
@@ -740,10 +745,10 @@ window.initSimpleAutocomplete = function(inputId) {
 
         // Az input mező értékét automatikusan beállítja az autocomplete
         // Nem kell manuálisan frissíteni, mert @bind:event="oninput" figyel rá
-        console.log(`✅ Autocomplete selected: ${place.name || place.formatted_address}`);
+        console.log(` Autocomplete selected: ${place.name || place.formatted_address}`);
     });
 
-    console.log(`✅ Simple autocomplete initialized for: ${inputId}`);
+    console.log(` Simple autocomplete initialized for: ${inputId}`);
 }
 
 /**

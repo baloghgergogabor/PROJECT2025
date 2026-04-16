@@ -17,7 +17,7 @@
     <script src="/js/googleMaps.js"></script>
 
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL9wuHLIfIK1LLTkqPA6sW4ltfXl2rbfo&libraries=places&callback=Function.prototype" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL9wuHLIfIK1LLTkqPA6sW4ltfXl2rbfo&libraries=places&callback=initAutocompletemaps" async defer></script>
 </head>
 
 
@@ -35,7 +35,7 @@
 
         @* Úticél és dátum keresés - Mobilbarát *@
         <div class="row g-3 w-100 w-md-75 mx-auto mb-4">
-            @* Indulási hely - Opcionális (csak repjegy esetén) *@
+            @* Indulási hely*@
             <div class="col-12 col-md-5">
                 <input id="index-from-input"
                        class="form-control form-control-lg"
@@ -87,9 +87,10 @@
         </p>
 
         <a href="/ut-tervezes?destination=@System.Web.HttpUtility.UrlEncode(hova)&date=@tripStartDate.ToString("yyyy-MM-dd")&from=@System.Web.HttpUtility.UrlEncode(honnan)"
-           class="btn btn-warning btn-lg rounded-pill px-5 py-3 fw-bold shadow fs-5 @(string.IsNullOrWhiteSpace(hova) ? "disabled" : "")">
+           class="btn btn-warning btn-lg rounded-pill px-5 py-3 fw-bold shadow fs-5 @(string.IsNullOrWhiteSpace(hova) ? "disabled" : "")" onclick="geocodeAddress(document.getElementById('index-destination-input').value">
             <i class="bi bi-plus-circle me-2"></i>
             Út tervezésének indítása
+            
         </a>
 
         @if (string.IsNullOrWhiteSpace(hova))
@@ -107,44 +108,9 @@
 
 <!-- TRIP CARDS -->
 <main class="container py-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h2 class="fw-bold mb-1">Népszerű úticélok</h2>
-            <p class="text-muted mb-0">Ezreket inspirált már a TeUtad</p>
-        </div>
-    </div>
 
-    <div class="row g-4">
-        @foreach (var destination in destinations)
-        {
-            <div class="col-sm-6 col-lg-4">
-                <div class="card trip-card border-0 shadow-sm rounded-4 overflow-hidden h-100"
-                     @onmouseover="@(() => HandleCardHover(destination.Id, true))"
-                     @onmouseout="@(() => HandleCardHover(destination.Id, false))">
-                    <div class="destination-img bg-@destination.BadgeColor bg-gradient">@destination.Emoji</div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <h5 class="card-title fw-bold mb-0">@destination.Name</h5>
-                            <span class="badge bg-@destination.BadgeColor-subtle text-@destination.BadgeColor rounded-pill">
-                                @GetBadgeText(destination.BadgeKey)
-                            </span>
-                        </div>
-                        <p class="text-muted small mb-3">
-                            <i class="bi bi-geo-alt-fill text-danger me-1"></i>
-                            @GetLocationText(destination.LocationKey)
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center">
-                        </div>
-                    </div>
-                    <div class="card-footer bg-transparent border-0 pb-3">
-                        <button class="btn btn-outline-primary btn-sm rounded-pill w-100" @onclick="@(() => SelectDestination(destination.Name))">
-                            Ezt tervezem
-                        </button>
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
+
+   
 
     <div class="text-center mt-4 d-md-none">
         <a href="#" class="btn btn-outline-primary rounded-pill px-4">
@@ -193,43 +159,54 @@
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
 
 <script>
 
-    function initAutocomplete() {
-        initSimpleAutocomplete('index-destination-input');
-        initSimpleAutocomplete('index-from-input');
-        console.log("autocomplete ready")
+    window.mapsReady = false;
+    window.blazorReady = false;
+
+    function tryInitAutocomplete() {
+        if (window.mapsReady && window.blazorReady) {
+            initSimpleAutocomplete('index-destination-input');
+            initSimpleAutocomplete('index-from-input');
+            console.log("autocomplete ready")
+        }
     }
 
+
+    window.initAutocompletemaps = function() {
+        window.mapsReady = true;
+        console.log("maps ready")
+        tryInitAutocomplete();
+    }
+
+
+    window.signalBlazorReady = function() {
+        window.blazorReady = true;
+        console.log("blazor ready")
+        tryInitAutocomplete();
+    }
+
+    
 </script>
 
 
 
 @code {
-    string debug = "";
+
     string honnan = "";
     string hova = "";
     DateTime tripStartDate = DateTime.Now.AddDays(7);
 
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
 
-        // Megkeveri a kártyákat a főoldalon
-        var random = new Random();
-        destinations = allDestinations.OrderBy(x => random.Next()).ToList();
-
-
-    }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            await JSRuntime.InvokeVoidAsync("initAutocomplete");
+            await JSRuntime.InvokeVoidAsync("signalBlazorReady");
         }
 
     }
@@ -241,96 +218,15 @@
         var temp = honnan;
         honnan = hova;
         hova = temp;
-        debug = "csere";
+
         StateHasChanged();
     }
 
-    void SelectDestination(string destinationName)
-    {
-        hova = destinationName;
-        StateHasChanged();
 
-        // Scroll up to search box
-        JSRuntime.InvokeVoidAsync("window.scrollTo", 0, 0);
-    }
 
-    private class Destination
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Emoji { get; set; }
-        public string BadgeKey { get; set; }
-        public string BadgeColor { get; set; }
-        public string LocationKey { get; set; }
-    }
 
-    // ÖSSZES úticél lista (ezt használjuk random-hoz)
-    private List<Destination> allDestinations = new List<Destination>
-    {
 
-    };
 
-    // Megjelenített lista (OnInitialized() random-má teszi)
-    private List<Destination> destinations = new List<Destination>();
-
-    private Dictionary<string, string> badges = new Dictionary<string, string>
-    {
-        ["badge_trending"] = "Trending",
-        ["badge_deal"] = "Akció",
-        ["badge_bestseller"] = "Legnépszerűbb",
-        ["badge_eco"] = "Öko ajánlat",
-        ["badge_new"] = "Új",
-        ["badge_adventure"] = "Kaland"
-    };
-
-    private Dictionary<string, string> locations = new Dictionary<string, string>
-    {
-        ["loc_paris"] = "Nyugat-Európa · 5–10 nap",
-        ["loc_tokyo"] = "Kelet-Ázsia · 7–14 nap",
-        ["loc_newyork"] = "Észak-Amerika · 5–10 nap",
-        ["loc_london"] = "Nyugat-Európa · 4–8 nap",
-        ["loc_dubai"] = "Közel-Kelet · 4–7 nap",
-        ["loc_rome"] = "Dél-Európa · 5–9 nap",
-        ["loc_barcelona"] = "Dél-Európa · 4–8 nap",
-        ["loc_istanbul"] = "Közel-Kelet · 5–10 nap",
-        ["loc_amsterdam"] = "Nyugat-Európa · 3–6 nap",
-        ["loc_singapore"] = "Délkelet-Ázsia · 4–7 nap",
-        ["loc_bangkok"] = "Délkelet-Ázsia · 5–10 nap",
-        ["loc_prague"] = "Közép-Európa · 3–6 nap",
-        ["loc_lisbon"] = "Dél-Európa · 4–8 nap",
-        ["loc_vienna"] = "Közép-Európa · 3–6 nap",
-        ["loc_sydney"] = "Óceánia · 10–14 nap",
-        ["loc_berlin"] = "Közép-Európa · 4–7 nap",
-        ["loc_bali"] = "Délkelet-Ázsia · 7–14 nap",
-        ["loc_athens"] = "Dél-Európa · 4–8 nap",
-        ["loc_marrakech"] = "Észak-Afrika · 4–7 nap",
-        ["loc_hongkong"] = "Kelet-Ázsia · 5–8 nap",
-        ["loc_copenhagen"] = "Észak-Európa · 3–6 nap",
-        ["loc_rio"] = "Dél-Amerika · 7–12 nap",
-        ["loc_santorini"] = "Mediterrán · 5–8 nap",
-        ["loc_edinburgh"] = "Nyugat-Európa · 3–6 nap",
-        ["loc_kyoto"] = "Kelet-Ázsia · 7–14 nap",
-        ["loc_reykjavik"] = "Észak-Európa · 5–9 nap",
-        ["loc_buenosaires"] = "Dél-Amerika · 7–12 nap",
-        ["loc_krakow"] = "Közép-Európa · 3–5 nap",
-        ["loc_dubrovnik"] = "Dél-Európa · 4–7 nap",
-        ["loc_bruges"] = "Nyugat-Európa · 2–4 nap"
-    };
-
-    private string GetBadgeText(string key)
-    {
-        return badges.ContainsKey(key) ? badges[key] : key;
-    }
-
-    private string GetLocationText(string key)
-    {
-        return locations.ContainsKey(key) ? locations[key] : key;
-    }
-
-    private void HandleCardHover(int destinationId, bool isHovering)
-    {
-        // Opcionális: hover logika, pl. analytics tracking
-    }
 
 
 }
