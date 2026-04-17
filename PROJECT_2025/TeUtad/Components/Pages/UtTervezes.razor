@@ -7,7 +7,6 @@
 @using TeUtad.LIB.Modul
 @using TeUtad.SERVICE
 @using TeUtad.MODEL
-@using TeUtad.LIB.Modul
 @inject IJSRuntime JSRuntime
 @inject FelhasznaloAuthState AuthStateProvider
 @inject UtazasSzerviz UtazasSzerviz
@@ -316,8 +315,8 @@
 
                                     @* Tömegközlekedési részletek *@
                                     @if (point.TravelModeToNext == "TRANSIT" && 
-                                    point.TravelOptions.ContainsKey("TRANSIT") && 
-                                    point.TravelOptions["TRANSIT"].TransitDetails != null)
+                                  point.TravelOptions.ContainsKey("TRANSIT") && 
+                                  point.TravelOptions["TRANSIT"].TransitDetails != null)
                                     {
                                         var transit = point.TravelOptions["TRANSIT"].TransitDetails;
                                         <div class="alert alert-info mb-0 p-2 small mt-2">
@@ -620,9 +619,7 @@
 
 @code {
     [Parameter]
-    [SupplyParameterFromQuery(Name = "tripId")]
     public int? TripIdQuery { get; set; }
-
     // === Query paraméterek az Index-ből ===
     [Parameter]
     [SupplyParameterFromQuery(Name = "destination")]
@@ -920,7 +917,43 @@
             }
         }
     }
+    // === Általános pont hozzáadása geocodinggal ===
+    private async Task GeocodeAndAddPoint(string address, string category, int order, int startHour)
+    {
+        try
+        {
+            var result = await JSRuntime.InvokeAsync<GeocodeResult>("geocodeAddress", address);
 
+            if (result != null)
+            {
+                var newPoint = new RoutePoint
+                    {
+                        Id = order,
+                        Order = order,
+                        AttractionName = address,
+                        Address = result.FormattedAddress,
+                        Latitude = result.Latitude,
+                        Longitude = result.Longitude,
+                        VisitDate = tripStartDate,
+                        StartTime = new TimeSpan(startHour, 0, 0),
+                        EndTime = new TimeSpan(startHour + 2, 0, 0),
+                        Category = category,
+                        TimeBefore = 2,
+                        TravelModeToNext = "DRIVING"
+                    };
+
+                routePoints.Add(newPoint);
+                RecalculateTotals();
+                StateHasChanged();
+
+                Console.WriteLine($"✅ {category} hozzáadva: {address}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ Geocoding error ({address}): {ex.Message}");
+        }
+    }
     // === Query paraméterek kezelése ===
     protected override async Task OnParametersSetAsync()
     {
@@ -942,21 +975,33 @@
                 Console.WriteLine($"✅ Dátum beállítva: {tripStartDate:yyyy-MM-dd}");
             }
 
-            // 3. Úticél geocoding - csak ha van érték
+            // 3-4. Honnan + Hova geocoding
             if (!string.IsNullOrEmpty(DestinationQuery))
             {
-                Console.WriteLine($"🔍 Geocoding úticél: {DestinationQuery}");
-                // Clear default example route points
                 routePoints.Clear();
-                await GeocodeAndAddDestination(DestinationQuery);
+
+                // Először: Honnan (ha van)
+                if (!string.IsNullOrEmpty(FromQuery))
+                {
+                    Console.WriteLine($"✈️ Indulás geocoding: {FromQuery}");
+                    await GeocodeAndAddPoint(FromQuery, "Indulás", 1, 9);
+                }
+
+                // Aztán: Hova
+                Console.WriteLine($"🎯 Úticél geocoding: {DestinationQuery}");
+                var nextOrder = routePoints.Count + 1;
+                await GeocodeAndAddPoint(DestinationQuery, "Úticél", nextOrder, 13);
+
+                // Térkép újrarajzolása
+                await UpdateMap();
             }
 
-            // 4. Indulási hely tárolása (későbbi repjegy foglaláshoz)
-            if (!string.IsNullOrEmpty(FromQuery))
-            {
-                Console.WriteLine($"✈️ Indulási hely: {FromQuery}");
-                // TODO: Repjegy kereséshez használható később
-            }
+            // // 4. Indulási hely tárolása (későbbi repjegy foglaláshoz)
+            // if (!string.IsNullOrEmpty(FromQuery))
+            // {
+            //     Console.WriteLine($"✈️ Indulási hely: {FromQuery}");
+            //     // TODO: Repjegy kereséshez használható később
+            // }
         }
         catch (Exception ex)
         {
@@ -1530,13 +1575,13 @@
             utazas.RepuloJegyId = selectedFlightId ?? 0;
             await UtazasSzerviz.UpdateUtazas(utazas);
 
-            // 2. Töröljük a régi útvonalpontokat ehhez az utazáshoz
-            var existingPoints = await UtazasLatvanyossagSzerviz.GetAllUtazasLatvanyossag();
-            var pointsToDelete = existingPoints.Where(p => p.UtazasId == currentUtazasId.Value).ToList();
-            foreach (var point in pointsToDelete)
-            {
-                await UtazasLatvanyossagSzerviz.DeleteUtazasLatvanyossag(point.Id);
-            }
+            // // // 2. Töröljük a régi útvonalpontokat ehhez az utazáshoz
+            // var existingPoints = await UtazasLatvanyossagSzerviz.GetAllUtazasLatvanyossag();
+            // var pointsToDelete = existingPoints.Where(p => p.UtazasId == currentUtazasId.Value).ToList();
+            // foreach (var point in pointsToDelete)
+            // {
+            //     await UtazasLatvanyossagSzerviz.DeleteUtazasLatvanyossag(point.Id);
+            // }
 
             // 3. Mentsük el az útvonalpontokat
             foreach (var routePoint in routePoints)
@@ -1616,7 +1661,9 @@
             };
 
             await LatvanyossagokSzerviz.PostLatvanyossagok(newLatvanyossag);
-            return newLatvanyossag.id;
+            var allLatvanyossag = await LatvanyossagokSzerviz.GetAllLatvanyossagok();
+            var Latvany = allLatvanyossag.FirstOrDefault(x => x.Latvanyossag == newLatvanyossag.Latvanyossag && x.Cim == newLatvanyossag.Cim);
+            return Latvany.id;
         }
         catch (Exception ex)
         {

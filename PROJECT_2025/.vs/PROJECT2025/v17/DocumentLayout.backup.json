@@ -1,41 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\",
+  "WorkspaceRootPath": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad\\components\\pages\\uttervezes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\uttervezes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}|TeUtad.LIB\\TeUtad.LIB.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad.lib\\modul\\uttervezeshez.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}|TeUtad.LIB\\TeUtad.LIB.csproj|solutionrelative:teutad.lib\\modul\\uttervezeshez.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad\\wwwroot\\js\\googlemaps.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\gerg\u0151\\desktop\\final\\project2025\\project_2025\\teutad\\wwwroot\\js\\googlemaps.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\wwwroot\\js\\googlemaps.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad\\components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\gerg\u0151\\desktop\\final\\project2025\\project_2025\\teutad\\components\\pages\\uttervezes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\uttervezes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\gerg\u0151\\desktop\\final\\project2025\\project_2025\\teutad\\components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}|TeUtad.LIB\\TeUtad.LIB.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad.lib\\modul\\repulojegy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}|TeUtad.LIB\\TeUtad.LIB.csproj|c:\\users\\gerg\u0151\\desktop\\final\\project2025\\project_2025\\teutad.lib\\modul\\repulojegy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}|TeUtad.LIB\\TeUtad.LIB.csproj|solutionrelative:teutad.lib\\modul\\repulojegy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad\\components\\pages\\kijelenttorles.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\gerg\u0151\\desktop\\final\\project2025\\project_2025\\teutad\\components\\pages\\kijelenttorles.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\kijelenttorles.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\gerg\u0151\\desktop\\final\\project2025\\project_2025\\teutad\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad\\components\\pages\\regisztracio.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|c:\\users\\gerg\u0151\\desktop\\final\\project2025\\project_2025\\teutad\\components\\pages\\regisztracio.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AA0CB0DF-6F81-4220-A46C-DF9F62E0851E}|TeUtad\\TeUtad.csproj|solutionrelative:teutad\\components\\pages\\regisztracio.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}|TeUtad.LIB\\TeUtad.LIB.csproj|c:\\users\\erk\\desktop\\suli\\project2025\\project_2025\\teutad.lib\\modul\\utazas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}|TeUtad.LIB\\TeUtad.LIB.csproj|c:\\users\\gerg\u0151\\desktop\\final\\project2025\\project_2025\\teutad.lib\\modul\\utazas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DAB127C1-6428-4CB6-8D6B-4C5A180B79C0}|TeUtad.LIB\\TeUtad.LIB.csproj|solutionrelative:teutad.lib\\modul\\utazas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -46,119 +42,114 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Index.razor",
-              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
+              "DocumentMoniker": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
               "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Index.razor",
-              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
+              "ToolTip": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Index.razor",
               "RelativeToolTip": "TeUtad\\Components\\Pages\\Index.razor",
               "ViewState": "AgIAAMYAAAAAAAAAAAAQwOAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-16T14:11:58.276Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "googleMaps.js",
-              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\wwwroot\\js\\googleMaps.js",
-              "RelativeDocumentMoniker": "TeUtad\\wwwroot\\js\\googleMaps.js",
-              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\wwwroot\\js\\googleMaps.js",
-              "RelativeToolTip": "TeUtad\\wwwroot\\js\\googleMaps.js",
-              "ViewState": "AgIAAM8CAAAAAAAAAAAuwOcCAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-04-16T14:14:26.543Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UtTervezeshez.cs",
-              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\Modul\\UtTervezeshez.cs",
-              "RelativeDocumentMoniker": "TeUtad.LIB\\Modul\\UtTervezeshez.cs",
-              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\Modul\\UtTervezeshez.cs",
-              "RelativeToolTip": "TeUtad.LIB\\Modul\\UtTervezeshez.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T21:11:22.651Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Utazas.cs",
-              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\Modul\\Utazas.cs",
-              "RelativeDocumentMoniker": "TeUtad.LIB\\Modul\\Utazas.cs",
-              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\Modul\\Utazas.cs",
-              "RelativeToolTip": "TeUtad.LIB\\Modul\\Utazas.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T22:55:14.129Z"
+              "WhenOpened": "2026-04-17T06:52:12.705Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UtTervezes.razor",
-              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\UtTervezes.razor",
-              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\UtTervezes.razor",
-              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\UtTervezes.razor",
-              "RelativeToolTip": "TeUtad\\Components\\Pages\\UtTervezes.razor",
-              "ViewState": "AgIAAHEDAAAAAAAAAAAwwI8EAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-14T22:28:53.119Z",
+              "Title": "googleMaps.js",
+              "DocumentMoniker": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad\\wwwroot\\js\\googleMaps.js",
+              "RelativeDocumentMoniker": "TeUtad\\wwwroot\\js\\googleMaps.js",
+              "ToolTip": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad\\wwwroot\\js\\googleMaps.js",
+              "RelativeToolTip": "TeUtad\\wwwroot\\js\\googleMaps.js",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAQwHgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-04-17T06:52:13.01Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "KijelentTorles.razor",
-              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\KijelentTorles.razor",
-              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\KijelentTorles.razor",
-              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\KijelentTorles.razor",
-              "RelativeToolTip": "TeUtad\\Components\\Pages\\KijelentTorles.razor",
-              "ViewState": "AgIAABgAAAAAAAAAAAAmwBwAAAAGAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Utazas.cs",
+              "DocumentMoniker": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\Modul\\Utazas.cs",
+              "RelativeDocumentMoniker": "TeUtad.LIB\\Modul\\Utazas.cs",
+              "ToolTip": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\Modul\\Utazas.cs",
+              "RelativeToolTip": "TeUtad.LIB\\Modul\\Utazas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T06:52:13.014Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UtTervezes.razor",
+              "DocumentMoniker": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\UtTervezes.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\UtTervezes.razor",
+              "ToolTip": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\UtTervezes.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\UtTervezes.razor",
+              "ViewState": "AgIAAN8AAAAAAAAAAAAAALgFAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-14T22:55:31.675Z"
+              "WhenOpened": "2026-04-17T06:52:13.02Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "RepuloJegy.cs",
-              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\Modul\\RepuloJegy.cs",
-              "RelativeDocumentMoniker": "TeUtad.LIB\\Modul\\RepuloJegy.cs",
-              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\Modul\\RepuloJegy.cs",
-              "RelativeToolTip": "TeUtad.LIB\\Modul\\RepuloJegy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T21:11:36.5Z"
+              "Title": "KijelentTorles.razor",
+              "DocumentMoniker": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\KijelentTorles.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\KijelentTorles.razor",
+              "ToolTip": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\KijelentTorles.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\KijelentTorles.razor",
+              "ViewState": "AgIAABgAAAAAAAAAAAAmwBwAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-17T06:52:13.022Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Regisztracio.razor",
-              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Regisztracio.razor",
-              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Regisztracio.razor",
-              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Regisztracio.razor",
-              "RelativeToolTip": "TeUtad\\Components\\Pages\\Regisztracio.razor",
-              "ViewState": "AgIAAOAAAAAAAAAAAAAwwO4AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-14T23:27:33.215Z"
+              "DocumentIndex": 3,
+              "Title": "RepuloJegy.cs",
+              "DocumentMoniker": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\Modul\\RepuloJegy.cs",
+              "RelativeDocumentMoniker": "TeUtad.LIB\\Modul\\RepuloJegy.cs",
+              "ToolTip": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad.LIB\\Modul\\RepuloJegy.cs",
+              "RelativeToolTip": "TeUtad.LIB\\Modul\\RepuloJegy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T06:52:13.024Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "Regisztracio.razor",
+              "DocumentMoniker": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Regisztracio.razor",
+              "RelativeDocumentMoniker": "TeUtad\\Components\\Pages\\Regisztracio.razor",
+              "ToolTip": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad\\Components\\Pages\\Regisztracio.razor",
+              "RelativeToolTip": "TeUtad\\Components\\Pages\\Regisztracio.razor",
+              "ViewState": "AgIAAOAAAAAAAAAAAAAwwO4AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-17T06:52:13.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad\\Program.cs",
               "RelativeDocumentMoniker": "TeUtad\\Program.cs",
-              "ToolTip": "C:\\Users\\Erk\\Desktop\\Suli\\PROJECT2025\\PROJECT_2025\\TeUtad\\Program.cs",
+              "ToolTip": "C:\\Users\\Gerg\u0151\\Desktop\\FINAL\\PROJECT2025\\PROJECT_2025\\TeUtad\\Program.cs",
               "RelativeToolTip": "TeUtad\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T22:52:50.673Z"
+              "WhenOpened": "2026-04-17T06:52:13.03Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 113,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             }
           ]
         }

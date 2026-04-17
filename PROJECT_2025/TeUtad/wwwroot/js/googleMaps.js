@@ -370,7 +370,7 @@ window.drawSegmentedRoute = function(routePoints) {
  * @param {string} inputId - Input mező ID-ja
  * @param {object} dotNetHelper - .NET object reference a callback-hez
  */
-window.initAutocomplete = function(inputId, dotNetHelper) {
+window.initAutocomplete = function (inputId, dotNetHelper, callbackMethod) {
     const input = document.getElementById(inputId);
     if (!input) {
         console.error('Input element not found:', inputId);
@@ -721,37 +721,44 @@ window.checkGoogleMapsLoaded = function() {
  * Egyszerű autocomplete Index oldalhoz (csak city/address szöveg, nincs callback)
  * @param {string} inputId - Input mező ID-ja
  */
-window.initSimpleAutocomplete = function(inputId) {
+window.initSimpleAutocomplete = function (inputId, dotNetHelper, callbackMethod) {
     const input = document.getElementById(inputId);
     if (!input) {
         console.error('Input element not found:', inputId);
         return;
     }
 
-    // Autocomplete beállítása - CSAK városok és címek
     const autocomplete = new google.maps.places.Autocomplete(input, {
-        types: ['(cities)'], // Csak városok
+        types: ['(cities)'],
         fields: ['name', 'formatted_address']
     });
 
-    // Amikor kiválaszt egy helyet, betöltjük az input mezőbe
     autocomplete.addListener('place_changed', () => {
         const place = autocomplete.getPlace();
-        
-        if (!place || !place.name) {
-            console.warn('No place selected');
-            return;
+        if (!place || !place.name) return;
+
+        const value = place.name || place.formatted_address;
+        input.value = value;
+
+        // Trigger input event so Blazor @bind picks it up
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+
+        // Callback C# felé
+        if (dotNetHelper && callbackMethod) {
+            dotNetHelper.invokeMethodAsync(callbackMethod, value);
         }
 
-        // Az input mező értékét automatikusan beállítja az autocomplete
-        // Nem kell manuálisan frissíteni, mert @bind:event="oninput" figyel rá
-        console.log(` Autocomplete selected: ${place.name || place.formatted_address}`);
+        console.log(`Autocomplete selected: ${value}`);
     });
 
-    console.log(` Simple autocomplete initialized for: ${inputId}`);
-}
+    // Enter lenyomásakor ne küldje el a formot
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') e.preventDefault();
+    });
 
-/**
+    console.log(`Simple autocomplete initialized for: ${inputId}`);
+}/**
  * Transit cache törlése (manuális frissítéshez)
  */
 window.clearTransitCache = function() {
@@ -770,4 +777,9 @@ window.getTransitCacheInfo = function() {
         console.log(`  ${key}: ${Math.floor(age / 1000)}s ago`);
     });
     return transitCache;
+}
+window.cleanupPacContainer = function () {
+    const containers = document.querySelectorAll('.pac-container');
+    containers.forEach(c => c.remove());
+    console.log(`🧹 ${containers.length} pac-container eltávolítva`);
 }

@@ -47,6 +47,9 @@ body[b-jddusmnocs] {
     justify-content: center;
     font-size: 4rem;
 }
+.pac-container[b-jddusmnocs] {
+    z-index: 10000 !important;
+}
 /* _content/TeUtad/Components/Pages/KorabbiUtak.razor.rz.scp.css */
 body[b-q7rc6qey5l] {
     font-family: 'Nunito', sans-serif;

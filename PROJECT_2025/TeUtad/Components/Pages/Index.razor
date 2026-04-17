@@ -5,6 +5,7 @@
 @using Microsoft.AspNetCore.Components.Web
 @using System.Web
 @inject IJSRuntime JSRuntime
+@inject NavigationManager nav
 
 
 <PageTitle>TeUtad — YourWay</PageTitle>
@@ -38,19 +39,19 @@
             @* Indulási hely*@
             <div class="col-12 col-md-5">
                 <input id="index-from-input"
-                       class="form-control form-control-lg"
-                       type="text"
-                       placeholder="Indulási hely"
-                       @bind="honnan"
-                       @bind:event="oninput">
+                class="form-control form-control-lg"
+                type="text"
+                placeholder="Indulási hely"
+                value="@honnan"
+                >
             </div>
 
             @* Csere gomb *@
             <div class="col-12 col-md-2 d-flex justify-content-center">
                 <button type="button"
-                        class="btn btn-info btn-lg rounded-circle"
-                        @onclick="uticelcsere"
-                        style="width: 50px; height: 50px;">
+                class="btn btn-info btn-lg rounded-circle"
+                @onclick="uticelcsere"
+                style="width: 50px; height: 50px;">
                     <i class="bi bi-arrow-left-right"></i>
                 </button>
             </div>
@@ -58,11 +59,11 @@
             @* Úticél - Kötelező *@
             <div class="col-12 col-md-5">
                 <input id="index-destination-input"
-                       class="form-control form-control-lg @(string.IsNullOrWhiteSpace(hova) ? "border-warning" : "")"
-                       type="text"
-                       placeholder="Úticél (kötelező)"
-                       @bind="hova"
-                       @bind:event="oninput">
+                class="form-control form-control-lg @(string.IsNullOrWhiteSpace(hova) ? "border-warning" : "")"
+                type="text"
+                placeholder="Úticél (kötelező)"
+                value="@hova"
+                >
                 @if (string.IsNullOrWhiteSpace(hova))
                 {
                     <small class="text-warning">Adj meg egy úticélt!</small>
@@ -76,23 +77,29 @@
                     Mikor szeretnél utazni?
                 </label>
                 <input type="date"
-                       class="form-control form-control-lg text-center"
-                       @bind="tripStartDate"
-                       min="@DateTime.Now.ToString("yyyy-MM-dd")">
+                class="form-control form-control-lg text-center"
+                @bind="tripStartDate"
+                min="@DateTime.Now.ToString("yyyy-MM-dd")">
             </div>
         </div>
 
         <p class="lead mb-4 opacity-75 mx-auto" style="max-width:520px">
             Tervezz személyre szabott utakat percek alatt. A TeUtad elkészíti a tökéletes útvonalat — a te ízlésed szerint.
         </p>
-
-        <a href="/ut-tervezes?destination=@System.Web.HttpUtility.UrlEncode(hova)&date=@tripStartDate.ToString("yyyy-MM-dd")&from=@System.Web.HttpUtility.UrlEncode(honnan)"
-           class="btn btn-warning btn-lg rounded-pill px-5 py-3 fw-bold shadow fs-5 @(string.IsNullOrWhiteSpace(hova) ? "disabled" : "")" onclick="geocodeAddress(document.getElementById('index-destination-input').value">
+        <button type="button"
+        class="btn btn-warning btn-lg rounded-pill px-5 py-3 fw-bold shadow fs-5"
+        disabled="@(string.IsNullOrWhiteSpace(hova) || string.IsNullOrWhiteSpace(honnan))"
+        @onclick="UtIndtitas">
             <i class="bi bi-plus-circle me-2"></i>
             Út tervezésének indítása
-            
-        </a>
+        </button>
+        @*         <a href="/ut-tervezes?destination=@System.Web.HttpUtility.UrlEncode(hova)&date=@tripStartDate.ToString("yyyy-MM-dd")&from=@System.Web.HttpUtility.UrlEncode(honnan)"
+        class="btn btn-warning btn-lg rounded-pill px-5 py-3 fw-bold shadow fs-5 @(string.IsNullOrWhiteSpace(hova) ? "disabled" : "")" onclick="geocodeAddress(document.getElementById('index-destination-input')).value">
+            <i class="bi bi-plus-circle me-2"></i>
+            Út tervezésének indítása
 
+        </a>
+ *@
         @if (string.IsNullOrWhiteSpace(hova))
         {
             <div class="mt-3">
@@ -106,11 +113,10 @@
     </div>
 </section>
 
-<!-- TRIP CARDS -->
 <main class="container py-5">
 
 
-   
+
 
     <div class="text-center mt-4 d-md-none">
         <a href="#" class="btn btn-outline-primary rounded-pill px-4">
@@ -124,11 +130,11 @@
             <h4 class="fw-bold mb-2">Álmodd meg a saját utazásod!</h4>
             <p class="opacity-75">Nem tetszik ezek közül egyik sem?</p>
             <p class="opacity-75"> Tekintsd meg az összes úticélunkat vagy ha kalandvágyó vagy kezdd el tervezni a saját utazásod!</p>
-            <a href="/ut-tervezes?destination=@System.Web.HttpUtility.UrlEncode(hova)&date=@tripStartDate.ToString("yyyy-MM-dd")&from=@System.Web.HttpUtility.UrlEncode(honnan)"
-               class="btn btn-warning btn-lg rounded-pill px-5 fw-bold shadow-sm @(string.IsNullOrWhiteSpace(hova) ? "disabled" : "")">
+            <button href="@UtIndtitas"
+            class="btn btn-warning btn-lg rounded-pill px-5 fw-bold shadow-sm @(string.IsNullOrWhiteSpace(hova) ? "disabled" : "")">
                 <i class="bi bi-plus-circle me-2"></i>
                 Út tervezésének indítása
-            </a>
+            </button>
             @if (string.IsNullOrWhiteSpace(hova))
             {
                 <div class="mt-3">
@@ -164,55 +170,68 @@
 
 <script>
 
-    window.mapsReady = false;
-    window.blazorReady = false;
+    // window.mapsReady = false;
+    // window.blazorReady = false;
 
-    function tryInitAutocomplete() {
-        if (window.mapsReady && window.blazorReady) {
-            initSimpleAutocomplete('index-destination-input');
-            initSimpleAutocomplete('index-from-input');
-            console.log("autocomplete ready")
-        }
-    }
-
-
-    window.initAutocompletemaps = function() {
-        window.mapsReady = true;
-        console.log("maps ready")
-        tryInitAutocomplete();
-    }
+    // function tryInitAutocomplete() {
+    // if (window.mapsReady && window.blazorReady) {
+    // initSimpleAutocomplete('index-destination-input');
+    // initSimpleAutocomplete('index-from-input');
+    // console.log("autocomplete ready")
+    // }
+    // }
 
 
-    window.signalBlazorReady = function() {
-        window.blazorReady = true;
-        console.log("blazor ready")
-        tryInitAutocomplete();
-    }
+    // window.initAutocompletemaps = function() {
+    // window.mapsReady = true;
+    // console.log("maps ready")
+    // tryInitAutocomplete();
+    // }
 
-    
+
+    // window.signalBlazorReady = function() {
+    // window.blazorReady = true;
+    // console.log("blazor ready")
+    // tryInitAutocomplete();
+    // }
+
+
 </script>
 
 
 
 @code {
-
-    string honnan = "";
-    string hova = "";
+    public string honnan { get; set; } = "";
+    public string hova { get; set; } = "";
     DateTime tripStartDate = DateTime.Now.AddDays(7);
 
-
+    private DotNetObjectReference<Index>? dotNetHelper;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            await JSRuntime.InvokeVoidAsync("signalBlazorReady");
+            //await JSRuntime.InvokeVoidAsync("signalBlazorReady");
+            await Task.Delay(1500); // Várunk a Google Maps betöltésére
+
+            dotNetHelper = DotNetObjectReference.Create(this);
+
+            try
+            {
+                await JSRuntime.InvokeVoidAsync("initSimpleAutocomplete",
+                    "index-from-input", dotNetHelper, "SetHonnan");
+
+                await JSRuntime.InvokeVoidAsync("initSimpleAutocomplete",
+                    "index-destination-input", dotNetHelper, "SetHova");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Autocomplete init error: {ex.Message}");
+            }
+
         }
 
     }
-
-
-
     void uticelcsere()
     {
         var temp = honnan;
@@ -221,12 +240,36 @@
 
         StateHasChanged();
     }
+    [JSInvokable]
+    public void SetHonnan(string value)
+    {
+        honnan = value;
+        StateHasChanged();
+        Console.WriteLine($"✅ Honnan beállítva: {honnan}");
+    }
 
+    [JSInvokable]
+    public void SetHova(string value)
+    {
+        hova = value;
+        StateHasChanged();
+        Console.WriteLine($"✅ Hova beállítva: {hova}");
+    }
 
+    public void Dispose()
+    {
+        dotNetHelper?.Dispose();
 
+        // Pac-container eltávolítása body-ból oldalváltáskor
+        _ = JSRuntime.InvokeVoidAsync("cleanupPacContainer");
+    }
 
-
-
-
-
+    private void UtIndtitas()
+    {
+        var hon = Uri.EscapeDataString(honnan ?? "");
+        var hov = Uri.EscapeDataString(hova ?? "");
+        var date = tripStartDate.ToString("yyyy-MM-dd");
+        var uri = $"/ut-tervezes?from={hon}&destination={hov}&date={date}";
+        nav.NavigateTo(uri);
+    }
 }

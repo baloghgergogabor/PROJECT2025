@@ -40,3 +40,17 @@ C:\Users\Erk\Desktop\Suli\PROJECT2025\PROJECT_2025\TeUtad.LIB\obj\Debug\net8.0\T
 C:\Users\Erk\Desktop\Suli\PROJECT2025\PROJECT_2025\TeUtad.LIB\obj\Debug\net8.0\refint\TeUtad.LIB.dll
 C:\Users\Erk\Desktop\Suli\PROJECT2025\PROJECT_2025\TeUtad.LIB\obj\Debug\net8.0\TeUtad.LIB.pdb
 C:\Users\Erk\Desktop\Suli\PROJECT2025\PROJECT_2025\TeUtad.LIB\obj\Debug\net8.0\ref\TeUtad.LIB.dll
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.LIB\bin\Debug\net8.0\KonnekcioString.json
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.LIB\bin\Debug\net8.0\TeUtad.LIB.deps.json
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.LIB\bin\Debug\net8.0\TeUtad.LIB.dll
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.LIB\bin\Debug\net8.0\TeUtad.LIB.pdb
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.LIB\obj\Debug\net8.0\TeUtad.LIB.csproj.AssemblyReference.cache
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.LIB\obj\Debug\net8.0\TeUtad.LIB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.LIB\obj\Debug\net8.0\TeUtad.LIB.AssemblyInfoInputs.cache
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.LIB\obj\Debug\net8.0\TeUtad.LIB.AssemblyInfo.cs
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.LIB\obj\Debug\net8.0\TeUtad.LIB.csproj.CoreCompileInputs.cache
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.LIB\obj\Debug\net8.0\TeUtad.LIB.sourcelink.json
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.LIB\obj\Debug\net8.0\TeUtad.LIB.dll
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.LIB\obj\Debug\net8.0\refint\TeUtad.LIB.dll
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.LIB\obj\Debug\net8.0\TeUtad.LIB.pdb
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.LIB\obj\Debug\net8.0\ref\TeUtad.LIB.dll
