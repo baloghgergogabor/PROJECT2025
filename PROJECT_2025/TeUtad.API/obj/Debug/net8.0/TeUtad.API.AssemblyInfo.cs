@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TeUtad.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4660a4ddd104b76d4cd9f5dc75429566b4047196")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+345bedac9fc94f5f9cb38bea240cafe167dbaef7")]
 [assembly: System.Reflection.AssemblyProductAttribute("TeUtad.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TeUtad.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
