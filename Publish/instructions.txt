@@ -1,12 +1,17 @@
+1. Utazas.bacpac fájlt feltölteni
 
-1.
+2.
 	A backend mappába A konnekció stringet (KonnekcioString)
 
 	át írni a meg felelő
 	SQL serverre
 	Jelszót és Felhasználónév-t
+    "ConnectionStrings": {      ez ami az sql szervered    username   jelszo		
+        "Default": "Server=.\\SQLBGEXPRESS;Database=Utazas;User=sa;Password=RootPassword;TrustServerCertificate=true"
+    }
 
-2. Az IIS et beállitani
+
+3. Az IIS et beállitani
 	 a vezérlőpulton programok és funkciókon
 	 A windows funkciókon
 	az Internet Information Service be van pipálva

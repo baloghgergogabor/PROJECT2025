@@ -1,0 +1,5 @@
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Gergő\Desktop\FINAL\PROJECT2025\Solutions\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets.build.json
