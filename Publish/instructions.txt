@@ -1,0 +1,12 @@
+
+1.
+	A backend mappába A konnekció stringet (KonnekcioString)
+
+	át írni a meg felelő
+	SQL serverre
+	Jelszót és Felhasználónév-t
+
+2. Az IIS et beállitani
+	 a vezérlőpulton programok és funkciókon
+	 A windows funkciókon
+	az Internet Information Service be van pipálva
