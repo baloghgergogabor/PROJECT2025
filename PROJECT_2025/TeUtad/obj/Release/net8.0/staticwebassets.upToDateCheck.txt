@@ -1,0 +1,8 @@
+wwwroot\app.css
+wwwroot\bootstrap\bootstrap.min.css
+wwwroot\bootstrap\bootstrap.min.css.map
+wwwroot\favicon.png
+wwwroot\Img\bp.jpg
+wwwroot\Img\logo.png
+wwwroot\Img\paris.jpg
+wwwroot\js\googleMaps.js

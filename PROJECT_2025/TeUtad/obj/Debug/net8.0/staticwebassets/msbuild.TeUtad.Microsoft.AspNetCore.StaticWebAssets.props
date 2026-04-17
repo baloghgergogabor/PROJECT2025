@@ -138,8 +138,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>btjgf5jgml</Fingerprint>
-      <Integrity>sWSygrVscHaSGQScZdcNimMsHFLZZ2HmaxGaNGw160U=</Integrity>
+      <Fingerprint>81a4afk90v</Fingerprint>
+      <Integrity>zHGcWCEZFZZSGYKTFyVt+Q7HrRiPEZb/DXAxwicUnTo=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\googleMaps.js'))</OriginalItemSpec>

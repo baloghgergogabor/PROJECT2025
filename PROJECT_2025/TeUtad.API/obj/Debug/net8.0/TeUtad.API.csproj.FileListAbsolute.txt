@@ -297,8 +297,6 @@ C:\Users\Erk\Desktop\Suli\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\r
 C:\Users\Erk\Desktop\Suli\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\TeUtad.API.pdb
 C:\Users\Erk\Desktop\Suli\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\TeUtad.API.genruntimeconfig.cache
 C:\Users\Erk\Desktop\Suli\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\ref\TeUtad.API.dll
-C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\bin\Debug\net8.0\appsettings.json
 C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\bin\Debug\net8.0\TeUtad.API.staticwebassets.endpoints.json
 C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\bin\Debug\net8.0\TeUtad.API.exe
 C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\bin\Debug\net8.0\KonnekcioString.json
@@ -390,7 +388,6 @@ C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8
 C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.TeUtad.API.props
 C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TeUtad.API.props
 C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\TeUtad.API.csproj.Up2Date
 C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\TeUtad.API.dll
 C:\Users\Gergő\Desktop\FINAL\PROJECT2025\PROJECT_2025\TeUtad.API\obj\Debug\net8.0\refint\TeUtad.API.dll

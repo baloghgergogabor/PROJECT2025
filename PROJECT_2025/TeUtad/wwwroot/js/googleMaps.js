@@ -123,7 +123,6 @@ function addMarkersToMap(routePoints) {
 
         markers.push(marker);
     });
-
     // Zoom a markerekhez
     if (markers.length > 0) {
         const bounds = new google.maps.LatLngBounds();
